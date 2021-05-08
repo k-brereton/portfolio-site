@@ -6,7 +6,7 @@ import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 import style from "./CommonComponents.module.css"
 
 export const VARIANT="dark"
-
+const ICON_SIZE=30;
 
 export function LoadingScreen() {
     return <div>loading...</div>
@@ -30,13 +30,15 @@ export function PageHead({description,title}:HeaderProps) {
 
 
 
-    return <a href={link} className={style.icon}> <Icon size={30}/> </a>
-}
-
-export function ContactMediaBar() {
+export function ContactMediaBar({showAboutLink}:{showAboutLink:boolean}) {
     //forced hardcoded sizes, due to library.
     return <>
-            <ContactMediaIcon link="https://www.linkedin.com/in/kevin-brereton/" Icon={RiLinkedinBoxFill} />
-            <ContactMediaIcon link="https://github.com/k-brereton/" Icon={RiGithubFill} />
+            <a href="https://www.linkedin.com/in/kevin-brereton/" className={style.icon}> <RiLinkedinBoxFill size={ICON_SIZE}/> </a>
+            <a href="https://github.com/k-brereton/" className={style.icon}> <RiGithubFill size={ICON_SIZE}/> </a>
+            {
+                showAboutLink && <Link href={"/about"} passHref>
+                    <a className={style.icon}> <RiPhoneFill size={ICON_SIZE}/> </a>
+                </Link>
+            }
         </>
 }
