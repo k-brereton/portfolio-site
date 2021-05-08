@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import Layout from "../components/layout";
 import {NBCInternship, SchulichIgnite, UniversityOfCalgary} from "../components/ExperienceComponents";
 
 export default function ExperiencePage() {
-    return     <Layout home={false}>
+    return <>
         <Head>
             <title>Kevin Brereton's Portfolio | Experience</title>
         </Head>
@@ -13,5 +12,5 @@ export default function ExperiencePage() {
         <h1>Job</h1>
         <NBCInternship />
         <SchulichIgnite />
-    </Layout>
+    </>
 }

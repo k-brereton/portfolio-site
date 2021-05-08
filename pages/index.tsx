@@ -1,36 +1,37 @@
 import Head from 'next/head'
-import Layout  from '../components/layout'
 import {Col, Container, Image, Row} from "react-bootstrap";
 import {ContactMediaBar} from "../components/CommonComponents";
-
+// @ts-ignore
+import style from "./index.module.css"
 
 function HomeLinks(){
+
     return <div>links</div>
 }
 
 function HomeContactInfo(){
-    return <Container>
-        <Row> <Image src={"/images/logo.png"} height={175} width={175}/> </Row>
-        <Row><ContactMediaBar /></Row>
-    </Container>
+    return <div className={style.centeringDiv}>
+        <Row className={style.centeringDiv}> <Image src={"/images/logo.png"} className={style.mainImage} /> </Row>
+        <Row className={style.centeringDiv}><ContactMediaBar showAboutLink/></Row>
+    </div>
 }
 
 export default function Home() {
   return (
-      <Layout home>
-        <Head>
+      <>
+          <Head>
           <title>Kevin Brereton's Portfolio</title>
         </Head>
-        <main>
-            <Row>
-                <Col>
-                    <HomeLinks />
-                </Col>
-                <Col>
-                    <HomeContactInfo />
-                </Col>
-            </Row>
-        </main>
-      </Layout>
+          <Container>
+        <Row>
+            <Col>
+                <HomeLinks />
+            </Col>
+            <Col>
+                <HomeContactInfo />
+            </Col>
+        </Row>
+          </Container>
+      </>
   )
 }

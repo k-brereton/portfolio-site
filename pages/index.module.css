@@ -1,0 +1,8 @@
+.mainImage{
+    height: 175px;
+    width:175px;
+}
+
+.centeringDiv{
+    justify-content: center;
+}

@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Link from "next/link";
-import {RiGithubFill, RiLinkedinBoxFill} from "react-icons/ri";
+import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 
 // @ts-ignore
 import style from "./CommonComponents.module.css"
-import {IconType} from "react-icons";
+
 export const VARIANT="dark"
 
 
@@ -28,16 +28,7 @@ export function PageHead({description,title}:HeaderProps) {
     </Head>
 }
 
-export function BackToHomeLink() {
-    return <h2>
-        <Link href="/" passHref>
-            <a>Back to home</a>
-        </Link>
-    </h2>
 
-}
-
-function ContactMediaIcon({link,Icon}:{link:string, Icon:IconType}) {
 
     return <a href={link} className={style.icon}> <Icon size={30}/> </a>
 }

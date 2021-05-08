@@ -1,0 +1,10 @@
+.mainDiv{
+    height: 98vh;
+}
+.contentDiv{
+    /*height: calc(100% - 110px);*/
+    display: flex;
+    flex-flow: column;
+
+    align-items: stretch;
+}

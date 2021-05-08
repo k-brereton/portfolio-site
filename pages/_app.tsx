@@ -6,19 +6,20 @@ import Link from "next/link";
 import Image from "next/image";
 import {useRouter} from "next/router";
 
+import "../style/globals.css";
+const HEADER_LOGO_SIZE_PX=30;
 
-export function Header() {
-    const router = useRouter();
+export function Header({pathname}:{pathname:string}) {
 
     return <Navbar expand="md" bg={VARIANT} variant={VARIANT}>
         <Link href="/" passHref>
             <Navbar.Brand>
-                <Image src="/images/logo.png"  width={30} height={30} alt="Kevin Brereton Logo"/>
+                <Image src="/images/logo.png"  width={HEADER_LOGO_SIZE_PX} height={HEADER_LOGO_SIZE_PX} alt="Kevin Brereton Logo"/>
             </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse>
-            <Nav activeKey={router.pathname} className="ml-auto">
+            <Nav activeKey={pathname} className="ml-auto">
                 <Link href="/experience" passHref><Nav.Link>experience</Nav.Link></Link>
                 <Link href="/projects" passHref><Nav.Link>projects</Nav.Link></Link>
                 <Link href="/skills" passHref><Nav.Link>skills</Nav.Link></Link>
@@ -28,12 +29,26 @@ export function Header() {
     </Navbar>
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
+function BackToHomeLink() {
+    return <h2>
+        <Link href="/" passHref>
+            <a>Back to home</a>
+        </Link>
+    </h2>
+}
 
-  return <>
-        <Header/>
-        <Component {...pageProps} />
-    </>
+
+function MyApp({ Component, pageProps }: AppProps) {
+    const router = useRouter();
+    const {pathname}=router;
+
+    return <div className="mainDiv">
+        <Header pathname={pathname}/>
+        <main className="contentDiv">
+            <Component {...pageProps} />
+        </main>
+        {pathname !== "/"&&<BackToHomeLink/>}
+    </div>
 }
 
 export default MyApp
