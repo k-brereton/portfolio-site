@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {useRouter} from "next/router";
 
-import "../style/globals.css";
 const HEADER_LOGO_SIZE_PX=30;
 
 export function Header({pathname}:{pathname:string}) {
@@ -42,13 +41,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
     const {pathname}=router;
 
-    return <div className="mainDiv">
+    return <>
         <Header pathname={pathname}/>
-        <main className="contentDiv">
+        <main >
             <Component {...pageProps} />
         </main>
         {pathname !== "/"&&<BackToHomeLink/>}
-    </div>
+    </>
 }
 
 export default MyApp
