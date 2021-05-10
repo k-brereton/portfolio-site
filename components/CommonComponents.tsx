@@ -32,13 +32,13 @@ export function PageHead({description,title}:HeaderProps) {
 
 export function ContactMediaBar({showAboutLink}:{showAboutLink:boolean}) {
     //forced hardcoded sizes, due to library.
-    return <>
+    return <div>
             <a href="https://www.linkedin.com/in/kevin-brereton/" className={style.icon}> <RiLinkedinBoxFill size={ICON_SIZE}/> </a>
             <a href="https://github.com/k-brereton/" className={style.icon}> <RiGithubFill size={ICON_SIZE}/> </a>
             {
-                showAboutLink && <Link href={"/about"} passHref>
+                showAboutLink && <Link href="/about" passHref>
                     <a className={style.icon}> <RiPhoneFill size={ICON_SIZE}/> </a>
                 </Link>
             }
-        </>
+        </div>
 }

@@ -1,18 +1,40 @@
 import Head from 'next/head'
-import {Col, Container, Image, Row} from "react-bootstrap";
+import Image from "next/image";
+
 import {ContactMediaBar} from "../components/CommonComponents";
 // @ts-ignore
 import style from "./index.module.css"
+import Link from "next/link"
+
+function SingleHomeLink({link}:{link:string}){
+
+    return <Link href={`/${link}`} passHref>
+        <a className={style.singleHomeLink}>
+            {/*capitalize first letter*/}
+            {link[0].toUpperCase()}{link.slice(1)}
+        </a>
+    </Link>
+}
+
 
 function HomeLinks(){
 
-    return <div>links</div>
+    return <div className={style.homeLinks}>
+        <SingleHomeLink link="experience"/>
+        <SingleHomeLink link="projects"/>
+        <SingleHomeLink link="skills"/>
+        <SingleHomeLink link="about"/>
+    </div>
 }
 
+const MAIN_IMAGE_DEFAULT_SIZE_PX=175
+
 function HomeContactInfo(){
-    return <div className={style.centeringDiv}>
-        <Row className={style.centeringDiv}> <Image src={"/images/logo.png"} className={style.mainImage} /> </Row>
-        <Row className={style.centeringDiv}><ContactMediaBar showAboutLink/></Row>
+    return <div className={style.homeContactColumn}>
+        <div className={style.mainImage} >
+            <Image src={"/images/logo.png"} width={MAIN_IMAGE_DEFAULT_SIZE_PX} height={MAIN_IMAGE_DEFAULT_SIZE_PX}  />
+        </div>
+        <ContactMediaBar showAboutLink/>
     </div>
 }
 
@@ -22,16 +44,14 @@ export default function Home() {
           <Head>
           <title>Kevin Brereton's Portfolio</title>
         </Head>
-          <Container>
-        <Row>
-            <Col>
-                <HomeLinks />
-            </Col>
-            <Col>
-                <HomeContactInfo />
-            </Col>
-        </Row>
-          </Container>
+          <div className={style.overallDiv} >
+              <div className={style.overallColumn1}>
+                  <HomeLinks />
+              </div>
+              <div className={style.overallColumn2}>
+                  <HomeContactInfo />
+              </div>
+          </div>
       </>
   )
 }
