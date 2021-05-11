@@ -5,6 +5,7 @@ import {PropsWithChildren} from "react";
 import {Container, Jumbotron, Media} from "react-bootstrap";
 // @ts-ignore
 import style from "./ExpereienceComponents.module.scss";
+import {TimeRangeComponent} from "./CommonComponents";
 
 interface JobHeaderProps{
     title:string;
@@ -15,10 +16,7 @@ interface JobHeaderProps{
 }
 
 function JobComponent({company,company_logo,start,end,title, children}:PropsWithChildren<JobHeaderProps>) {
-    const options:Intl.DateTimeFormatOptions={month:"long",year:"numeric"}
-    const startTimeStr=(new Date(start)).toLocaleDateString(undefined,options);
-    const endTimeStr=(new Date(end)).toLocaleDateString(undefined,options);
-
+    //todo decide whether experience/job will share a component or not
     return <Jumbotron>
         <Container>
             {/*<motion.div     initial={{x:100}} animate={{x:200}}*/}
@@ -32,7 +30,8 @@ function JobComponent({company,company_logo,start,end,title, children}:PropsWith
                 <Media.Body>
                     <h2>{title}</h2>
                     <h3>{company}</h3>
-                    <h4>{startTimeStr} - {endTimeStr}</h4>
+                    <TimeRangeComponent start={start} end={end}/>
+
                     {children}
                 </Media.Body>
             </Media>

@@ -39,3 +39,20 @@ export function ContactMediaBar({showAboutLink}:{showAboutLink:boolean}) {
             }
         </div>
 }
+
+
+interface TimeRangeComponentProps{
+    start:string;
+    end:string;
+}
+export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
+    const options:Intl.DateTimeFormatOptions={month:"long",year:"numeric"}
+    const startTimeStr=(new Date(start)).toLocaleDateString(undefined,options);
+    const endTimeStr=(new Date(end)).toLocaleDateString(undefined,options);
+    if (startTimeStr === endTimeStr){
+        return <h4>{startTimeStr}</h4>
+    }
+    else{
+        return <h4>{startTimeStr} - {endTimeStr}</h4>
+    }
+}
