@@ -1,11 +1,11 @@
 import 'bootswatch/dist/darkly/bootstrap.min.css';
-import type { AppProps /*, AppContext */ } from 'next/app'
+import type { AppProps } from 'next/app'
 import {Nav, Navbar} from "react-bootstrap";
 import {VARIANT} from "../components/CommonComponents";
 import Link from "next/link";
 import Image from "next/image";
 import {useRouter} from "next/router";
-
+import "../globals.scss"
 const HEADER_LOGO_SIZE_PX=30;
 
 export function Header({pathname}:{pathname:string}) {
@@ -29,11 +29,13 @@ export function Header({pathname}:{pathname:string}) {
 }
 
 function BackToHomeLink() {
-    return <h2>
+    return <div className="centering">
+        <h2>
         <Link href="/" passHref>
-            <a>Back to home</a>
+            <a>🠔 Back to home</a>
         </Link>
     </h2>
+    </div>
 }
 
 

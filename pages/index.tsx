@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import {ContactMediaBar} from "../components/CommonComponents";
 // @ts-ignore
-import style from "./index.module.css"
+import style from "./index.module.scss"
 import Link from "next/link"
 
 function SingleHomeLink({link}:{link:string}){

@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import {PropsWithChildren} from "react";
 import {Container, Jumbotron, Media} from "react-bootstrap";
+// @ts-ignore
+import style from "./ExpereienceComponents.module.scss";
 
 interface JobHeaderProps{
     title:string;
@@ -17,7 +19,7 @@ function JobComponent({company,company_logo,start,end,title, children}:PropsWith
 
 
     return <Jumbotron>
-        <Container>
+        <Container className={style.experienceContainer}>
             {/*<motion.div     initial={{x:100}} animate={{x:200}}*/}
             {/*                transition={{ type: 'spring', restSpeed: 0.5 }}*/}
 
@@ -74,7 +76,7 @@ export function UniversityOfCalgary() {
                    company="University of Calgary"
                    company_logo="/images/UCalgary.png"
                    start="2015-09-01" end="2021-05-01">
-            <div>blah blah blah blah</div>
+            <div className="">GPA: 3.94</div>
         </JobComponent>
     </>
 }

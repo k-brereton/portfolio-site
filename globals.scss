@@ -1,0 +1,39 @@
+@import "~bootswatch/dist/darkly/variables";
+
+$theme-blue:#33667F;
+
+.contactIcon{
+    color:#fff
+}
+
+.hidden{
+    visibility: hidden;
+    display: none;
+}
+
+
+@mixin coloredBox($color){
+    padding: 15px;
+    display: inline-block;
+    max-width: 800px;
+    border: solid 5px $color;
+    font-size: large;
+}
+
+.centering{
+    display: inline-flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width:100%
+}
+
+.impactBox{
+    padding: 30px;
+    border: solid 1px black;
+    background-color: darken($body-bg,2%);
+}
+
+.mainTitle{
+    text-align: center;
+}
