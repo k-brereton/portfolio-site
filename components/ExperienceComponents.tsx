@@ -20,7 +20,7 @@ function JobComponent({company,company_logo,start,end,title, children}:PropsWith
     const endTimeStr=(new Date(end)).toLocaleDateString(undefined,options);
 
     return <Jumbotron>
-        <Container className={style.experienceContainer}>
+        <Container>
             {/*<motion.div     initial={{x:100}} animate={{x:200}}*/}
             {/*                transition={{ type: 'spring', restSpeed: 0.5 }}*/}
 
