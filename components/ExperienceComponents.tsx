@@ -52,6 +52,7 @@ export function NBCInternship() {
             <div className={style.jobExplanation}> Created the ComOptionAnalytics system, which is a software system for one of the National Bank of Canada’s hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles for options across various markets</div>
             <div className={style.jobExplanation}> Refined his software architecture skills to create cohesive and high-quality code using the object-oriented and functional programming paradigms </div>
             <div className={style.jobExplanation}> Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use. </div>
+            <div className={style.jobExplanation}> Helped interview and analyze candidates for the next years internship</div>
         </JobComponent>
     </>
 }
