@@ -1,15 +1,14 @@
+@import "globals";
+
 .mainImage{
     height: 175px;
     width:175px;
 }
 
 .homeContactColumn{
-    display: inline-flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    @extend .centering;
     height: 100%;
+    user-select: none;
 }
 .homeLinks{
     display: grid;
@@ -21,25 +20,25 @@
 .singleHomeLink{
     width:100%;
     height:100%;
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
     font-size: xxx-large;
-    background-color: #202020;
+    background-color: darken($body-bg,2%);
 }
 .singleHomeLink:hover{
     text-decoration: none;
     color:#00bc8c;
-    background-color: #252525;
+    background-color: lighten($body-bg,2%);
 }
 .singleHomeLink:nth-child(3n+1){
-    background-color: #33667F;
+    background-color: $theme-blue;
     border:solid black 1px;
     color:#dddddd;
 }
 .singleHomeLink:nth-child(3n+1):hover{
-    background-color: #3a7794;
+    background-color: lighten($theme-blue,5%);
     color:#dddddd;
 }
 
