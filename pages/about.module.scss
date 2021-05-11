@@ -1,0 +1,19 @@
+@import "globals";
+
+.myImage{
+    border-radius: 50%;
+}
+
+.mainArea{
+    @extend .impactBox;
+    @extend .centering;
+    height: 100%;
+}
+.textArea{
+    @include coloredBox($cyan)
+}
+.contactArea{
+    padding-top: 30px;
+    max-width: 800px;
+    font-size: x-large;
+}
