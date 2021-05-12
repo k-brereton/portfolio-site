@@ -46,9 +46,15 @@ interface TimeRangeComponentProps{
     end:string;
 }
 export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
+    if(start > end){
+        throw new Error("Error, inputted time invalid")
+    }
+
     const options:Intl.DateTimeFormatOptions={month:"long",year:"numeric"}
     const startTimeStr=(new Date(start)).toLocaleDateString(undefined,options);
     const endTimeStr=(new Date(end)).toLocaleDateString(undefined,options);
+
+
     if (startTimeStr === endTimeStr){
         return <h4>{startTimeStr}</h4>
     }
