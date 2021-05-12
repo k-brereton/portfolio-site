@@ -50,7 +50,7 @@ export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
         throw new Error("Error, inputted time invalid")
     }
 
-    const options:Intl.DateTimeFormatOptions={month:"long",year:"numeric"}
+    const options:Intl.DateTimeFormatOptions={month:"short",year:"numeric", timeZone:"UTC"}
     const startTimeStr=(new Date(start)).toLocaleDateString(undefined,options);
     const endTimeStr=(new Date(end)).toLocaleDateString(undefined,options);
 
