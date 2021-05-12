@@ -7,7 +7,7 @@ import {TimeRangeComponent} from "./CommonComponents";
 
 export type ProjectTag="C++"|"C"|"Java"|
     "Python"|"Pandas.py"|"NumPy"|"Django"|"Django Rest Framework"|
-    "Apache Spark"|"Machine Learning"|"Natural Language Processing"|
+    "Apache Spark"|"Machine Learning"|"Natural Language Processing"|"DataBricks"|
     "SQL"|"MySQL"|"PostgreSQL"|"MongoDB"|
     "JavaScript"|"TypeScript"|"React.js"|"CSS"|"HTML"|"JSON"|
     "Next.js"|"SASS"|
@@ -15,7 +15,8 @@ export type ProjectTag="C++"|"C"|"Java"|
     "PHP"|"Laravel"|
     "VBA"|
     "Unit Testing"|"Jest"|"pytest"|
-    "WebSockets"|"REST API";
+    "WebSockets"|"REST API"|
+    "Git"|"GitHub"|"BitBucket";
 
 interface ProjectData  {
     readonly title:string;
@@ -34,16 +35,16 @@ interface ProjectComponentProps {
 
 
 export function ProjectComponent({projectData}:ProjectComponentProps){
-    const {component,end,company_logo,company,start,title} = projectData;
+    const {component:Component,end,company_logo,company,start,title} = projectData;
     let body =<>
         <h2>{title}</h2>
         <h3>{company}</h3>
         <TimeRangeComponent start={start} end={end}/>
-        {component}
+        <Component />
     </>;
     if(company_logo !== null){
-        body=            <Media>
-            {company_logo&& <Image src={company_logo} width={64} height={64} alt={`${company} logo`}/>}
+        body= <Media>
+            <Image src={company_logo} width={64} height={64} alt={`${company} logo`}/>
             <Media.Body>
                 {body}
             </Media.Body>
@@ -65,7 +66,7 @@ export const resumeSiteData:ProjectData={
     start:"2021-05-01",
     end:"2021-05-01",
     component:ResumeSiteComponent,
-    tags:["React.js","Next.js","TypeScript","JavaScript","SASS","CSS", "HTML"],
+    tags:["React.js","Next.js","TypeScript","SASS","GitHub","JavaScript","CSS", "HTML","Git"],
     showTags:true
 }
 export function ResumeSiteComponent() {
@@ -106,7 +107,7 @@ export const riskManagerData:ProjectData={
     start:"2020-09-01",
     end:"2021-04-01",
     component:RiskManagerComponent,
-    tags:["React.js","TypeScript", "Unit Testing", "Jest","CSS", "JSON Schema", "JSON", "HTML","JavaScript"],
+    tags:["React.js","TypeScript", "Unit Testing", "Jest","CSS", "JSON Schema","GitHub", "JSON", "HTML","JavaScript","Git"],
     showTags:true
 }
 
@@ -127,7 +128,7 @@ export const chessOnTheGoData:ProjectData={
     start:"2020-09-01",
     end:"2020-12-01",
     component:ChessOnTheGoComponent,
-    tags:["React.js","TypeScript","MongoDB","Node.js", "Socket.io", "CSS", "JSON Schema", "JSON", "HTML","JavaScript"],
+    tags:["React.js","TypeScript","MongoDB","Node.js", "Socket.io", "CSS", "JSON Schema","GitHub", "JSON", "HTML","JavaScript","Git"],
     showTags:true
 }
 
@@ -143,7 +144,7 @@ export const faultLocalizationToolData:ProjectData={
     start:"2020-09-01",
     end:"2020-12-01",
     component:FaultLocalizationToolComponent,
-    tags:["Machine Learning", "Natural Language Processing","Pandas.py","NumPy", "Python"],
+    tags:["Machine Learning", "Natural Language Processing","Pandas.py","NumPy", "Python","GitHub","Git"],
     showTags:true
 }
 
@@ -159,7 +160,7 @@ export const amazonReviewAnalyzerData:ProjectData={
     start:"2020-09-01",
     end:"2020-12-01",
     component:AmazonReviewAnalysis,
-    tags:["Apache Spark","Machine Learning", "Natural Language Processing", "Python"],
+    tags:["Apache Spark","Machine Learning", "Natural Language Processing", "Python", "DataBricks"],
     showTags:true
 }
 
@@ -174,7 +175,7 @@ export const twitchVidsData:ProjectData={
     start:"2019-01-01",
     end:"2019-03-01",
     component:TwitchVidsComponent,
-    tags:["PHP","Laravel","HTML","CSS", "JavaScript","SQL","PostgreSQL"],
+    tags:["PHP","Laravel","HTML","CSS", "JavaScript","SQL","PostgreSQL","GitHub","Git"],
     showTags:true
 }
 
@@ -205,7 +206,7 @@ export const parkingManagementData:ProjectData={
     start:"2018-04-01",
     end:"2018-08-01",
     component:ParkingDataManagementSystemComponent,
-    tags:["Java","MySQL","SQL"],
+    tags:["Java","MySQL","SQL","BitBucket"],
     showTags:true
 }
 
@@ -220,7 +221,7 @@ export const libraryManagementData:ProjectData={
     start:"2018-09-01",
     end:"2018-12-01",
     component:LibraryManagementSystemComponent,
-    tags:["Java","MySQL","SQL"],
+    tags:["Java","MySQL","SQL","BitBucket"],
     showTags:true
 }
 export function LibraryManagementSystemComponent() {
@@ -234,7 +235,7 @@ export const desireToLoveData:ProjectData={
     start:"2018-01-01",
     end:"2018-04-01",
     component:DesireToLoveComponent,
-    tags:["Java","MySQL","SQL"],
+    tags:["Java","MySQL","SQL","BitBucket"],
     showTags:true
 }
 
