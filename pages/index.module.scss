@@ -1,4 +1,5 @@
-@import "globals";
+@use "globals";
+@use "~bootswatch/dist/darkly/variables";
 
 .mainImage{
     height: 175px;
@@ -25,20 +26,20 @@
     flex-flow: column;
     justify-content: flex-end;
     font-size: xxx-large;
-    background-color: darken($body-bg,2%);
+    background-color: darken(variables.$body-bg,2%);
 }
 .singleHomeLink:hover{
     text-decoration: none;
     color:#00bc8c;
-    background-color: lighten($body-bg,2%);
+    background-color: lighten(variables.$body-bg,2%);
 }
 .singleHomeLink:nth-child(3n+1){
-    background-color: $theme-blue;
+    background-color: globals.$theme-blue;
     border:solid black 1px;
     color:#dddddd;
 }
 .singleHomeLink:nth-child(3n+1):hover{
-    background-color: lighten($theme-blue,5%);
+    background-color: lighten(globals.$theme-blue,5%);
     color:#dddddd;
 }
 

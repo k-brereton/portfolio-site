@@ -1,4 +1,4 @@
-@import "~bootswatch/dist/darkly/variables";
+@use "~bootswatch/dist/darkly/variables";
 
 $theme-blue:#33667F;
 
@@ -31,7 +31,7 @@ $theme-blue:#33667F;
 .impactBox{
     padding: 30px;
     border: solid 1px black;
-    background-color: darken($body-bg,2%);
+    background-color: darken(variables.$body-bg,2%);
 }
 
 .mainTitle{

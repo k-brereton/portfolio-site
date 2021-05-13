@@ -1,4 +1,5 @@
-@import "globals";
+@use "globals";
+@use "~bootswatch/dist/darkly/variables";
 
 .myImage{
     border-radius: 50%;
@@ -10,7 +11,7 @@
     height: 100%;
 }
 .textArea{
-    @include coloredBox($cyan)
+    @include globals.coloredBox(variables.$cyan)
 }
 .contactArea{
     padding-top: 30px;
