@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from "next/link";
 import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
+import {ProjectTag} from "./ProjectComponents";
 
 export const VARIANT="dark"
 export const ICON_SIZE=30;
@@ -25,13 +26,15 @@ export function PageHead({description,title}:HeaderProps) {
     </Head>
 }
 
-
+export function GitHubIcon({href}:{href:string}) {
+    return <a href={href} className="contactIcon"> <RiGithubFill size={ICON_SIZE}/> </a>;
+}
 
 export function ContactMediaBar({showAboutLink}:{showAboutLink:boolean}) {
     //forced hardcoded sizes, due to library.
     return <div>
             <a href="https://www.linkedin.com/in/kevin-brereton/" className="contactIcon"> <RiLinkedinBoxFill size={ICON_SIZE}/> </a>
-            <a href="https://github.com/k-brereton/" className="contactIcon"> <RiGithubFill size={ICON_SIZE}/> </a>
+            <GitHubIcon href="https://github.com/k-brereton/"/>
             {
                 showAboutLink && <Link href="/about" passHref>
                     <a className="contactIcon"> <RiPhoneFill size={ICON_SIZE}/> </a>
@@ -61,4 +64,12 @@ export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
     else{
         return <h4>{startTimeStr} - {endTimeStr}</h4>
     }
+}
+
+interface SkillsBoxProps {
+    readonly title:string|null;
+    readonly skills:ProjectTag[];
+}
+export function SkillsBox({title,skills}:SkillsBoxProps){
+    return <div>skills</div>
 }
