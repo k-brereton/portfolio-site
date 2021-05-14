@@ -68,8 +68,15 @@ export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
 
 interface SkillsBoxProps {
     readonly title:string|null;
-    readonly skills:ProjectTag[];
+    readonly skills:ProjectTag[][];
+    readonly className:string;
 }
-export function SkillsBox({title,skills}:SkillsBoxProps){
-    return <div>skills</div>
+export function SkillsBox({title,skills,className}:SkillsBoxProps){
+    if(skills.length!== 3){
+        throw new Error("error, skills must be a 3 X (height) array")
+    }
+    const links=skills.flatMap(skillGroup=>skillGroup.map(skill=>{
+        return <Link href={`/projects/${skill}`} >{skill}</Link>
+    }))
+    return <div className={className}>{links}</div>
 }

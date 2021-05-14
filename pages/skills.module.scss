@@ -1,0 +1,13 @@
+@use "globals";
+@use "~bootswatch/dist/darkly/variables";
+
+
+.mainArea{
+
+}
+.firstSkills{
+  @include globals.coloredBox(variables.$cyan);
+  grid-template-columns: 33% 33% 33%;
+  display: inline-grid;
+
+}
