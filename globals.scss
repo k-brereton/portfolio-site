@@ -15,7 +15,6 @@ $theme-blue:#33667F;
 @mixin coloredBox($color){
     padding: 15px;
     display: inline-block;
-    max-width: 800px;
     border: solid 5px $color;
     font-size: large;
 }

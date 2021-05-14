@@ -11,7 +11,9 @@
     height: 100%;
 }
 .textArea{
-    @include globals.coloredBox(variables.$cyan)
+    @include globals.coloredBox(variables.$cyan);
+    max-width: 800px;
+
 }
 .contactArea{
     padding-top: 30px;
