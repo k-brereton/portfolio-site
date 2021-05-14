@@ -13,7 +13,7 @@
 .textArea{
     @include globals.coloredBox(variables.$cyan);
     max-width: 800px;
-
+    display: inline-block;
 }
 .contactArea{
     padding-top: 30px;
