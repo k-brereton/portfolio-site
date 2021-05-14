@@ -28,7 +28,7 @@
     "jsx": "preserve"
   },
   "include": [
-    "src","components","pages","public"
+    "components","pages","public"
   ],
   "exclude": [
     "node_modules"
