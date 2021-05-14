@@ -3,11 +3,14 @@
 
 
 .mainArea{
-
+  @extend .centering;
 }
 .firstSkills{
-  @include globals.coloredBox(variables.$cyan);
-  grid-template-columns: 33% 33% 33%;
-  display: inline-grid;
+  width:100%;
+  max-width: 1200px;
+  height: 35vh;
+}
 
+.firstSkills{
+  @include globals.coloredBox(variables.$cyan);
 }

@@ -2,7 +2,8 @@ import Head from 'next/head';
 import Link from "next/link";
 import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 import {ProjectTag} from "./ProjectComponents";
-
+// @ts-ignore
+import styles from "./CommonComponents.module.scss"
 export const VARIANT="dark"
 export const ICON_SIZE=30;
 
@@ -68,15 +69,16 @@ export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
 
 interface SkillsBoxProps {
     readonly title:string|null;
-    readonly skills:ProjectTag[][];
+    readonly skills:ReadonlyArray<ProjectTag|null>;
     readonly className:string;
 }
-export function SkillsBox({title,skills,className}:SkillsBoxProps){
-    if(skills.length!== 3){
-        throw new Error("error, skills must be a 3 X (height) array")
-    }
-    const links=skills.flatMap(skillGroup=>skillGroup.map(skill=>{
-        return <Link href={`/projects/${skill}`} >{skill}</Link>
-    }))
-    return <div className={className}>{links}</div>
+export function SkillsBox({title,skills, className}:SkillsBoxProps){
+
+    const links=skills.map((skill,idx)=>{
+        return <div key={idx}>
+            {skill!==null && <Link href={`/projects/${skill}`}>{skill}</Link>}
+        </div>;
+    });
+
+    return <div className={`${className} ${styles.skillsBox}`}>{links}</div>
 }

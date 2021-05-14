@@ -4,15 +4,21 @@ import {ProjectTag} from "../components/ProjectComponents";
 // @ts-ignore
 import style from "./skills.module.scss"
 
-const MAIN_SKILLS:ProjectTag[][]=[
-    ["Python","NumPy","Pandas.py","Java","C++"],
-    ["TypeScript","React.js","CSS", "JavaScript"],
-    ["SQL","MySQL","REST API","Git"]
-];
-const ADDITIONAL_SKILLS:ProjectTag[][]=[
-    ["PHP","Laravel","Node.js","Django","Django Rest Framework"],
-    ["Apache Spark","Machine Learning","Natural Language Processing","Next.js","SASS"],
-    ["Unit Testing","PostgreSQL","MongoDB", "C","Android"]
+
+const MAIN_SKILLS:ReadonlyArray<ProjectTag|null>=[
+    "Python",   "React.js",     "SQL",
+    "NumPy",    "TypeScript",   "MySQL",
+    "Pandas.py","CSS",          "REST API",
+    "Java",     "JavaScript",   "Git",
+    null,       "C++"
+]
+
+const ADDITIONAL_SKILLS:ReadonlyArray<ProjectTag|null>=[
+    "PHP",                  "Apache Spark",                 "Unit Testing",
+    "Laravel",              "Machine Learning",             "PostgreSQL",
+    "Node.js",              "Natural Language Processing",  "MongoDB",
+    "Django",               "Next.js",                      "C",
+    "Django Rest Framework","SASS",                         "Android"
 ];
 
 

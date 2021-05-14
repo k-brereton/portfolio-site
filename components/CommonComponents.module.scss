@@ -1,0 +1,18 @@
+.skillsBox{
+  grid-template-columns: 33% 33% 33%;
+  display: inline-grid;
+
+  >div{
+    >a{
+      display: block;
+      height: min-content;
+      padding:4px
+    }
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
