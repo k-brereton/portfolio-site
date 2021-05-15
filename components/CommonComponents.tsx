@@ -69,16 +69,20 @@ export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
 
 interface SkillsBoxProps {
     readonly title:string|null;
-    readonly skills:ReadonlyArray<ProjectTag|null>;
+    readonly skills:ReadonlyArray<ProjectTag>;
     readonly className:string;
+    readonly titleClassName:string;
 }
-export function SkillsBox({title,skills, className}:SkillsBoxProps){
+export function SkillsBox({title,skills, className,titleClassName}:SkillsBoxProps){
 
     const links=skills.map((skill,idx)=>{
         return <div key={idx}>
-            {skill!==null && <Link href={`/projects/${skill}`}>{skill}</Link>}
+            <Link href={`/projects/${skill}`}>{skill}</Link>
         </div>;
     });
 
-    return <div className={`${className} ${styles.skillsBox}`}>{links}</div>
+    return <div className="centering">
+        <div className={`${titleClassName} ${styles.skillsBoxTitle}`}>{title}</div>
+        <div className={`${className} ${styles.skillsBox}`}>{links}</div>
+    </div>
 }

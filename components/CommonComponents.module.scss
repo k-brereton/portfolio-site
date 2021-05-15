@@ -1,9 +1,18 @@
 @use "~bootswatch/dist/darkly/variables";
 
+.skillsBoxTitle{
+  padding: 3px 10px;
+  font-size: xx-large;
+  border-radius: 25% 25% 0 0;
+
+}
 .skillsBox{
   display: inline-grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 33.333333% 33.333333% 33.333333%;
+  grid-auto-rows: 1fr;
   background-color: darken(variables.$body-bg,1%);
+  gap: 20px;
+  padding: 15px;
 
   >div{
     text-align: center;
@@ -11,7 +20,9 @@
     justify-content: center;
     align-items: center;
     $link_background_color:lighten(variables.$body-bg,10%);
+
     >a{
+      font-size: large;
 
       display: block;
       height: min-content;
@@ -23,6 +34,18 @@
     }
     >a:hover {
       background-color: lighten($link_background_color,5%);
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .skillsBox{
+    grid-template-columns: 50% 50%;
+    gap: 10px;
+
+    >div>a {
+      width:min-content;
     }
   }
 }

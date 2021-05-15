@@ -11,13 +11,6 @@ $theme-blue:#33667F;
     display: none;
 }
 
-
-@mixin coloredBox($color){
-    padding: 15px;
-    border: solid 5px $color;
-    font-size: large;
-}
-
 .centering{
     display: inline-flex;
     flex-flow: column;

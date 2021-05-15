@@ -11,9 +11,11 @@
     height: 100%;
 }
 .textArea{
-    @include globals.coloredBox(variables.$cyan);
+    border: solid 5px variables.$cyan;
     max-width: 800px;
     display: inline-block;
+    padding: 15px;
+    font-size: large;
 }
 .contactArea{
     padding-top: 30px;

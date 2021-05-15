@@ -2,15 +2,45 @@
 @use "~bootswatch/dist/darkly/variables";
 
 
+
 .mainArea{
   @extend .centering;
+  > * {
+    margin: 30px 0;
+  }
 }
-.firstSkills{
-  width:100%;
+.skills{
+  width:98%;
   max-width: 1200px;
-  height: 35vh;
 }
 
 .firstSkills{
-  @include globals.coloredBox(variables.$cyan);
+  @extend .skills;
+  border: solid 8px variables.$cyan;
+}
+.secondSkills{
+  @extend .skills;
+  border: solid 8px variables.$cyan;
+}
+
+.firstSkills >div:last-child{
+  grid-column: 2;
+}
+
+@media screen and (max-width: 500px) {
+  .firstSkills >div:last-child{
+    grid-column: auto;
+  }
+}
+
+.skillsTitle{
+  background-color: variables.$cyan;
+}
+
+.firstSkillsTitle{
+  @extend .skillsTitle;
+}
+.secondSkillsTitle{
+  @extend .skillsTitle;
+
 }

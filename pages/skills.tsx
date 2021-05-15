@@ -5,22 +5,21 @@ import {ProjectTag} from "../components/ProjectComponents";
 import style from "./skills.module.scss"
 
 
-const MAIN_SKILLS:ReadonlyArray<ProjectTag|null>=[
+const MAIN_SKILLS:ReadonlyArray<ProjectTag>=[
     "Python",   "React.js",     "SQL",
     "NumPy",    "TypeScript",   "MySQL",
     "Pandas.py","CSS",          "REST API",
     "Java",     "JavaScript",   "Git",
-    null,       "C++"
+    "C++"
 ]
 
-const ADDITIONAL_SKILLS:ReadonlyArray<ProjectTag|null>=[
+const ADDITIONAL_SKILLS:ReadonlyArray<ProjectTag>=[
     "PHP",                  "Apache Spark",                 "Unit Testing",
     "Laravel",              "Machine Learning",             "PostgreSQL",
     "Node.js",              "Natural Language Processing",  "MongoDB",
     "Django",               "Next.js",                      "C",
     "Django Rest Framework","SASS",                         "Android"
 ];
-
 
 export default function SkillsPage() {
     return <>
@@ -29,8 +28,8 @@ export default function SkillsPage() {
         </Head>
         <h1>Skills</h1>
         <div className={style.mainArea}>
-                <SkillsBox title="Main Skills" skills={MAIN_SKILLS}  className={style.firstSkills}/>
-                <SkillsBox title="Additional Skills" skills={ADDITIONAL_SKILLS} className={style.firstSkills}/>
+                <SkillsBox title="Main Skills" skills={MAIN_SKILLS}  className={style.firstSkills} titleClassName={style.firstSkillsTitle}/>
+                <SkillsBox title="Additional Skills" skills={ADDITIONAL_SKILLS} className={style.secondSkills} titleClassName={style.secondSkillsTitle}/>
         </div>
     </>
 }
