@@ -2,8 +2,6 @@ import Head from 'next/head';
 import Link from "next/link";
 import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 import {ProjectTag} from "./ProjectComponents";
-// @ts-ignore
-import styles from "./CommonComponents.module.scss"
 export const VARIANT="dark"
 export const ICON_SIZE=30;
 
@@ -70,10 +68,8 @@ export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
 interface SkillsBoxProps {
     readonly title:string|null;
     readonly skills:ReadonlyArray<ProjectTag>;
-    readonly className:string;
-    readonly titleClassName:string;
 }
-export function SkillsBox({title,skills, className,titleClassName}:SkillsBoxProps){
+export function SkillsBox({title,skills}:SkillsBoxProps){
 
     const links=skills.map((skill,idx)=>{
         return <div key={idx}>
@@ -81,8 +77,8 @@ export function SkillsBox({title,skills, className,titleClassName}:SkillsBoxProp
         </div>;
     });
 
-    return <div className="centering">
-        <div className={`${titleClassName} ${styles.skillsBoxTitle}`}>{title}</div>
-        <div className={`${className} ${styles.skillsBox}`}>{links}</div>
-    </div>
+    return <>
+        <div className="skillsBoxTitle">{title}</div>
+        <div className="skillsBox">{links}</div>
+    </>
 }

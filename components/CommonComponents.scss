@@ -1,5 +1,6 @@
 @use "~bootswatch/dist/darkly/variables";
 
+//non css module, since want to leave open to customization, and is commonly used throughout codebase.
 .skillsBoxTitle{
   padding: 3px 10px;
   font-size: xx-large;
