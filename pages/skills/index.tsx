@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import {SkillsBox} from "../components/CommonComponents";
-import {ProjectTag} from "../components/ProjectComponents";
+import {SkillsBox} from "../../components/CommonComponents";
+import {ProjectTag} from "../../components/ProjectComponents";
 // @ts-ignore
-import style from "./skills.module.scss"
+import style from "./index.module.scss"
 
 
 const MAIN_SKILLS:ReadonlyArray<ProjectTag>=[

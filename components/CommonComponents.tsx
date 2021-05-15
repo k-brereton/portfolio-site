@@ -73,7 +73,7 @@ export function SkillsBox({title,skills}:SkillsBoxProps){
 
     const links=skills.map((skill,idx)=>{
         return <div key={idx}>
-            <Link href={`/projects/${skill}`}>{skill}</Link>
+            <Link href={`/skills/${skill}`}>{skill}</Link>
         </div>;
     });
 

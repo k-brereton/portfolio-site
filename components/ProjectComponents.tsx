@@ -5,18 +5,21 @@ import style from "./ProjectComponents.module.scss";
 import Image from "next/image";
 import {GitHubIcon, TimeRangeComponent} from "./CommonComponents";
 
-export type ProjectTag="C++"|"C"|"Java"|"Android"|
-    "Python"|"Pandas.py"|"NumPy"|"Django"|"Django Rest Framework"|
-    "Apache Spark"|"Machine Learning"|"Natural Language Processing"|"DataBricks"|
-    "SQL"|"MySQL"|"PostgreSQL"|"MongoDB"|
-    "JavaScript"|"TypeScript"|"React.js"|"CSS"|"HTML"|"JSON"|
-    "Next.js"|"SASS"|
-    "Node.js"|"Socket.io"|"JSON Schema"|
-    "PHP"|"Laravel"|
-    "VBA"|
-    "Unit Testing"|"Jest"|"pytest"|
-    "WebSockets"|"REST API"|
-    "Git"|"GitHub"|"BitBucket";
+export const ALL_PROJECT_TAGS=["C++","C","Java","Android",
+"Python","Pandas.py","NumPy","Django","Django Rest Framework",
+"Apache Spark","Machine Learning","Natural Language Processing","DataBricks",
+"SQL","MySQL","PostgreSQL","MongoDB",
+"JavaScript","TypeScript","React.js","CSS","HTML","JSON",
+"Next.js","SASS",
+"Node.js","Socket.io","JSON Schema",
+"PHP","Laravel",
+"VBA",
+"Unit Testing","Jest","pytest",
+"WebSockets","REST API",
+"Git","GitHub","BitBucket"] as const;
+
+export type ProjectTag=typeof ALL_PROJECT_TAGS[number];
+
 
 interface CompanyData {
     readonly logo:string
