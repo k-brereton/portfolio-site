@@ -13,19 +13,12 @@
     width:98%;
     max-width: 1200px;
   }
-
 }
 
 .skillsBox1{
   @extend .skillsBoxOuter;
   > :global(.skillsBox) {
     border: solid 8px variables.$cyan;
-    > div:last-child{
-      grid-column: 2;
-      @media screen and (max-width: 500px) {
-          grid-column: auto;
-      }
-    }
   }
 }
 .skillsBox2{

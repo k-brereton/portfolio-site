@@ -6,19 +6,19 @@ import style from "./index.module.scss"
 
 
 const MAIN_SKILLS:ReadonlyArray<ProjectTag>=[
-    "Python",   "React.js",     "SQL",
-    "NumPy",    "TypeScript",   "MySQL",
-    "Pandas.py","CSS",          "REST API",
-    "Java",     "JavaScript",   "Git",
-    "C++"
+    "Python",   "SQL",      "React.js",
+    "NumPy",    "MySQL",    "TypeScript",
+    "Pandas.py","REST API", "CSS",
+    "Java",     "Git",      "JavaScript",
+    "C++",      "GitHub"
 ]
 
 const ADDITIONAL_SKILLS:ReadonlyArray<ProjectTag>=[
-    "PHP",                  "Apache Spark",                 "Unit Testing",
-    "Laravel",              "Machine Learning",             "PostgreSQL",
-    "Node.js",              "Natural Language Processing",  "MongoDB",
-    "Django",               "Next.js",                      "C",
-    "Django Rest Framework","SASS",                         "Android"
+    "PHP",                  "Unit Testing", "Apache Spark",
+    "Laravel",              "PostgreSQL",   "Machine Learning",
+    "Node.js",              "MongoDB",      "Natural Language Processing",
+    "Django",               "C",            "Next.js",
+    "Django Rest Framework","Android",      "SASS",
 ];
 
 export default function SkillsPage() {
