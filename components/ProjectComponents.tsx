@@ -3,7 +3,7 @@ import {Container, Jumbotron, Media} from "react-bootstrap";
 // @ts-ignore
 import style from "./ProjectComponents.module.scss";
 import Image from "next/image";
-import {GitHubIcon, TimeRangeComponent} from "./CommonComponents";
+import {CollapsableSkillsBox, GitHubIcon, SkillsBox, TimeRangeComponent} from "./CommonComponents";
 
 export const ALL_PROJECT_TAGS=["C++","C","Java","Android",
 "Python","Pandas.py","NumPy","Django","Django Rest Framework",
@@ -43,12 +43,13 @@ interface ProjectComponentProps {
 
 
 export function ProjectComponent({projectData}:ProjectComponentProps){
-    const {component:Component,end,company_data,company,start,title} = projectData;
+    const {component:Component,end,company_data,company,start,title, tags, showTags} = projectData;
     let body =<>
         <h2>{title}</h2>
         <h3>{company}</h3>
         <TimeRangeComponent start={start} end={end}/>
         <Component />
+        {showTags&&<CollapsableSkillsBox title={null} skills={tags} className={style.projSkillBox}/>}
     </>;
     if(company_data !== null){
         body= <Media>

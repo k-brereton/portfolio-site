@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from "next/link";
 import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 import {ProjectTag} from "./ProjectComponents";
+import {useState} from "react";
+import {AnimatePresence, motion} from "framer-motion";
 export const VARIANT="dark"
 export const ICON_SIZE=30;
 
@@ -30,7 +32,7 @@ export function GitHubIcon({href}:{href:string}) {
 }
 
 export function ContactMediaBar({showAboutLink}:{showAboutLink:boolean}) {
-    //forced hardcoded sizes, due to library.
+    //hardcoded sizes, due to library.
     return <div>
             <a href="https://www.linkedin.com/in/kevin-brereton/" className="contactIcon"> <RiLinkedinBoxFill size={ICON_SIZE}/> </a>
             <GitHubIcon href="https://github.com/k-brereton/"/>
@@ -76,9 +78,46 @@ export function SkillsBox({title,skills}:SkillsBoxProps){
             <Link href={`/skills/${skill}`}>{skill}</Link>
         </div>;
     });
+    if(title===null){
+        return <div className="skillsBox">{links}</div>
+    }
+    else{
+        return <>
+            <div className="skillsBoxTitle">{title}</div>
+            <div className="skillsBox">{links}</div>
+        </>
+    }
+}
 
-    return <>
-        <div className="skillsBoxTitle">{title}</div>
-        <div className="skillsBox">{links}</div>
-    </>
+interface CollapsableSkillsBoxProps extends SkillsBoxProps{
+    className:string;
+}
+export function CollapsableSkillsBox({title, skills,className}: CollapsableSkillsBoxProps) {
+
+    const [isCollapsed,setIsCollapsed]=useState(true);
+    const shownSkills=isCollapsed? skills.slice(0, 3):skills;
+    const buttonContent=isCollapsed? "+" : "-"
+
+    const links=shownSkills.map((skill,idx)=>{
+        return <AnimatePresence ><motion.div key={idx}       initial={{ opacity: 0 }}  animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <Link href={`/skills/${skill}`}>{skill}</Link>
+        </motion.div></AnimatePresence>;
+    });
+    let body=<motion.div layout className={className} >
+        <motion.div layout className="skillsBox">
+            {links}
+        </motion.div>
+        <button className="collapseButton" onClick={()=>setIsCollapsed(!isCollapsed)}>{buttonContent}</button>
+
+    </motion.div>;
+
+    if(title===null){
+        return body;
+    }
+    else{
+        return <>
+            <div className="skillsBoxTitle">{title}</div>
+            {body}
+        </>
+    }
 }
