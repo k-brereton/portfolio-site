@@ -1,10 +1,16 @@
 @use "~bootswatch/dist/darkly/variables";
+@use "../globals";
 
 //non css module, since want to leave open to customization, and is commonly used throughout codebase.
 .skillsBoxTitle{
   padding: 3px 10px;
-  font-size: xx-large;
-  border-radius: 25% 25% 0 0;
+  font-size: xxx-large;
+  width: max-content;
+  z-index: 1;
+  position: relative;
+  top: 40px;
+  border-radius: 3px;
+  left:75px;
 }
 .skillsBox{
   display: inline-grid;
@@ -12,9 +18,7 @@
   grid-auto-rows: 1fr;
   background-color: darken(variables.$body-bg,1%);
   overflow: hidden;
-
-  //gap: 20px;
-  padding: 15px;
+  padding: 15px 15px 15px 15px;
   >div:nth-child(3n) { grid-column: 2}
   >div:nth-child(3n+1) { grid-column: 1 }
   >div:nth-child(3n+2) { grid-column: 3 }
@@ -40,6 +44,13 @@
     >a:hover {
       background-color: lighten($link_background_color,5%);
     }
+  }
+}
+.skillsBoxWrapper{
+  width:100%;
+  .skillsBox{
+    padding-top: 50px;
+
   }
 }
 
