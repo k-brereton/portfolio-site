@@ -8,6 +8,7 @@ import Image from "next/image";
 import {useRouter} from "next/router";
 import "../globals.scss"
 import "../components/CommonComponents.scss"
+import {AnimatePresence, motion} from 'framer-motion';
 const HEADER_LOGO_SIZE_PX=30;
 
 export function Header({pathname}:{pathname:string}) {
@@ -31,15 +32,25 @@ export function Header({pathname}:{pathname:string}) {
 }
 
 function BackToHomeLink() {
-    return <div className="centering">
+    return <footer className="centering">
         <h2>
         <Link href="/" passHref>
             <a>🠔 Back to home</a>
         </Link>
     </h2>
-    </div>
+    </footer>
 }
 
+const variants={
+    hidden: { y:1000 },
+    show: {
+        y:0,
+        transition: {
+            delayChildren: 0.5,
+            duration:0.5
+        }
+    }
+}
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
@@ -48,7 +59,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     return <>
         <Header pathname={pathname}/>
         <main >
-            <Component {...pageProps} />
+            <AnimatePresence>
+                <motion.div className="contentDiv" initial="hidden"
+                            animate="show" exit="hidden" variants={variants} >
+                    <Component {...pageProps} />
+                </motion.div>
+            </AnimatePresence>
         </main>
         {pathname !== "/"&&<BackToHomeLink/>}
     </>

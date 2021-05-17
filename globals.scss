@@ -28,3 +28,8 @@ $theme-blue:#33667F;
 .mainTitle{
     text-align: center;
 }
+
+.contentDiv{
+    background-color: lighten(variables.$body-bg,2%);
+    min-height: calc(100vh - 150px);
+}

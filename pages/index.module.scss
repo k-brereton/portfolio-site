@@ -13,8 +13,8 @@
 }
 .homeLinks{
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows:50% 50%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     height: calc(100vh - 100px);
 }
 
@@ -33,14 +33,17 @@
     color:#00bc8c;
     background-color: lighten(variables.$body-bg,2%);
 }
-.singleHomeLink:nth-child(3n+1){
+
+.linkOuterDiv{
+    overflow: hidden;
+}
+.linkOuterDiv:nth-child(3n+1) > .singleHomeLink{
     background-color: globals.$theme-blue;
     border:solid black 1px;
     color:#dddddd;
 }
-.singleHomeLink:nth-child(3n+1):hover{
+.linkOuterDiv:nth-child(3n+1) > .singleHomeLink:hover{
     background-color: lighten(globals.$theme-blue,5%);
-    color:#dddddd;
 }
 
 .overallDiv{

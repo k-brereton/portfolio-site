@@ -5,36 +5,68 @@ import {ContactMediaBar} from "../components/CommonComponents";
 // @ts-ignore
 import style from "./index.module.scss"
 import Link from "next/link"
+import {motion, Variants} from 'framer-motion';
 
-function SingleHomeLink({link}:{link:string}){
 
-    return <Link href={`/${link}`} passHref>
-        <a className={style.singleHomeLink}>
-            {/*capitalize first letter*/}
-            {link[0].toUpperCase()}{link.slice(1)}
-        </a>
-    </Link>
+function createMovingVariant(axis:"x"|"y",initialPosition:number):Variants{
+    return {
+        hidden:{[axis]:initialPosition,opacity:0},
+        show:{
+            [axis]:0,
+            opacity:1,
+            transition:{
+                duration:0.5
+            }
+        }
+    }
 }
 
+
+function SingleHomeLink({link, variants}:{link:string, variants:Variants}){
+    return <div className={style.linkOuterDiv}>
+        <Link href={`/${link}`} passHref>
+                <motion.a className={style.singleHomeLink} variants={variants}>
+                    {link[0].toUpperCase()}{link.slice(1)}
+            </motion.a>
+        </Link>
+    </div>
+}
+
+const X_VARIANTS=createMovingVariant("x",-1000)
+const Y_VARIANTS=createMovingVariant("y",-1000)
 
 function HomeLinks(){
 
     return <div className={style.homeLinks}>
-        <SingleHomeLink link="experience"/>
-        <SingleHomeLink link="projects"/>
-        <SingleHomeLink link="skills"/>
-        <SingleHomeLink link="about"/>
+        <SingleHomeLink link="experience" variants={X_VARIANTS}/>
+        <SingleHomeLink link="projects" variants={Y_VARIANTS}/>
+        <SingleHomeLink link="skills" variants={Y_VARIANTS}/>
+        <SingleHomeLink link="about" variants={X_VARIANTS}/>
     </div>
 }
 
-const MAIN_IMAGE_DEFAULT_SIZE_PX=175
+const MAIN_IMAGE_DEFAULT_SIZE_PX=175;
+
+const ABOUT_LINKS_VARIANT=createMovingVariant("y", 100);
+
+const MAIN_IMAGE_VARIANT:Variants={
+    hidden:{opacity:0},
+    show:{
+        opacity:1,
+        transition:{
+            duration:0.5
+        }
+    }
+}
 
 function HomeContactInfo(){
     return <div className={style.homeContactColumn}>
-        <div className={style.mainImage} >
+        <motion.div className={style.mainImage} variants={MAIN_IMAGE_VARIANT}>
             <Image src={"/images/logo.png"} width={MAIN_IMAGE_DEFAULT_SIZE_PX} height={MAIN_IMAGE_DEFAULT_SIZE_PX}  />
-        </div>
-        <ContactMediaBar showAboutLink/>
+        </motion.div>
+        <motion.div variants={ABOUT_LINKS_VARIANT}>
+            <ContactMediaBar showAboutLink/>
+        </motion.div>
     </div>
 }
 
