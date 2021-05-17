@@ -1,4 +1,6 @@
 import 'bootswatch/dist/darkly/bootstrap.min.css';
+import "../globals.scss"
+import "../components/CommonComponents.scss"
 
 import type { AppProps } from 'next/app'
 import {Nav, Navbar} from "react-bootstrap";
@@ -6,8 +8,6 @@ import {VARIANT} from "../components/CommonComponents";
 import Link from "next/link";
 import Image from "next/image";
 import {useRouter} from "next/router";
-import "../globals.scss"
-import "../components/CommonComponents.scss"
 import {AnimatePresence, motion} from 'framer-motion';
 const HEADER_LOGO_SIZE_PX=30;
 
@@ -41,17 +41,6 @@ function BackToHomeLink() {
     </footer>
 }
 
-const variants={
-    hidden: { y:1000 },
-    show: {
-        y:0,
-        transition: {
-            delayChildren: 0.5,
-            duration:0.5
-        }
-    }
-}
-
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
     const {pathname}=router;
@@ -59,12 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return <>
         <Header pathname={pathname}/>
         <main >
-            <AnimatePresence>
-                <motion.div className="contentDiv" initial="hidden"
-                            animate="show" exit="hidden" variants={variants} >
-                    <Component {...pageProps} />
-                </motion.div>
-            </AnimatePresence>
+            <Component {...pageProps} />
         </main>
         {pathname !== "/"&&<BackToHomeLink/>}
     </>

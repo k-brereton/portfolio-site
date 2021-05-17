@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import {NBCInternship, SchulichIgnite, UniversityOfCalgary} from "../components/ExperienceComponents";
+import {InitialPageAnimations} from "../components/CommonComponents";
 
 export default function ExperiencePage() {
-    return <>
+    return <InitialPageAnimations>
         <Head>
             <title>Kevin Brereton's Portfolio | Experience</title>
         </Head>
@@ -12,5 +13,5 @@ export default function ExperiencePage() {
         <h1 className="display-3">Job</h1>
         <NBCInternship />
         <SchulichIgnite />
-    </>
+    </InitialPageAnimations>
 }

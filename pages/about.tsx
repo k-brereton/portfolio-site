@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {ContactMediaBar, ICON_SIZE, PageHead} from "../components/CommonComponents";
+import {ContactMediaBar, ICON_SIZE, InitialPageAnimations, PageHead} from "../components/CommonComponents";
 
 // @ts-ignore
 import style from "./about.module.scss"
@@ -10,7 +10,7 @@ import {Container, Row} from "react-bootstrap";
 const MY_IMAGE_SIZE=175;
 
 export default function  About() {
-    return <>
+    return <InitialPageAnimations>
         <PageHead description={"Kevin Brereton Contact Information"} title={"Kevin Brereton's Portfolio | About"}/>
 
         <h1 className="display-1 mainTitle">About</h1>
@@ -29,5 +29,5 @@ export default function  About() {
                 </div>
             </Container>
         </div>
-    </>
+    </InitialPageAnimations>
 }
