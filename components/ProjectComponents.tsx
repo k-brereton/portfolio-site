@@ -4,6 +4,7 @@ import {Container, Jumbotron, Media} from "react-bootstrap";
 import style from "./ProjectComponents.module.scss";
 import Image from "next/image";
 import {CollapsableSkillsBox, GitHubIcon, SkillsBox, TimeRangeComponent} from "./CommonComponents";
+import {AnimateSharedLayout, motion} from "framer-motion";
 
 export const ALL_PROJECT_TAGS=["C++","C","Java","Android",
 "Python","Pandas.py","NumPy","Django","Django Rest Framework",
@@ -45,28 +46,35 @@ interface ProjectComponentProps {
 export function ProjectComponent({projectData}:ProjectComponentProps){
     const {component:Component,end,company_data,company,start,title, tags, showTags} = projectData;
     let body =<>
-        <h2>{title}</h2>
-        <h3>{company}</h3>
-        <TimeRangeComponent start={start} end={end}/>
-        <Component />
+        <motion.div layout>
+            <h2>{title}</h2>
+            <h3>{company}</h3>
+            <TimeRangeComponent start={start} end={end}/>
+            <Component />
+        </motion.div>
         {showTags&&<CollapsableSkillsBox title={null} skills={tags} className={style.projSkillBox}/>}
     </>;
     if(company_data !== null){
-        body= <Media>
-            <a href={company_data.url}>
-                <Image src={company_data.logo} width={64} height={64} alt={`${company} logo`}/>
-            </a>
+        body= <>
+            <Media>
+            <motion.div layout>
+                <a href={company_data.url}>
+                    <Image src={company_data.logo} width={64} height={64} alt={`${company} logo`} />
+                </a>
+            </motion.div>
             <Media.Body>
                 {body}
             </Media.Body>
-        </Media>
+            </Media>
+        </>
     }
 
-    return <Jumbotron>
-        <Container>
-            {body}
-        </Container>
-    </Jumbotron>
+    return <motion.div className="projectComponent" layout>
+            <Container>
+                {body}
+            </Container>
+        </motion.div>
+
 }
 
 

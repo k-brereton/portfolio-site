@@ -92,6 +92,8 @@ export function SkillsBox({title,skills}:SkillsBoxProps){
 interface CollapsableSkillsBoxProps extends SkillsBoxProps{
     className:string;
 }
+
+
 export function CollapsableSkillsBox({title, skills,className}: CollapsableSkillsBoxProps) {
 
     const [isCollapsed,setIsCollapsed]=useState(true);
@@ -99,16 +101,19 @@ export function CollapsableSkillsBox({title, skills,className}: CollapsableSkill
     const buttonContent=isCollapsed? "+" : "-"
 
     const links=shownSkills.map((skill,idx)=>{
-        return <AnimatePresence ><motion.div key={idx}       initial={{ opacity: 0 }}  animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Link href={`/skills/${skill}`}>{skill}</Link>
-        </motion.div></AnimatePresence>;
+        const delayOffset=Math.floor(idx/3)*0.1;
+
+        return <AnimatePresence key={idx}  >
+            <motion.div layout transition={{delay:delayOffset}} initial={{ opacity: 0 }}  animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                <Link href={`/skills/${skill}`}>{skill}</Link>
+            </motion.div>
+        </AnimatePresence>;
     });
     let body=<motion.div layout className={className} >
-        <motion.div layout className="skillsBox">
+        <motion.div className="skillsBox" layout >
             {links}
         </motion.div>
         <button className="collapseButton" onClick={()=>setIsCollapsed(!isCollapsed)}>{buttonContent}</button>
-
     </motion.div>;
 
     if(title===null){

@@ -1,5 +1,6 @@
 import {ALL_PROJECT_TAGS, PROJECT_DATA, ProjectComponent, ProjectTag} from "../../components/ProjectComponents"
 import {PageHead} from "../../components/CommonComponents";
+import {AnimateSharedLayout} from "framer-motion";
 
 export default function SkillComponent({skill}:{skill:ProjectTag}) {
     const dataToShow=PROJECT_DATA.filter(data=>data.tags.includes(skill))
@@ -8,7 +9,7 @@ export default function SkillComponent({skill}:{skill:ProjectTag}) {
     return <>
         <PageHead  description={`Kevin Brereton's experience with ${skill}`} title={`Kevin Brereton | ${skill}`}/>
         <h1>{skill}</h1>
-        {dataToShow}
+        <AnimateSharedLayout>{dataToShow}</AnimateSharedLayout>
     </>
 
 }

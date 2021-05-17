@@ -11,7 +11,7 @@
     height: 100%;
 }
 .textArea{
-    border: solid 5px variables.$cyan;
+    border: solid 2px darken(variables.$link-color,8%);
     max-width: 800px;
     display: inline-block;
     padding: 15px;
@@ -20,7 +20,7 @@
 .contactArea{
     padding-top: 30px;
     max-width: 800px;
-    font-size: x-large;
+    font-size: 1.4em;
 }
 
 .aboutContactIcon{
