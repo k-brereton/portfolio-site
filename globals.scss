@@ -19,10 +19,13 @@ $theme-blue:#33667F;
     width:100%
 }
 
+
+$impactBoxBackground:darken(variables.$body-bg,2%);
+
 .impactBox{
     padding: 30px;
     border: solid 1px black;
-    background-color: darken(variables.$body-bg,2%);
+    background-color: $impactBoxBackground
 }
 
 .mainTitle{

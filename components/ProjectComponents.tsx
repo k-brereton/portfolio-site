@@ -39,12 +39,23 @@ interface ProjectData  {
 }
 
 interface ProjectComponentProps {
-    projectData:ProjectData
+    projectData:ProjectData,
+    collapsable?:boolean
 }
 
 
-export function ProjectComponent({projectData}:ProjectComponentProps){
+export function ProjectComponent({projectData,collapsable=true}:ProjectComponentProps){
+
     const {component:Component,end,company_data,company,start,title, tags, showTags} = projectData;
+    let skillBox=null;
+    if(showTags){
+        if(collapsable){
+            skillBox=<CollapsableSkillsBox title={null} skills={tags} className={style.projSkillBox}/>
+        }
+        else{
+            skillBox=<div className={style.projSkillBox}><SkillsBox title={null} skills={tags}  /></div>
+        }
+    }
     let body =<>
         <motion.div layout>
             <h2>{title}</h2>
@@ -52,7 +63,7 @@ export function ProjectComponent({projectData}:ProjectComponentProps){
             <TimeRangeComponent start={start} end={end}/>
             <Component />
         </motion.div>
-        {showTags&&<CollapsableSkillsBox title={null} skills={tags} className={style.projSkillBox}/>}
+        {skillBox }
     </>;
     if(company_data !== null){
         body= <>
@@ -109,17 +120,16 @@ export const comOptionAnalyticsData:ProjectData={
 
 export function ComOptionAnalyticsComponent () {
     return <>
-        <div className={style.projectExplanation} > Created a system which analyzes option contracts for one of the National Bank of Canada's hedge funds. It provides real time pricing and risk profiles for options across various markets</div>
+        <div className={style.projectExplanation} > Created the ComOptionAnalytics system for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</div>
         <div> This system includes:</div>
         <ul>
-            <li>A central server, which pulled data from trading platforms, and various other sources to provide a real time data feed of evaluated options. The server provided a WebSocket API and a REST API for the other tools to use as their data source. This server was implemented using Python, Django, and MySQL</li>
-            <li>A tool for calibrating volatility surfaces to the market. This tool allowed traders to keep their volatility surfaces up to date with the market using a variety of methodologies. These methodologies include calibration based on term structures, volatility smiles, seasonal decay, and more. This tool was implemented using React.js, React Hooks, and JavaScript</li>
+            <li>A central server which pulls market data from various sources to provide real time data analysis</li>
+            <li>A tool for volatility surface calibration. Using this tool, traders can calibrate their volatility surfaces to the market using a variety of methodologies. This includes calibration based on term structures, volatility smiles and seasonal decay</li>
             <li>A pricing engine which evaluated options in real time. The optimized pricing engine was implemented in multithreaded C++, to keep the system up to date with volatile markets </li>
-            <li>Several tools for displaying evaluated options from different sources. These tools were implemented using React.js, React Hooks, and JavaScript</li>
-            <li>A tool for analyzing potential trades, implemented using React.js, React Hooks, and JavaScript</li>
-            <li>A parser which inspects messages from stock brokers and finds each trade the broker sent. Those trades would then be parsed into a data structure, which would be analyzed by the ComOptionAnalytics server. The parser was implemented in python</li>
+            <li>A tool for analyzing potential trades</li>
+            <li>Several more tools for gathering, evaluating, and analyzing market data</li>
         </ul>
-        <div>Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use</div>
+        <div className={style.projectExplanation}>Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use</div>
     </>
 }
 
