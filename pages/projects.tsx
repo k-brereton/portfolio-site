@@ -9,7 +9,7 @@ export default function ProjectPage() {
         <Head>
             <title>Kevin Brereton's Portfolio | Projects</title>
         </Head>
-        <h1>Projects</h1>
+        <h1 className="display-1 mainTitle">Projects</h1>
         <AnimateSharedLayout>{dataToShow}</AnimateSharedLayout>
     </InitialPageAnimations>
 }

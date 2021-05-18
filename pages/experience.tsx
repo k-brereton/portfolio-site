@@ -9,7 +9,7 @@ export default function ExperiencePage() {
             <title>Kevin Brereton's Portfolio | Experience</title>
         </Head>
         <Container>
-            <h1 className="display-3">Experience</h1>
+            <h1 className="display-1 mainTitle">Experience</h1>
             <UniversityOfCalgary/>
             <NBCInternship />
             <SchulichIgnite />
