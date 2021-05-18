@@ -4,6 +4,7 @@ import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 import {ProjectTag} from "./ProjectComponents";
 import {PropsWithChildren, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
+import {Media} from "react-bootstrap";
 
 export const VARIANT="dark"
 export const ICON_SIZE=30;
@@ -150,4 +151,21 @@ export function CollapsableSkillsBox({title, skills,className}: CollapsableSkill
             {body}
         </>
     }
+}
+
+interface JobTitleProps {
+    title:string;
+    company:string;
+    start:string;
+    end:string;
+}
+export function JobTitle({title,company,start,end}:JobTitleProps) {
+    return <div className="jobTitleArea">
+        <h2>{title}</h2>
+        <div className="jobTitleCompanyRow">
+            <div>{company}</div>
+            <TimeRangeComponent start={start} end={end}/>
+        </div>
+    </div>
+
 }

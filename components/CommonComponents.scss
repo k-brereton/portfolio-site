@@ -66,3 +66,17 @@
 .collapseButton{
 
 }
+
+.jobTitleArea{
+  background-color: darken(globals.$impactBoxBackground,1%);
+  margin-bottom: 25px;
+}
+
+.jobTitleCompanyRow{
+  font-size: xx-large;
+  display: inline-flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

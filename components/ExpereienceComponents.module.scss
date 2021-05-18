@@ -1,11 +1,5 @@
 @use "../globals";
 
-
-.titleArea{
-  //border-bottom: solid white 1px;
-  background-color: darken(globals.$impactBoxBackground,1%);
-  margin-bottom: 25px;
-}
 .jobExplanation{
   font-size: x-large;
   margin-bottom: 10px;
@@ -14,13 +8,4 @@
 .jobComponent{
   @extend .impactBox;
   margin-top: 50px;
-}
-
-.companyRow{
-  font-size: xx-large;
-  display: inline-flex;
-  flex-direction: row;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }

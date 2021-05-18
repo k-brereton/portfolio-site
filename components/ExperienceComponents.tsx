@@ -2,10 +2,10 @@ import Image from 'next/image'
 import Link from "next/link";
 
 import {PropsWithChildren, useState, MouseEvent} from "react";
-import {Col, Container, Jumbotron, Media, Modal, Row} from "react-bootstrap";
+import {Media, Modal} from "react-bootstrap";
 // @ts-ignore
 import style from "./ExpereienceComponents.module.scss";
-import {TimeRangeComponent} from "./CommonComponents";
+import {JobTitle} from "./CommonComponents";
 import {comOptionAnalyticsData, ProjectComponent} from "./ProjectComponents";
 import {AnimateSharedLayout, motion} from "framer-motion";
 
@@ -29,13 +29,7 @@ function JobComponent({company,company_logo,start,end,title, children, company_u
             <Media>
                 <a href={company_url}><Image src={company_logo} width={64} height={64} alt={`${company} logo`}/></a>
                 <Media.Body>
-                    <div className={style.titleArea}>
-                        <h2>{title}</h2>
-                            <div className={style.companyRow}>
-                                <div>{company}</div>
-                                <TimeRangeComponent start={start} end={end}/>
-                            </div>
-                    </div>
+                    <JobTitle title={title} company={company} start={start} end={end}/>
                         {children}
                 </Media.Body>
             </Media>
