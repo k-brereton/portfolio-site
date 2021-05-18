@@ -39,16 +39,13 @@ interface ProjectData  {
     readonly showTags:boolean;
 }
 
-interface ProjectComponentProps {
+interface ProjectComponentBodyProps {
     projectData:ProjectData,
-    collapsable?:boolean
+    collapsable:boolean
 }
 
-// note there is a bit of a DRY violation currently between the project and experience components. I plan on eventually
-// changing it so they are sufficiently different to justify them being two different components.
 
-export function ProjectComponent({projectData,collapsable=true}:ProjectComponentProps){
-
+export function ProjectComponentBody({projectData,collapsable=true}:ProjectComponentBodyProps) {
     const {component:Component,end,company_data,company,start,title, tags, showTags, github_link} = projectData;
     let skillBox=null;
     if(showTags){
@@ -67,22 +64,29 @@ export function ProjectComponent({projectData,collapsable=true}:ProjectComponent
         {skillBox }
     </>;
     if(company_data !== null){
-        body= <>
-            <Media>
-            <motion.div layout>
-                <a href={company_data.url}>
-                    <Image src={company_data.logo} width={64} height={64} alt={`${company} logo`} />
-                </a>
-            </motion.div>
-            <Media.Body>
-                {body}
-            </Media.Body>
+        return <Media>
+                <motion.div layout>
+                    <a href={company_data.url}>
+                        <Image src={company_data.logo} width={64} height={64} alt={`${company} logo`} />
+                    </a>
+                </motion.div>
+                <Media.Body>
+                    {body}
+                </Media.Body>
             </Media>
-        </>
+    }
+    else{
+        return body
     }
 
+}
+
+// note there is a bit of a DRY violation currently between the project and experience components. I plan on eventually
+// changing it so they are sufficiently different to justify them being two different components.
+
+export function ProjectComponent({projectData}:{projectData:ProjectData}){
     return <motion.div className={style.projectComponent} layout>
-                {body}
+           <ProjectComponentBody projectData={projectData} collapsable={true}/>
         </motion.div>
 }
 
