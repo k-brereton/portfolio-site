@@ -6,7 +6,7 @@ import {Media, Modal} from "react-bootstrap";
 // @ts-ignore
 import style from "./ExpereienceComponents.module.scss";
 import {JobTitle} from "./CommonComponents";
-import {comOptionAnalyticsData, ProjectComponent} from "./ProjectComponents";
+import {comOptionAnalyticsData, ProjectComponent, ProjectComponentBody} from "./ProjectComponents";
 import {AnimateSharedLayout, motion} from "framer-motion";
 
 interface JobHeaderProps{
@@ -49,21 +49,17 @@ export function NBCInternship() {
                       start="2019-06-01" end="2020-08-01"
                       company_url="https://www.nbc.ca/">
         <AnimateSharedLayout>
-        <Modal size="xl" show={isModalOpen} onHide={()=>setIsModalOpen(false)}>
-            <motion.div layout>
-
-            <Modal.Body>
-                    <ProjectComponent projectData={comOptionAnalyticsData} collapsable={false} />
-            </Modal.Body>
-            </motion.div>
-
-         </Modal>
-
+            <Modal size="xl" show={isModalOpen} onHide={()=>setIsModalOpen(false)}>
+                <motion.div layout>
+                    <Modal.Body>
+                            <ProjectComponentBody projectData={comOptionAnalyticsData} collapsable={false}/>
+                    </Modal.Body>
+                </motion.div>
+             </Modal>
         </AnimateSharedLayout>
-
-            <div className={style.jobExplanation}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</div>
-            <div className={style.jobExplanation}> Refined his software architecture skills to create cohesive and high-quality code using the object-oriented and functional programming paradigms </div>
-            <div className={style.jobExplanation}> Helped interview and analyze candidates for the next years internship</div>
+        <div className={style.jobExplanation}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</div>
+        <div className={style.jobExplanation}> Refined his software architecture skills to create cohesive and high-quality code using the object-oriented and functional programming paradigms </div>
+        <div className={style.jobExplanation}> Helped interview and analyze candidates for the next years internship</div>
         </JobComponent>
 }
 
