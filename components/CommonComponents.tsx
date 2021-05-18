@@ -82,7 +82,7 @@ export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
 
 
     if (startTimeStr === endTimeStr){
-        return <div> startTimeStr </div>
+        return <div> {startTimeStr} </div>
     }
     else{
         return <div>{startTimeStr} - {endTimeStr}</div>
