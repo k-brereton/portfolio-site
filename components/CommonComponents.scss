@@ -87,9 +87,16 @@
 }
 
 .jobTitleArea{
-  background-color: darken(globals.$impactBoxBackground,1%);
   margin-bottom: 25px;
 }
+
+.impactBox{
+  .jobTitleArea{
+    background-color: darken(globals.$impactBoxBackground,1%);
+  }
+}
+
+
 
 .jobTitleCompanyRow{
   font-size: xx-large;
