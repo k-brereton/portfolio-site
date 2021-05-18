@@ -17,9 +17,9 @@ interface JobHeaderProps{
     start:string;
     end:string;
 }
-
+// note there is a bit of a DRY violation currently between the project and experience components. I plan on eventually
+// changing it so they are sufficiently different to justify them being two different components.
 function JobComponent({company,company_logo,start,end,title, children, company_url}:PropsWithChildren<JobHeaderProps>) {
-    //todo decide whether experience/job will share a component or not
     return <div className={style.jobComponent}>
             {/*<motion.div     initial={{x:100}} animate={{x:200}}*/}
             {/*                transition={{ type: 'spring', restSpeed: 0.5 }}*/}
@@ -29,7 +29,7 @@ function JobComponent({company,company_logo,start,end,title, children, company_u
             <Media>
                 <a href={company_url}><Image src={company_logo} width={64} height={64} alt={`${company} logo`}/></a>
                 <Media.Body>
-                    <JobTitle title={title} company={company} start={start} end={end}/>
+                    <JobTitle title={title} company={company} start={start} end={end} githubLink={null}/>
                         {children}
                 </Media.Body>
             </Media>

@@ -4,7 +4,6 @@ import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 import {ProjectTag} from "./ProjectComponents";
 import {PropsWithChildren, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
-import {Media} from "react-bootstrap";
 
 export const VARIANT="dark"
 export const ICON_SIZE=30;
@@ -49,18 +48,18 @@ export function PageHead({description,title}:HeaderProps) {
     </Head>
 }
 
-export function GitHubIcon({href}:{href:string}) {
-    return <a href={href} className="contactIcon"> <RiGithubFill size={ICON_SIZE}/> </a>;
+export function GitHubIcon({href,className}:{href:string, className:string}) {
+    return <a href={href} className="contactIcon"> <RiGithubFill className={className}/> </a>;
 }
 
-export function ContactMediaBar({showAboutLink}:{showAboutLink:boolean}) {
+export function ContactMediaBar({showAboutLink, iconClassName}:{showAboutLink:boolean,iconClassName:string}) {
     //hardcoded sizes, due to library.
     return <div>
-            <a href="https://www.linkedin.com/in/kevin-brereton/" className="contactIcon"> <RiLinkedinBoxFill size={ICON_SIZE}/> </a>
-            <GitHubIcon href="https://github.com/k-brereton/"/>
+            <a href="https://www.linkedin.com/in/kevin-brereton/" className="contactIcon"> <RiLinkedinBoxFill className={iconClassName}/> </a>
+            <GitHubIcon href="https://github.com/k-brereton/" className={iconClassName}/>
             {
                 showAboutLink && <Link href="/about" passHref>
-                    <a className="contactIcon"> <RiPhoneFill size={ICON_SIZE}/> </a>
+                    <a className="contactIcon"> <RiPhoneFill className={iconClassName}/> </a>
                 </Link>
             }
         </div>
@@ -133,11 +132,11 @@ export function CollapsableSkillsBox({title, skills,className}: CollapsableSkill
             </motion.div>
         </AnimatePresence>;
     });
-    let body=<motion.div layout className={className} >
+    let body=<motion.div layout className={`collapsableSkillsBoxOuter ${className}`} >
         <motion.div className="skillsBox" layout >
             {links}
         </motion.div>
-        <button className="collapseButton" onClick={()=>setIsCollapsed(!isCollapsed)}>{buttonContent}</button>
+        <motion.div layout className="collapseButton" onClick={()=>setIsCollapsed(!isCollapsed)}>{buttonContent}</motion.div>
     </motion.div>;
 
     if(title===null){
@@ -158,10 +157,14 @@ interface JobTitleProps {
     company:string;
     start:string;
     end:string;
+    githubLink:string|null;
 }
-export function JobTitle({title,company,start,end}:JobTitleProps) {
+export function JobTitle({title,company,start,end,githubLink}:JobTitleProps) {
     return <div className="jobTitleArea">
-        <h2>{title}</h2>
+        <div className="jobTitleRow">
+            <h2>{title}</h2>
+            {githubLink!==null&&<GitHubIcon href={githubLink} className="jobTitleGithub"/>}
+        </div>
         <div className="jobTitleCompanyRow">
             <div>{company}</div>
             <TimeRangeComponent start={start} end={end}/>

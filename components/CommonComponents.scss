@@ -50,7 +50,6 @@
   width:100%;
   .skillsBox{
     padding-top: 50px;
-
   }
 }
 
@@ -62,9 +61,29 @@
     >div:nth-child(n) { grid-column: auto}
   }
 }
-
+.collapsableSkillsBoxOuter{
+  .skillsBox{
+    padding-bottom: 30px;
+  }
+}
 .collapseButton{
+  font-size: x-large;
+  position: relative;
+  padding: 0 10px;
+  z-index: 1;
+  top: -20px;
+  border-radius: 4px;
+  cursor:pointer;
+}
 
+.jobTitleRow{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  h2{
+    margin-right: 10px;
+    flex-wrap: wrap;
+  }
 }
 
 .jobTitleArea{
@@ -79,4 +98,13 @@
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.jobTitleGithub{
+  width: 40px;
+  height: 40px;
+}
+
+.contactIcon{
+  color:#fff;
+  height: fit-content;
 }

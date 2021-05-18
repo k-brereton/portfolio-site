@@ -2,10 +2,8 @@
 @use "~bootswatch/dist/darkly/variables";
 
 .projectExplanation{
-  font-size: large;
-}
-.iconRow{
-// todo put on the other side
+  font-size: x-large;
+  margin-bottom: 10px;
 }
 .projSkillBox{
   margin-top: 30px;
@@ -15,5 +13,15 @@
     width:98%;
     max-width: 1200px;
   }
+  :global(.collapseButton){
+    background-color: variables.$cyan;
+  }
+  :global(.collapseButton):hover{
+    background-color: lighten(variables.$cyan,10%);
+  }
 }
-//todo do the button. Z axis thing in middle. And color it with the underline.
+
+.projectComponent{
+  @extend .impactBox;
+  margin-top: 50px;
+}

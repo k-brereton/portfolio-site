@@ -65,7 +65,7 @@ function HomeContactInfo(){
             <Image src={"/images/logo.png"} width={MAIN_IMAGE_DEFAULT_SIZE_PX} height={MAIN_IMAGE_DEFAULT_SIZE_PX}  />
         </motion.div>
         <motion.div variants={ABOUT_LINKS_VARIANT}>
-            <ContactMediaBar showAboutLink/>
+            <ContactMediaBar iconClassName={style.iconClass} showAboutLink/>
         </motion.div>
     </div>
 }

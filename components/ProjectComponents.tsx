@@ -1,10 +1,10 @@
 import {FunctionComponent} from "react";
-import {Container, Jumbotron, Media} from "react-bootstrap";
+import {Media} from "react-bootstrap";
 // @ts-ignore
 import style from "./ProjectComponents.module.scss";
 import Image from "next/image";
-import {CollapsableSkillsBox, GitHubIcon, SkillsBox, TimeRangeComponent} from "./CommonComponents";
-import {AnimateSharedLayout, motion} from "framer-motion";
+import {CollapsableSkillsBox, JobTitle, SkillsBox} from "./CommonComponents";
+import {motion} from "framer-motion";
 
 export const ALL_PROJECT_TAGS=["C++","C","Java","Android",
 "Python","Pandas.py","NumPy","Django","Django Rest Framework",
@@ -31,6 +31,7 @@ interface ProjectData  {
     readonly title:string;
     readonly company:string;
     readonly company_data:CompanyData|null;
+    readonly github_link:string|null;
     readonly start:string;
     readonly end:string;
     readonly component:FunctionComponent;
@@ -43,10 +44,12 @@ interface ProjectComponentProps {
     collapsable?:boolean
 }
 
+// note there is a bit of a DRY violation currently between the project and experience components. I plan on eventually
+// changing it so they are sufficiently different to justify them being two different components.
 
 export function ProjectComponent({projectData,collapsable=true}:ProjectComponentProps){
 
-    const {component:Component,end,company_data,company,start,title, tags, showTags} = projectData;
+    const {component:Component,end,company_data,company,start,title, tags, showTags, github_link} = projectData;
     let skillBox=null;
     if(showTags){
         if(collapsable){
@@ -58,9 +61,7 @@ export function ProjectComponent({projectData,collapsable=true}:ProjectComponent
     }
     let body =<>
         <motion.div layout>
-            <h2>{title}</h2>
-            <h3>{company}</h3>
-            <TimeRangeComponent start={start} end={end}/>
+            <JobTitle githubLink={github_link} title={title} company={company} start={start} end={end}/>
             <Component />
         </motion.div>
         {skillBox }
@@ -80,12 +81,9 @@ export function ProjectComponent({projectData,collapsable=true}:ProjectComponent
         </>
     }
 
-    return <motion.div className="projectComponent" layout>
-            <Container>
+    return <motion.div className={style.projectComponent} layout>
                 {body}
-            </Container>
         </motion.div>
-
 }
 
 
@@ -93,6 +91,7 @@ export const resumeSiteData:ProjectData={
     title:"Portfolio Site",
     company:"Personal Project",
     company_data:null,
+    github_link:"https://github.com/k-brereton/portfolio-site",
     start:"2021-05-01",
     end:"2021-05-01",
     component:ResumeSiteComponent,
@@ -102,7 +101,6 @@ export const resumeSiteData:ProjectData={
 export function ResumeSiteComponent() {
     return <>
         <div className={style.projectExplanation} > Created the site you are on right now using Next.js and Typescript </div>
-        <div className={style.iconRow}><GitHubIcon href="https://github.com/k-brereton/portfolio-site"/> </div>
     </>
 }
 
@@ -110,6 +108,7 @@ export const comOptionAnalyticsData:ProjectData={
     title:"ComOptionAnalytics",
     company:"National Bank of Canada",
     company_data:{logo:"/images/nbc_logo.png",url:"https://www.nbc.ca/"},
+    github_link:null,
     start:"2019-06-01",
     end:"2020-08-01",
     component:ComOptionAnalyticsComponent,
@@ -121,6 +120,7 @@ export const comOptionAnalyticsData:ProjectData={
 export function ComOptionAnalyticsComponent () {
     return <>
         <div className={style.projectExplanation} > Created the ComOptionAnalytics system for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</div>
+        <div className={style.projectExplanation}>
         <div> This system includes:</div>
         <ul>
             <li>A central server which pulls market data from various sources to provide real time data analysis</li>
@@ -129,6 +129,7 @@ export function ComOptionAnalyticsComponent () {
             <li>A tool for analyzing potential trades</li>
             <li>Several more tools for gathering, evaluating, and analyzing market data</li>
         </ul>
+        </div>
         <div className={style.projectExplanation}>Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use</div>
     </>
 }
@@ -137,6 +138,7 @@ export const riskManagerData:ProjectData={
     title:"Risk Manager",
     company:"National Bank of Canada",
     company_data:{logo:"/images/nbc_logo.png",url:"https://www.nbc.ca/"},
+    github_link:null,
     start:"2020-09-01",
     end:"2021-04-01",
     component:RiskManagerComponent,
@@ -156,6 +158,7 @@ export const chessOnTheGoData:ProjectData={
     title:"Chess On the Go",
     company:"School Project",
     company_data:null,
+    github_link:"https://github.com/yashharanb/ChessOnTheGo",
     start:"2020-09-01",
     end:"2020-12-01",
     component:ChessOnTheGoComponent,
@@ -169,7 +172,6 @@ export function ChessOnTheGoComponent() {
             <div className={style.projectExplanation} > Co-created An online chess platform  using Typescript, React.js, MongoDB, Express.js and Socket.io </div>
             <div className={style.projectExplanation} > The website featured the full competitive chess ruleset, skill-based matchmaking, Elo rankings, and several game modes  </div>
             <div className={style.projectExplanation} > Kevin implemented the majority of the server code using Node.js, Express.js and Socket.io </div>
-            <div className={style.iconRow}><GitHubIcon href="https://github.com/yashharanb/ChessOnTheGo"/> </div>
         </>
 }
 
@@ -177,6 +179,7 @@ export const faultLocalizationToolData:ProjectData={
     title:"Fault Localization Tool",
     company:"School Project",
     company_data:null,
+    github_link:null,
     start:"2020-09-01",
     end:"2020-12-01",
     component:FaultLocalizationToolComponent,
@@ -197,6 +200,7 @@ export const amazonReviewAnalyzerData:ProjectData={
     title:"Amazon Review Analyzer",
     company:"School Project",
     company_data:null,
+    github_link:null,
     start:"2020-09-01",
     end:"2020-12-01",
     component:AmazonReviewAnalysis,
@@ -216,6 +220,7 @@ export const twitchVidsData:ProjectData={
     title:"TwitchVids",
     company:"School Project",
     company_data:null,
+    github_link:"https://github.com/k-brereton/Seng401FinalProject",
     start:"2019-01-01",
     end:"2019-03-01",
     component:TwitchVidsComponent,
@@ -232,7 +237,6 @@ export function TwitchVidsComponent() {
         <div className={style.projectExplanation}>
             Implemented the majority of the server code, including the Laravel models, controllers, and the Twitch API integration
         </div>
-        <div className={style.iconRow}><GitHubIcon href="https://github.com/k-brereton/Seng401FinalProject"/> </div>
     </>
 }
 
@@ -240,6 +244,7 @@ export const carVisualizerData:ProjectData={
     title:"Car Visualizer",
     company:"School Project",
     company_data:null,
+    github_link:"https://github.com/k-brereton/Seng471Prototype",
     start:"2019-01-01",
     end:"2019-03-01",
     component:CarVisualizerComponent,
@@ -253,7 +258,6 @@ export function CarVisualizerComponent() {
         <div className={style.projectExplanation}>
             Implemented the majority of the server code, including the Laravel models and controllers
         </div>
-        <div className={style.iconRow}><GitHubIcon href="https://github.com/k-brereton/Seng471Prototype"/> </div>
     </>
 
 }
@@ -262,6 +266,7 @@ export const parkingManagementData:ProjectData={
     title:"Parking Data Management System",
     company:"Personal Project",
     company_data:null,
+    github_link:null,
     start:"2018-04-01",
     end:"2018-08-01",
     component:ParkingDataManagementSystemComponent,
@@ -271,7 +276,7 @@ export const parkingManagementData:ProjectData={
 
 export function ParkingDataManagementSystemComponent() {
     return <>
-        <div className={style.projectExplanation} >Collaborated with 3 people to create a highly modular Java Swing application for collecting and organizing data from parking security companies. His efforts resulted in an expandable and easy to use software core to base further projects off of</div>
+        <div className={style.projectExplanation}>Collaborated with 3 people to create a highly modular Java Swing application for collecting and organizing data from parking security companies. His efforts resulted in an expandable and easy to use software core to base further projects off of</div>
         <div className={style.projectExplanation}>Designed a Self-Checking Database core which automatically detects data Integrity flaws, creating an easy to use and intuitive database communication</div>
         <div className={style.projectExplanation}>Expanded his knowledge by porting the system over to android</div>
     </>
@@ -281,6 +286,7 @@ export const bookOrderingSystemData:ProjectData={
     title:"Book Ordering System",
     company:"School Project",
     company_data:null,
+    github_link:null,
     start:"2018-09-01",
     end:"2018-12-01",
     component:BookOrderingSystemComponent,
@@ -297,6 +303,7 @@ export const desireToLoveData:ProjectData={
     title:"Desire2Love (D2L)",
     company:"School Project",
     company_data:null,
+    github_link:null,
     start:"2018-01-01",
     end:"2018-04-01",
     component:DesireToLoveComponent,
@@ -321,6 +328,7 @@ export const reactMiscData:ProjectData={
     title:"Additional Experience",
     company:"School Projects",
     company_data:null,
+    github_link:null,
     start:"2020-09-01",
     end:"2020-12-01",
     component:ReactMisc,
@@ -339,6 +347,7 @@ export const cppMiscData:ProjectData={
     title:"Additional C++ Experience",
     company:"School Projects",
     company_data:null,
+    github_link:null,
     start:"2017-09-01",
     end:"2021-04-01",
     component:CppMiscComponent,
@@ -348,7 +357,7 @@ export const cppMiscData:ProjectData={
 export function CppMiscComponent() {
     return <>
         <div className={style.projectExplanation} > Implemented various smaller C and C++ projects, including:</div>
-        <ul>
+        <ul className={style.projectExplanation}>
             <li>An HTTP proxy server</li>
             <li>A small compression engine</li>
             <li>Various embedded systems, such as a remote for a remote controlled car </li>
@@ -364,6 +373,7 @@ export const pandasMiscData:ProjectData={
     title:"Additional Experience",
     company:"School Projects",
     company_data:null,
+    github_link:null,
     start:"2020-09-01",
     end:"2021-04-01",
     component:PandasMiscComponent,
@@ -378,6 +388,7 @@ export const javaMiscData:ProjectData={
     title:"Additional Java Experience",
     company:"School Projects",
     company_data:null,
+    github_link:null,
     start:"2016-09-01",
     end:"2018-12-01",
     component:JavaMiscComponent,
