@@ -68,7 +68,7 @@ export function ProjectComponentBody({projectData,collapsable}:ProjectComponentB
         return <Media>
                 <motion.div layout>
                     <a href={company_data.url}>
-                        <Image src={company_data.logo} width={64} height={64} alt={`${company} logo`} />
+                        <Image layout={"fixed"} src={company_data.logo} width={64} height={64} alt={`${company} logo`} />
                     </a>
                 </motion.div>
                 <Media.Body>

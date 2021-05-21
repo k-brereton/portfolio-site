@@ -26,7 +26,7 @@ export default function SkillsPage() {
         <Head>
             <title>Kevin Brereton's Portfolio | Skills</title>
         </Head>
-        <h1 className="display-1 mainTitle">Skills</h1>
+        <h1 className="mainTitle">Skills</h1>
         <div className={style.skillsBox1}> <SkillsBox title="Main Skills" skills={MAIN_SKILLS}/></div>
         <div className={style.skillsBox2}> <SkillsBox title="Additional Skills" skills={ADDITIONAL_SKILLS} /> </div>
     </InitialPageAnimations>

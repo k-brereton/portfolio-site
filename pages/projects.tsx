@@ -11,7 +11,7 @@ export default function ProjectPage() {
             <title>Kevin Brereton's Portfolio | Projects</title>
         </Head>
         <Container>
-            <h1 className="display-1 mainTitle">Projects</h1>
+            <h1 className="display-2 mainTitle">Projects</h1>
             <AnimateSharedLayout>
                 {dataToShow}
             </AnimateSharedLayout>

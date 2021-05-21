@@ -13,7 +13,7 @@ export default function  About() {
     return <InitialPageAnimations>
         <PageHead description={"Kevin Brereton Contact Information"} title={"Kevin Brereton's Portfolio | About"}/>
 
-        <h1 className="display-1 mainTitle">About</h1>
+        <h1 className="display-2 mainTitle">About</h1>
         <div className="centering">
             <Container className={style.mainArea}>
                 <Image src="/images/kevin_picture.jpg" className={style.myImage} height={MY_IMAGE_SIZE} width={MY_IMAGE_SIZE}/>

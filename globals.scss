@@ -1,5 +1,4 @@
 @use "~bootswatch/dist/darkly/variables";
-
 $theme-blue:#33667F;
 
 
@@ -22,6 +21,12 @@ $impactBoxBackground:darken(variables.$body-bg,2%);
 
 .mainTitle{
     text-align: center;
+    @media screen and (max-width: 500px) {
+        font-size: 4rem;
+    }
+    @media screen and (max-width: 350px) {
+        font-size: 3rem;
+    }
 }
 
 .contentDiv{
