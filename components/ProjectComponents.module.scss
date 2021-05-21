@@ -1,24 +1,6 @@
 @use "globals";
 @use "~bootswatch/dist/darkly/variables";
 
-.projectExplanation{
-  font-size: x-large;
-  margin-bottom: 10px;
-}
-.projSkillBox{
-  margin-top: 30px;
-  @extend .centering;
-  > :global(.skillsBox) {
-    border: solid 3.5px;
-    width:98%;
-    max-width: 1200px;
-  }
-}
-
-.projectComponent{
-  @extend .impactBox;
-  margin-top: 50px;
-}
 @mixin colorSkillsBox($color,$hoverColor,$textColor){
   :global(.skillsBox) {
     border-color: $color;
@@ -34,14 +16,28 @@
   }
 }
 
-.projectComponent:nth-child(5n+2){
+
+.projSkillBox{
+  margin-top: 30px;
+  @extend .centering;
+  > :global(.skillsBox) {
+    border: solid 3.5px;
+    width:98%;
+    max-width: 1200px;
+  }
   @include colorSkillsBox(
-                  $color:lighten(variables.$cyan,10%),
-                  $hoverColor:lighten(variables.$cyan,20%),
-                  $textColor:lighten(variables.$cyan,15%)
+          $color:lighten(variables.$cyan,10%),
+          $hoverColor:lighten(variables.$cyan,20%),
+          $textColor:lighten(variables.$cyan,15%)
   );
+
 }
-.projectComponent:nth-child(5n+3){
+
+.projectComponent{
+  @extend .impactBox;
+  margin-top: 50px;
+}
+.projectComponent:nth-child(5n+3), {
   @include colorSkillsBox(
           $color:lighten(variables.$purple,5%),
           $hoverColor:lighten(variables.$purple,10%),
