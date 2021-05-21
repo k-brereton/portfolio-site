@@ -66,28 +66,6 @@ export function ContactMediaBar({showAboutLink, iconClassName}:{showAboutLink:bo
 }
 
 
-interface TimeRangeComponentProps{
-    start:string;
-    end:string;
-}
-export function TimeRangeComponent({start, end}:TimeRangeComponentProps) {
-    if(start > end){
-        throw new Error("Error, inputted time invalid")
-    }
-
-    const options:Intl.DateTimeFormatOptions={month:"short",year:"numeric", timeZone:"UTC"}
-    const startTimeStr=(new Date(start)).toLocaleDateString(undefined,options);
-    const endTimeStr=(new Date(end)).toLocaleDateString(undefined,options);
-
-
-    if (startTimeStr === endTimeStr){
-        return <div> {startTimeStr} </div>
-    }
-    else{
-        return <div>{startTimeStr} - {endTimeStr}</div>
-    }
-}
-
 interface SkillsBoxProps {
     readonly title:string|null;
     readonly skills:ReadonlyArray<ProjectTag>;

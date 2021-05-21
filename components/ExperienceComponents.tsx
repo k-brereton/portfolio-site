@@ -3,7 +3,7 @@ import {Media, Modal} from "react-bootstrap";
 // @ts-ignore
 import style from "./ExperienceComponents.module.scss";
 import Image from "next/image";
-import {CollapsableSkillsBox, GitHubIcon, SkillsBox, TimeRangeComponent} from "./CommonComponents";
+import {CollapsableSkillsBox, GitHubIcon, SkillsBox} from "./CommonComponents";
 import {AnimateSharedLayout, motion} from "framer-motion";
 import Link from "next/link";
 
@@ -52,6 +52,28 @@ interface JobTitleProps {
     start: string;
     end: string;
     githubLink: string | null;
+}
+
+interface TimeRangeComponentProps {
+    start: string;
+    end: string;
+}
+
+function TimeRangeComponent({start, end}: TimeRangeComponentProps) {
+    if (start > end) {
+        throw new Error("Error, inputted time invalid")
+    }
+
+    const options: Intl.DateTimeFormatOptions = {month: "short", year: "numeric", timeZone: "UTC"}
+    const startTimeStr = (new Date(start)).toLocaleDateString(undefined, options);
+    const endTimeStr = (new Date(end)).toLocaleDateString(undefined, options);
+
+
+    if (startTimeStr === endTimeStr) {
+        return <div> {startTimeStr} </div>
+    } else {
+        return <div>{startTimeStr} - {endTimeStr}</div>
+    }
 }
 
 function JobTitle({title, company, start, end, githubLink}: JobTitleProps) {
