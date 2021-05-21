@@ -3,7 +3,7 @@ import {Media, Modal} from "react-bootstrap";
 // @ts-ignore
 import style from "./ExperienceComponents.module.scss";
 import Image from "next/image";
-import {CollapsableSkillsBox, JobTitle, SkillsBox} from "./CommonComponents";
+import {CollapsableSkillsBox, GitHubIcon, SkillsBox, TimeRangeComponent} from "./CommonComponents";
 import {AnimateSharedLayout, motion} from "framer-motion";
 import Link from "next/link";
 
@@ -45,6 +45,28 @@ interface ProjectComponentBodyProps {
     collapsable:boolean
 }
 
+
+interface JobTitleProps {
+    title: string;
+    company: string;
+    start: string;
+    end: string;
+    githubLink: string | null;
+}
+
+function JobTitle({title, company, start, end, githubLink}: JobTitleProps) {
+    return <div className={style.jobTitleArea}>
+        <div className={style.jobTitleRow}>
+            <h2>{title}</h2>
+            {githubLink !== null && <GitHubIcon href={githubLink} className={style.jobTitleGithub}/>}
+        </div>
+        <div className={style.jobTitleCompanyRow}>
+            <div>{company}</div>
+            <TimeRangeComponent start={start} end={end}/>
+        </div>
+    </div>
+
+}
 
 export function ProjectComponentBody({projectData,collapsable}:ProjectComponentBodyProps) {
     const {component:Component,end,company_data,company,start,title, tags, showTags, github_link} = projectData;

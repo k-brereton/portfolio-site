@@ -152,23 +152,3 @@ export function CollapsableSkillsBox({title, skills,className}: CollapsableSkill
     }
 }
 
-interface JobTitleProps {
-    title:string;
-    company:string;
-    start:string;
-    end:string;
-    githubLink:string|null;
-}
-export function JobTitle({title,company,start,end,githubLink}:JobTitleProps) {
-    return <div className="jobTitleArea">
-        <div className="jobTitleRow">
-            <h2>{title}</h2>
-            {githubLink!==null&&<GitHubIcon href={githubLink} className="jobTitleGithub"/>}
-        </div>
-        <div className="jobTitleCompanyRow">
-            <div>{company}</div>
-            <TimeRangeComponent start={start} end={end}/>
-        </div>
-    </div>
-
-}
