@@ -9,15 +9,9 @@
   margin-top: 30px;
   @extend .centering;
   > :global(.skillsBox) {
-    border: solid 3.5px variables.$cyan;
+    border: solid 3.5px;
     width:98%;
     max-width: 1200px;
-  }
-  :global(.collapseButton){
-    background-color: variables.$cyan;
-  }
-  :global(.collapseButton):hover{
-    background-color: lighten(variables.$cyan,10%);
   }
 }
 
@@ -25,3 +19,54 @@
   @extend .impactBox;
   margin-top: 50px;
 }
+@mixin colorSkillsBox($color,$hoverColor,$textColor){
+  :global(.skillsBox) {
+    border-color: $color;
+  }
+  :global(.collapseButton){
+    background-color: $color;
+  }
+  :global(.collapseButton):hover{
+    background-color: $hoverColor;
+  }
+  :global(.skillsBox) a{
+    color:$textColor;
+  }
+}
+
+.projectComponent:nth-child(5n+2){
+  @include colorSkillsBox(
+                  $color:lighten(variables.$cyan,10%),
+                  $hoverColor:lighten(variables.$cyan,20%),
+                  $textColor:lighten(variables.$cyan,15%)
+  );
+}
+.projectComponent:nth-child(5n+3){
+  @include colorSkillsBox(
+          $color:lighten(variables.$purple,5%),
+          $hoverColor:lighten(variables.$purple,10%),
+          $textColor:lighten(variables.$purple,17%)
+  );
+}
+.projectComponent:nth-child(5n+4){
+  @include colorSkillsBox(
+          $color:variables.$green,
+          $hoverColor:lighten(variables.$green,10%),
+          $textColor:lighten(variables.$green,5%)
+  );
+}
+.projectComponent:nth-child(5n){
+  @include colorSkillsBox(
+          $color:variables.$yellow,
+          $hoverColor:lighten(variables.$yellow,10%),
+          $textColor:lighten(variables.$yellow,5%)
+  );
+}
+.projectComponent:nth-child(5n+1){
+  @include colorSkillsBox(
+          $color:variables.$red,
+          $hoverColor:lighten(variables.$red,10%),
+          $textColor:lighten(variables.$red,5%)
+  );
+}
+

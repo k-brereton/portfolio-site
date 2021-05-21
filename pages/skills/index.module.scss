@@ -5,9 +5,6 @@
   @extend .centering;
   margin: 30px 0;
 
-  :global(.skillsBoxTitle){
-    background-color: variables.$cyan;
-  }
   :global(.skillsBox){
     width: 100%;
   }
@@ -19,16 +16,27 @@
 
 .skillsBox1{
   @extend .skillsBoxOuter;
-  :global(.skillsBox) {
-    border: solid 3px variables.$cyan;
+  :global(.skillsBoxTitle){
+    background-color: lighten(variables.$cyan,10%);
   }
+
+  :global(.skillsBox) {
+    border: solid 3px lighten(variables.$cyan,10%);
+  }
+  :global(.skillsBox) a{
+    color:lighten(variables.$cyan,15%);
+  }
+
 }
 .skillsBox2{
   @extend .skillsBoxOuter;
   :global(.skillsBox) {
-    border: solid 3px variables.$purple;
+    border: solid 3px lighten(variables.$purple,5%);
   }
   :global(.skillsBoxTitle){
-    background-color: variables.$purple;
+    background-color: lighten(variables.$purple,5%);
+  }
+  :global(.skillsBox) a{
+    color:lighten(variables.$purple,17%);
   }
 }
