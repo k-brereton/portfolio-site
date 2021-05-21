@@ -139,7 +139,7 @@ export function ComOptionAnalyticsComponent () {
 }
 
 export const riskManagerData:ProjectData={
-    title:"Risk Manager",
+    title:"Risk Manager (Capstone)",
     company:"National Bank of Canada",
     company_data:{logo:"/images/nbc_logo.png",url:"https://www.nbc.ca/"},
     github_link:null,
@@ -152,7 +152,7 @@ export const riskManagerData:ProjectData={
 
 export function RiskManagerComponent() {
     return <>
-        <div className={style.projectExplanation} > Lead a small team to create a risk management system. The system allows traders to manage their portfolio risk in real time. This system was implemented as a capstone project</div>
+        <div className={style.projectExplanation} > Lead a small team to create a software system for traders to manage their portfolio risk in real time</div>
         <div className={style.projectExplanation}> Designed code architecture, and implemented core features</div>
         <div className={style.projectExplanation}> Organized and motivated the development team, while providing code reviews, guidance, and knowledge to ensure the project ran smoothly</div>
     </>
@@ -173,7 +173,7 @@ export const chessOnTheGoData:ProjectData={
 
 export function ChessOnTheGoComponent() {
     return <>
-            <div className={style.projectExplanation} > Co-created An online chess platform  using Typescript, React.js, MongoDB, Express.js and Socket.io </div>
+            <div className={style.projectExplanation} > Co-created an online chess platform  using Typescript, React.js, MongoDB, Express.js and Socket.io </div>
             <div className={style.projectExplanation} > The website featured the full competitive chess ruleset, skill-based matchmaking, Elo rankings, and several game modes  </div>
             <div className={style.projectExplanation} > Kevin implemented the majority of the server code using Node.js, Express.js and Socket.io </div>
         </>
@@ -187,14 +187,14 @@ export const faultLocalizationToolData:ProjectData={
     start:"2020-09-01",
     end:"2020-12-01",
     component:FaultLocalizationToolComponent,
-    tags:["Machine Learning", "Natural Language Processing","Pandas.py","NumPy", "Python","GitHub","Git"],
+    tags:["Machine Learning", "Natural Language Processing","Pandas.py","NumPy", "Python","Git"],
     showTags:true
 }
 
 
 export function FaultLocalizationToolComponent(){
     return <>
-            <div className={style.projectExplanation} > Co-created a Fault Localization tool. The tool detects where a software bug is located in the source code of a software project using machine learning  </div>
+            <div className={style.projectExplanation} > Co-created a Fault Localization tool that detects where a software bug is located in the source code of a software project using machine learning  </div>
             <div className={style.projectExplanation}> The tool searched for a bug described in a bug report and predicted the files that needed fixing </div>
             <div className={style.projectExplanation}> Kevin implemented the machine learning models using a methodology found within academic research  </div>
         </>
