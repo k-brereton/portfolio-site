@@ -456,6 +456,7 @@ function NBCInternship() {
     return <>
         <AnimateSharedLayout>
             <Modal size="xl" show={isModalOpen} onHide={() => setIsModalOpen(false)}>
+                <Modal.Header closeButton />
                 <motion.div layout>
                     <Modal.Body>
                         <ProjectComponentBody projectData={comOptionAnalyticsData} collapsable={false}/>
