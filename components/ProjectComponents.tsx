@@ -22,12 +22,12 @@ export const ALL_PROJECT_TAGS=["C++","C","Java","Android",
 export type ProjectTag=typeof ALL_PROJECT_TAGS[number];
 
 
-interface CompanyData {
+export interface CompanyData {
     readonly logo:string
     readonly url:string
 }
 
-interface ProjectData  {
+export interface ProjectData  {
     readonly title:string;
     readonly company:string;
     readonly company_data:CompanyData|null;
@@ -45,7 +45,7 @@ interface ProjectComponentBodyProps {
 }
 
 
-export function ProjectComponentBody({projectData,collapsable=true}:ProjectComponentBodyProps) {
+export function ProjectComponentBody({projectData,collapsable}:ProjectComponentBodyProps) {
     const {component:Component,end,company_data,company,start,title, tags, showTags, github_link} = projectData;
     let skillBox=null;
     if(showTags){
@@ -81,9 +81,6 @@ export function ProjectComponentBody({projectData,collapsable=true}:ProjectCompo
 
 }
 
-// note there is a bit of a DRY violation currently between the project and experience components. I plan on eventually
-// changing it so they are sufficiently different to justify them being two different components.
-
 export function ProjectComponent({projectData}:{projectData:ProjectData}){
     return <motion.div className={style.projectComponent} layout>
            <ProjectComponentBody projectData={projectData} collapsable={true}/>
@@ -103,9 +100,7 @@ export const resumeSiteData:ProjectData={
     showTags:true
 }
 export function ResumeSiteComponent() {
-    return <>
-        <div className={style.projectExplanation} > Created the site you are on right now using Next.js and Typescript </div>
-    </>
+    return <div className={style.projectExplanation} > Created the site you are on right now using Next.js and Typescript </div>
 }
 
 export const comOptionAnalyticsData:ProjectData={
