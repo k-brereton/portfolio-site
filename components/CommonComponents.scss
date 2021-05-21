@@ -83,6 +83,10 @@
     grid-template-columns: 50% 50%;
     gap: 10px;
     >div:nth-child(n) { grid-column: auto}
+    >div:nth-child(2n+1):last-child {
+      position:relative;
+      left: 50%;
+    }
   }
 }
 .collapsableSkillsBoxOuter{
