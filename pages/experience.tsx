@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import {UNIVERSITY_OF_CALGARY_DATA,NBC_INTERNSHIP_DATA,SCHULICH_IGNITE_DATA} from "../components/ExperienceComponents";
 import {InitialPageAnimations} from "../components/CommonComponents";
 import {Container} from "react-bootstrap";
-import {ProjectComponent} from "../components/ProjectComponents";
+import {NBC_INTERNSHIP_DATA, ProjectComponent, SCHULICH_IGNITE_DATA, UNIVERSITY_OF_CALGARY_DATA} from "../components/ProjectComponents";
 
 export default function ExperiencePage() {
     return <InitialPageAnimations>
