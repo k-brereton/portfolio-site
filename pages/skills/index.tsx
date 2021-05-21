@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import {InitialPageAnimations, SkillsBox} from "../../components/CommonComponents";
-import {ProjectTag} from "../../components/ProjectComponents";
+import {ProjectTag} from "../../components/ExperienceComponents";
 // @ts-ignore
 import style from "./index.module.scss"
 

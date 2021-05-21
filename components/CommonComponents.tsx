@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from "next/link";
 import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
-import {ProjectTag} from "./ProjectComponents";
+import {ProjectTag} from "./ExperienceComponents";
 import {PropsWithChildren, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 

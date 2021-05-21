@@ -17,7 +17,7 @@
 }
 
 
-.projSkillBox{
+.expSkillBox{
   margin-top: 30px;
   @extend .centering;
   > :global(.skillsBox) {
@@ -32,37 +32,37 @@
   );
 
 }
-.projectExplanation{
+.explanation{
   font-size: x-large;
   margin-bottom: 10px;
 }
 
-.projectComponent{
+.expComponent{
   @extend .impactBox;
   margin-top: 50px;
 }
-.projectComponent:nth-child(5n+3), {
+.expComponent:nth-child(5n+3), {
   @include colorSkillsBox(
           $color:lighten(variables.$purple,5%),
           $hoverColor:lighten(variables.$purple,10%),
           $textColor:lighten(variables.$purple,17%)
   );
 }
-.projectComponent:nth-child(5n+4){
+.expComponent:nth-child(5n+4){
   @include colorSkillsBox(
           $color:variables.$green,
           $hoverColor:lighten(variables.$green,10%),
           $textColor:lighten(variables.$green,5%)
   );
 }
-.projectComponent:nth-child(5n){
+.expComponent:nth-child(5n){
   @include colorSkillsBox(
           $color:variables.$yellow,
           $hoverColor:lighten(variables.$yellow,10%),
           $textColor:lighten(variables.$yellow,5%)
   );
 }
-.projectComponent:nth-child(5n+1){
+.expComponent:nth-child(5n+1){
   @include colorSkillsBox(
           $color:variables.$red,
           $hoverColor:lighten(variables.$red,10%),

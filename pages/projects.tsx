@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {PROJECT_DATA, ProjectComponent} from "../components/ProjectComponents";
+import {PROJECT_DATA, ProjectComponent} from "../components/ExperienceComponents";
 import {AnimateSharedLayout} from "framer-motion";
 import {InitialPageAnimations} from "../components/CommonComponents";
 import {Container} from "react-bootstrap";

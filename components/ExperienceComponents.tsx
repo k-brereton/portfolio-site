@@ -1,7 +1,7 @@
 import {FunctionComponent, MouseEvent, useState} from "react";
 import {Media, Modal} from "react-bootstrap";
 // @ts-ignore
-import style from "./ProjectComponents.module.scss";
+import style from "./ExperienceComponents.module.scss";
 import Image from "next/image";
 import {CollapsableSkillsBox, JobTitle, SkillsBox} from "./CommonComponents";
 import {AnimateSharedLayout, motion} from "framer-motion";
@@ -51,10 +51,10 @@ export function ProjectComponentBody({projectData,collapsable}:ProjectComponentB
     let skillBox=null;
     if(showTags){
         if(collapsable){
-            skillBox=<CollapsableSkillsBox title={null} skills={tags} className={style.projSkillBox}/>
+            skillBox=<CollapsableSkillsBox title={null} skills={tags} className={style.expSkillBox}/>
         }
         else{
-            skillBox=<div className={style.projSkillBox}><SkillsBox title={null} skills={tags}  /></div>
+            skillBox=<div className={style.expSkillBox}><SkillsBox title={null} skills={tags}  /></div>
         }
     }
     let body =<>
@@ -83,7 +83,7 @@ export function ProjectComponentBody({projectData,collapsable}:ProjectComponentB
 }
 
 export function ProjectComponent({projectData}:{projectData:ProjectData}){
-    return <motion.div className={style.projectComponent} layout>
+    return <motion.div className={style.expComponent} layout>
            <ProjectComponentBody projectData={projectData} collapsable={true}/>
         </motion.div>
 }
@@ -101,7 +101,7 @@ export const resumeSiteData:ProjectData={
     showTags:true
 }
 export function ResumeSiteComponent() {
-    return <div className={style.projectExplanation} > Created the site you are on right now using Next.js and Typescript </div>
+    return <div className={style.explanation} > Created the site you are on right now using Next.js and Typescript </div>
 }
 
 export const comOptionAnalyticsData:ProjectData={
@@ -119,8 +119,8 @@ export const comOptionAnalyticsData:ProjectData={
 
 export function ComOptionAnalyticsComponent () {
     return <>
-        <div className={style.projectExplanation} > Created the ComOptionAnalytics system for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</div>
-        <div className={style.projectExplanation}>
+        <div className={style.explanation} > Created the ComOptionAnalytics system for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</div>
+        <div className={style.explanation}>
         <div> This system includes:</div>
         <ul>
             <li>A central server which pulls market data from various sources to provide real time data analysis</li>
@@ -130,7 +130,7 @@ export function ComOptionAnalyticsComponent () {
             <li>Several more tools for gathering, evaluating, and analyzing market data</li>
         </ul>
         </div>
-        <div className={style.projectExplanation}>Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use</div>
+        <div className={style.explanation}>Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use</div>
     </>
 }
 
@@ -148,9 +148,9 @@ export const riskManagerData:ProjectData={
 
 export function RiskManagerComponent() {
     return <>
-        <div className={style.projectExplanation} > Lead a small team to create a software system for traders to manage their portfolio risk in real time</div>
-        <div className={style.projectExplanation}> Designed code architecture, and implemented core features</div>
-        <div className={style.projectExplanation}> Organized and motivated the development team, while providing code reviews, guidance, and knowledge to ensure the project ran smoothly</div>
+        <div className={style.explanation} > Lead a small team to create a software system for traders to manage their portfolio risk in real time</div>
+        <div className={style.explanation}> Designed code architecture, and implemented core features</div>
+        <div className={style.explanation}> Organized and motivated the development team, while providing code reviews, guidance, and knowledge to ensure the project ran smoothly</div>
     </>
 }
 
@@ -169,9 +169,9 @@ export const chessOnTheGoData:ProjectData={
 
 export function ChessOnTheGoComponent() {
     return <>
-            <div className={style.projectExplanation} > Co-created an online chess platform  using Typescript, React.js, MongoDB, Express.js and Socket.io </div>
-            <div className={style.projectExplanation} > The website featured the full competitive chess ruleset, skill-based matchmaking, Elo rankings, and several game modes  </div>
-            <div className={style.projectExplanation} > Kevin implemented the majority of the server code using Node.js, Express.js and Socket.io </div>
+            <div className={style.explanation} > Co-created an online chess platform  using Typescript, React.js, MongoDB, Express.js and Socket.io </div>
+            <div className={style.explanation} > The website featured the full competitive chess ruleset, skill-based matchmaking, Elo rankings, and several game modes  </div>
+            <div className={style.explanation} > Kevin implemented the majority of the server code using Node.js, Express.js and Socket.io </div>
         </>
 }
 
@@ -190,9 +190,9 @@ export const faultLocalizationToolData:ProjectData={
 
 export function FaultLocalizationToolComponent(){
     return <>
-            <div className={style.projectExplanation} > Co-created a Fault Localization tool that detects where a software bug is located in the source code of a software project using machine learning  </div>
-            <div className={style.projectExplanation}> The tool searched for a bug described in a bug report and predicted the files that needed fixing </div>
-            <div className={style.projectExplanation}> Kevin implemented the machine learning models using a methodology found within academic research  </div>
+            <div className={style.explanation} > Co-created a Fault Localization tool that detects where a software bug is located in the source code of a software project using machine learning  </div>
+            <div className={style.explanation}> The tool searched for a bug described in a bug report and predicted the files that needed fixing </div>
+            <div className={style.explanation}> Kevin implemented the machine learning models using a methodology found within academic research  </div>
         </>
 }
 
@@ -210,9 +210,9 @@ export const amazonReviewAnalyzerData:ProjectData={
 
 export function AmazonReviewAnalysis(){
     return <>
-        <div className={style.projectExplanation} > Collaborated with 3 others to create a sentiment analysis tool for amazon reviews </div>
-        <div className={style.projectExplanation} > The tool analyzed product reviews to detect whether the reviewer felt positively or negatively about the product </div>
-        <div className={style.projectExplanation}> The tool is horizontally and vertically scalable, and it could potentially handle terabytes of information at once </div>
+        <div className={style.explanation} > Collaborated with 3 others to create a sentiment analysis tool for amazon reviews </div>
+        <div className={style.explanation} > The tool analyzed product reviews to detect whether the reviewer felt positively or negatively about the product </div>
+        <div className={style.explanation}> The tool is horizontally and vertically scalable, and it could potentially handle terabytes of information at once </div>
     </>
 }
 
@@ -231,10 +231,10 @@ export const twitchVidsData:ProjectData={
 
 export function TwitchVidsComponent() {
     return <>
-        <div className={style.projectExplanation} >
+        <div className={style.explanation} >
             Co-created website which is YouTube but for Twitch clips. Users can see the latest highlights from their favorite streamers by subscribing to them. This was implemented using the Laravel Framework
         </div>
-        <div className={style.projectExplanation}>
+        <div className={style.explanation}>
             Implemented the majority of the server code, including the Laravel models, controllers, and the Twitch API integration
         </div>
     </>
@@ -254,8 +254,8 @@ export const carVisualizerData:ProjectData={
 
 export function CarVisualizerComponent() {
     return <>
-        <div className={style.projectExplanation} >Collaborated with 4 others to create a website for car customization. The website allows users to choose what cars they want to buy, and select colors, etc</div>
-        <div className={style.projectExplanation}>
+        <div className={style.explanation} >Collaborated with 4 others to create a website for car customization. The website allows users to choose what cars they want to buy, and select colors, etc</div>
+        <div className={style.explanation}>
             Implemented the majority of the server code, including the Laravel models and controllers
         </div>
     </>
@@ -276,9 +276,9 @@ export const parkingManagementData:ProjectData={
 
 export function ParkingDataManagementSystemComponent() {
     return <>
-        <div className={style.projectExplanation}>Collaborated with 3 people to create a highly modular Java Swing application for collecting and organizing data from parking security companies. His efforts resulted in an expandable and easy to use software core to base further projects off of</div>
-        <div className={style.projectExplanation}>Designed a Self-Checking Database core which automatically detects data Integrity flaws, creating an easy to use and intuitive database communication</div>
-        <div className={style.projectExplanation}>Expanded his knowledge by porting the system over to android</div>
+        <div className={style.explanation}>Collaborated with 3 people to create a highly modular Java Swing application for collecting and organizing data from parking security companies. His efforts resulted in an expandable and easy to use software core to base further projects off of</div>
+        <div className={style.explanation}>Designed a Self-Checking Database core which automatically detects data Integrity flaws, creating an easy to use and intuitive database communication</div>
+        <div className={style.explanation}>Expanded his knowledge by porting the system over to android</div>
     </>
 }
 
@@ -294,8 +294,8 @@ export const bookOrderingSystemData:ProjectData={
     showTags:true
 }
 export function BookOrderingSystemComponent() {
-    return <div className={style.projectExplanation} >
-        <div className={style.projectExplanation} >Re-used the framework from the Parking Data Management system to implement a Book Ordering System </div>
+    return <div className={style.explanation} >
+        <div className={style.explanation} >Re-used the framework from the Parking Data Management system to implement a Book Ordering System </div>
     </div>
 }
 
@@ -313,10 +313,10 @@ export const desireToLoveData:ProjectData={
 
 export function DesireToLoveComponent() {
     return <>
-        <div className={style.projectExplanation}>
+        <div className={style.explanation}>
             Co-created a love themed d2l site. Students could view content for their courses, submit assignments, and participate in online message boards with other other students.
         </div>
-        <div className={style.projectExplanation} >
+        <div className={style.explanation} >
             Kevin implemented A multi-purpose Server communication system which allowed for easy communication
             between the front end and back end. His system made all database interaction a breeze, and
             allowed for a messaging service to be implemented into the application
@@ -337,7 +337,7 @@ export const reactMiscData:ProjectData={
 }
 
 export function ReactMisc() {
-    return <div className={style.projectExplanation} >
+    return <div className={style.explanation} >
         Implemented various other smaller websites using React.js, Javascript and Typescript. The most fun example is the game
         <a href="https://k-brereton.github.io/mine-sweeper/build/"> Minesweeper</a>
     </div>
@@ -356,14 +356,14 @@ export const cppMiscData:ProjectData={
 }
 export function CppMiscComponent() {
     return <>
-        <div className={style.projectExplanation} > Implemented various smaller C and C++ projects, including:</div>
-        <ul className={style.projectExplanation}>
+        <div className={style.explanation} > Implemented various smaller C and C++ projects, including:</div>
+        <ul className={style.explanation}>
             <li>An HTTP proxy server</li>
             <li>A small compression engine</li>
             <li>Various embedded systems, such as a remote for a remote controlled car </li>
             <li>Many different algorithm implementations and smaller assignments</li>
         </ul>
-        <div className={style.projectExplanation} >
+        <div className={style.explanation} >
             This work has given Kevin excellent understanding of advanced C++ concepts such as templates, and a strong understanding of systems/embedded programming
         </div>
     </>
@@ -381,7 +381,7 @@ export const pandasMiscData:ProjectData={
     showTags:false
 }
 export function PandasMiscComponent(){
-    return <div className={style.projectExplanation} >  Worked on various smaller assignments using NumPy and Pandas.py </div>
+    return <div className={style.explanation} >  Worked on various smaller assignments using NumPy and Pandas.py </div>
 }
 
 export const javaMiscData:ProjectData={
@@ -397,8 +397,8 @@ export const javaMiscData:ProjectData={
 }
 export function JavaMiscComponent() {
     return <>
-        <div className={style.projectExplanation} >Used Java for many smaller assignments. This work has given Kevin a strong understanding of advanced techniques like Generics and lambdas </div>
-        <div className={style.projectExplanation}>
+        <div className={style.explanation} >Used Java for many smaller assignments. This work has given Kevin a strong understanding of advanced techniques like Generics and lambdas </div>
+        <div className={style.explanation}>
             While the majority of his work was in Java 8, he has done extensive research into modern java techniques such as Var and Records. He has also taken an interest in the future direction of the language
             (ie <a href="https://openjdk.java.net/projects/valhalla/"> Project Valhalla</a> and
             <a href="https://wiki.openjdk.java.net/display/loom/Main"> Project Loom</a>)
@@ -463,13 +463,13 @@ function NBCInternship() {
                 </motion.div>
             </Modal>
         </AnimateSharedLayout>
-        <div className={style.projectExplanation}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge
+        <div className={style.explanation}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge
             funds. This system analyzes option contracts, giving real time pricing and risk profiles
         </div>
-        <div className={style.projectExplanation}> Refined his software architecture skills to create cohesive and high-quality code using the object-oriented and functional
+        <div className={style.explanation}> Refined his software architecture skills to create cohesive and high-quality code using the object-oriented and functional
             programming paradigms
         </div>
-        <div className={style.projectExplanation}> Helped interview and analyze candidates for the next years internship</div>
+        <div className={style.explanation}> Helped interview and analyze candidates for the next years internship</div>
     </>
 }
 
@@ -487,7 +487,7 @@ export const SCHULICH_IGNITE_DATA: ProjectData = {
 }
 
 function SchulichIgnite() {
-    return <div className={style.projectExplanation}>Explained complicated programming concepts to students so they could program games</div>
+    return <div className={style.explanation}>Explained complicated programming concepts to students so they could program games</div>
 }
 
 export const UNIVERSITY_OF_CALGARY_DATA: ProjectData = {
@@ -504,7 +504,7 @@ export const UNIVERSITY_OF_CALGARY_DATA: ProjectData = {
 
 function UniversityOfCalgary() {
     return <>
-        <div className={style.projectExplanation}>GPA: 3.94 / 4</div>
-        <div className={style.projectExplanation}>Created many <Link href="/projects">projects</Link> for different courses</div>
+        <div className={style.explanation}>GPA: 3.94 / 4</div>
+        <div className={style.explanation}>Created many <Link href="/projects">projects</Link> for different courses</div>
     </>
 }

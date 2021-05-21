@@ -1,4 +1,4 @@
-import {ALL_PROJECT_TAGS, PROJECT_DATA, ProjectComponent, ProjectTag} from "../../components/ProjectComponents"
+import {ALL_PROJECT_TAGS, PROJECT_DATA, ProjectComponent, ProjectTag} from "../../components/ExperienceComponents"
 import {InitialPageAnimations, PageHead} from "../../components/CommonComponents";
 import {AnimateSharedLayout} from "framer-motion";
 
