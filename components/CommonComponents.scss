@@ -11,6 +11,21 @@
   top: 40px;
   border-radius: 3px;
   left:75px;
+
+  @media screen and (max-width: 510px) {
+    font-size: xx-large;
+    top: 30px;
+    left:25px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: x-large;
+    top: 25px;
+  }
+  @media screen and (max-width: 360px) {
+    font-size: large;
+    top: 18px;
+  }
+
 }
 .skillsBox{
   display: inline-grid;
@@ -32,6 +47,13 @@
 
     >a{
       font-size: large;
+      @media screen and (max-width: 450px) {
+        font-size: medium;
+      }
+      @media screen and (max-width: 360px) {
+        font-size: small;
+      }
+
 
       display: block;
       height: min-content;
@@ -49,11 +71,21 @@
   width:100%;
   .skillsBox{
     padding-top: 50px;
+    @media screen and (max-width: 510px) {
+      padding-top: 40px;
+    }
+    @media screen and (max-width: 450px) {
+      padding-top: 35px;
+    }
+    @media screen and (max-width: 360px) {
+      padding-top: 25px;
+    }
+
   }
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 510px) {
   .skillsBox{
     grid-template-columns: 50% 50%;
     gap: 10px;

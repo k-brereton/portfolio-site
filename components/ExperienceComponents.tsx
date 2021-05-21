@@ -101,27 +101,34 @@ export function ProjectComponentBody({projectData,collapsable}:ProjectComponentB
             skillBox=<div className={style.expSkillBox}><SkillsBox title={null} skills={tags}  /></div>
         }
     }
-    let body =<>
-        <motion.div layout>
-            <JobTitle githubLink={github_link} title={title} company={company} start={start} end={end}/>
-            <Component />
-        </motion.div>
-        {skillBox }
-    </>;
     if(company_data !== null){
-        return <Media>
+        return <>
+            <Media>
                 <motion.div layout>
                     <a href={company_data.url}>
                         <Image layout={"fixed"} src={company_data.logo} width={64} height={64} alt={`${company} logo`} />
                     </a>
                 </motion.div>
                 <Media.Body>
-                    {body}
+                    <motion.div layout>
+                        <JobTitle githubLink={github_link} title={title} company={company} start={start} end={end}/>
+                    </motion.div>
                 </Media.Body>
-            </Media>
+        </Media>
+        <motion.div layout>
+            <Component />
+        </motion.div>
+        {skillBox}
+        </>
     }
     else{
-        return body
+        return <>
+            <motion.div layout>
+                <JobTitle githubLink={github_link} title={title} company={company} start={start} end={end}/>
+                <Component />
+            </motion.div>
+            {skillBox }
+        </>;
     }
 
 }

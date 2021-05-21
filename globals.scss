@@ -21,10 +21,10 @@ $impactBoxBackground:darken(variables.$body-bg,2%);
 
 .mainTitle{
     text-align: center;
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 510px) {
         font-size: 4rem;
     }
-    @media screen and (max-width: 350px) {
+    @media screen and (max-width: 360px) {
         font-size: 3rem;
     }
 }
@@ -32,4 +32,9 @@ $impactBoxBackground:darken(variables.$body-bg,2%);
 .contentDiv{
     background-color: lighten(variables.$body-bg,2%);
     min-height: calc(100vh - 150px);
+}
+.backToHomeLink{
+    @media screen and (max-width: 360px) {
+        font-size: x-large;
+    }
 }

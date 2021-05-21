@@ -8,7 +8,6 @@ import {VARIANT} from "../components/CommonComponents";
 import Link from "next/link";
 import Image from "next/image";
 import {useRouter} from "next/router";
-import {AnimatePresence, motion} from 'framer-motion';
 const HEADER_LOGO_SIZE_PX=30;
 
 export function Header({pathname}:{pathname:string}) {
@@ -33,7 +32,7 @@ export function Header({pathname}:{pathname:string}) {
 
 function BackToHomeLink() {
     return <footer className="centering">
-        <h2>
+        <h2 className="backToHomeLink">
         <Link href="/" passHref>
             <a>🠔 Back to home</a>
         </Link>
