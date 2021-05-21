@@ -16,22 +16,34 @@
     display: inline-block;
     padding: 15px;
     font-size: large;
+    @include globals.dynamicText;
 }
 .contactArea{
     padding-top: 30px;
     max-width: 800px;
     font-size: 1.4em;
+    @include globals.dynamicSubtitle;
 }
 
 .aboutContactIcon{
     margin-right: 5px;
 }
 .iconClass{
-    width: 45px;
-    height: 45px;
+    font-size: xxx-large;
+    @media screen and (max-width: 450px) {
+        font-size: xx-large;
+    }
 }
 
 .hidden{
     visibility: hidden;
     display: none;
+}
+.name{
+    @media screen and (max-width: 450px) {
+        font-size: xxx-large;
+    }
+    @media screen and (max-width: 380px) {
+        font-size: xx-large;
+    }
 }

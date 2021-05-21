@@ -18,7 +18,7 @@ export default function  About() {
             <Container className={style.mainArea}>
                 <Image src="/images/kevin_picture.jpg" className={style.myImage} height={MY_IMAGE_SIZE} width={MY_IMAGE_SIZE}/>
                 <ContactMediaBar showAboutLink={false} iconClassName={style.iconClass}/>
-                <h2 className="display-4">Kevin Brereton</h2>
+                <h2 className={`display-4 ${style.name}`}>Kevin Brereton</h2>
                 <div className={style.textArea}>
                     Hi, I am a freshly graduated software developer from Calgary, Alberta. I am passionate about coding, and design principles. While I have stellar grades and impressive projects, my largest source of experience is from the year I spent on internship developing applications for one of the National Bank of Canada's hedge funds. I am also an avid chess player, and fan of cats.
                 </div>

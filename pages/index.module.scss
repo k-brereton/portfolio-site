@@ -59,6 +59,9 @@
 .overallColumn2{
     min-width: 50%;
 }
+.iconClass{
+    font-size: xxx-large;
+}
 
 
 @media only screen and (max-width: 1050px) {
@@ -91,6 +94,9 @@
     .homeLinks{
         height: calc(100vh - 200px);
     }
+    .iconClass{
+        font-size: xx-large;
+    }
 
 }
 
@@ -100,9 +106,5 @@
     }
 }
 
-.iconClass{
-    width: 40px;
-    height: 40px;
-}
 
 

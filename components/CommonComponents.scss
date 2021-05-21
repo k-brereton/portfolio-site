@@ -47,14 +47,7 @@
 
     >a{
       font-size: large;
-      @media screen and (max-width: 450px) {
-        font-size: medium;
-      }
-      @media screen and (max-width: 360px) {
-        font-size: small;
-      }
-
-
+      @include globals.dynamicText();
       display: block;
       height: min-content;
       padding: 3px 10px;
