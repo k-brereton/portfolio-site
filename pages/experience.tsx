@@ -10,8 +10,8 @@ export default function ExperiencePage() {
         </Head>
         <Container>
             <h1 className="display-2 mainTitle">Experience</h1>
-            {[UNIVERSITY_OF_CALGARY_DATA,NBC_INTERNSHIP_DATA,SCHULICH_IGNITE_DATA].map(data=>{
-                return <ProjectComponent projectData={data}/>;
+            {[UNIVERSITY_OF_CALGARY_DATA,NBC_INTERNSHIP_DATA,SCHULICH_IGNITE_DATA].map((data, idx)=>{
+                return <ProjectComponent key={idx} projectData={data}/>;
             })}
         </Container>
     </InitialPageAnimations>
