@@ -543,7 +543,7 @@ function SchulichIgnite() {
 }
 
 export const UNIVERSITY_OF_CALGARY_DATA: ProjectData = {
-    company_data: {logo: "/images/UCalgary.png", url: "https://www.ucalgary.ca/"},
+    company_data: {logo: "/images/ucalgary.png", url: "https://www.ucalgary.ca/"},
     title: "Bachelor of Science in Software Engineering",
     start: "2015-09-01",
     end: "2021-05-01",
