@@ -1,5 +1,5 @@
 import {ALL_PROJECT_TAGS, PROJECT_DATA, ProjectComponent, ProjectTag} from "../../components/ExperienceComponents"
-import {InitialPageAnimations, PageHead} from "../../components/CommonComponents";
+import {PageHead} from "../../components/CommonComponents";
 import {AnimateSharedLayout} from "framer-motion";
 import {Container} from "react-bootstrap";
 
@@ -7,13 +7,13 @@ export default function SkillComponent({skill}:{skill:ProjectTag}) {
     const dataToShow=PROJECT_DATA.filter(data=>data.tags.includes(skill))
         .map((data,index)=>(<ProjectComponent key={index} projectData={data}/>));
 
-    return <InitialPageAnimations>
+    return <>
         <PageHead description={`Kevin Brereton's experience with ${skill}`} title={`Kevin Brereton | ${skill}`}/>
         <Container>
             <h1 className="display-2 mainTitle">{skill} Experience</h1>
             {dataToShow}
         </Container>
-    </InitialPageAnimations>
+    </>
 
 }
 

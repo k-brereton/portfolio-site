@@ -7,7 +7,7 @@ import {Nav, Navbar} from "react-bootstrap";
 import {VARIANT} from "../components/CommonComponents";
 import Link from "next/link";
 import Image from "next/image";
-import {AnimateSharedLayout} from "framer-motion";
+import {AnimatePresence, AnimateSharedLayout, motion} from "framer-motion";
 const HEADER_LOGO_SIZE_PX=30;
 
 export function Header({pathname}:{pathname:string}) {
@@ -40,14 +40,34 @@ function BackToHomeLink() {
     </footer>
 }
 
+const variants={
+    hidden: { y:1000 },
+    show: {
+        y:0,
+        transition: {
+            delayChildren: 0.5,
+            duration:0.5
+        }
+    },
+    rehidden:{y:1000,
+        transition: {
+            delayChildren: 5,
+            duration:0.5
+        },
+        backgroundColor:"#FFFFFF"
+    }
+}
+
 function MyApp({ Component, pageProps, router }: AppProps) {
     const {pathname}=router;
 
     return <AnimateSharedLayout>
         <Header pathname={pathname}/>
-        <main >
-            <Component {...pageProps} />
-        </main>
+        <AnimatePresence>
+            <motion.div key={pathname} className="contentDiv" initial="hidden" animate="show" exit="rehidden" variants={variants} >
+                        <Component {...pageProps} />
+            </motion.div>
+        </AnimatePresence>
         {pathname !== "/"&&<BackToHomeLink/>}
         </AnimateSharedLayout>
 }

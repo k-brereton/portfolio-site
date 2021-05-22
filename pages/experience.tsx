@@ -1,10 +1,9 @@
 import Head from 'next/head'
-import {InitialPageAnimations} from "../components/CommonComponents";
 import {Container} from "react-bootstrap";
 import {NBC_INTERNSHIP_DATA, ProjectComponent, SCHULICH_IGNITE_DATA, UNIVERSITY_OF_CALGARY_DATA} from "../components/ExperienceComponents";
 
 export default function ExperiencePage() {
-    return <InitialPageAnimations>
+    return <>
         <Head>
             <title>Kevin Brereton's Portfolio | Experience</title>
         </Head>
@@ -14,5 +13,5 @@ export default function ExperiencePage() {
                 return <ProjectComponent key={idx} projectData={data}/>;
             })}
         </Container>
-    </InitialPageAnimations>
+    </>
 }

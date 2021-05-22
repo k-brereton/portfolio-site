@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from "next/image";
 
-import {ContactMediaBar, InitialPageAnimations} from "../components/CommonComponents";
+import {ContactMediaBar} from "../components/CommonComponents";
 // @ts-ignore
 import style from "./index.module.scss"
 import Link from "next/link"
@@ -72,7 +72,7 @@ function HomeContactInfo(){
 
 export default function Home() {
   return (
-      <InitialPageAnimations>
+      <>
           <Head>
           <title>Kevin Brereton's Portfolio</title>
         </Head>
@@ -84,6 +84,6 @@ export default function Home() {
                   <HomeContactInfo />
               </div>
           </div>
-      </InitialPageAnimations>
+      </>
   )
 }

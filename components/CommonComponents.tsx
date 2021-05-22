@@ -2,31 +2,12 @@ import Head from 'next/head';
 import Link from "next/link";
 import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 import {ProjectTag} from "./ExperienceComponents";
-import {PropsWithChildren, useState} from "react";
+import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 
 export const VARIANT="dark"
 export const ICON_SIZE=30;
 
-const variants={
-    hidden: { y:1000 },
-    show: {
-        y:0,
-        transition: {
-            delayChildren: 0.5,
-            duration:0.5
-        }
-    }
-}
-
-export function InitialPageAnimations({children}:PropsWithChildren<{}>) {
-    return <AnimatePresence>
-        <motion.div className="contentDiv" initial="hidden"
-                    animate="show" exit="hidden" variants={variants} >
-            {children}
-        </motion.div>
-    </AnimatePresence>
- }
 
 export function LoadingScreen() {
     return <div>loading...</div>
