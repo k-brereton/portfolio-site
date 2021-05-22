@@ -7,7 +7,6 @@ import {Nav, Navbar} from "react-bootstrap";
 import {VARIANT} from "../components/CommonComponents";
 import Link from "next/link";
 import Image from "next/image";
-import {useRouter} from "next/router";
 import {AnimateSharedLayout} from "framer-motion";
 const HEADER_LOGO_SIZE_PX=30;
 
@@ -41,19 +40,16 @@ function BackToHomeLink() {
     </footer>
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
-    const router = useRouter();
+function MyApp({ Component, pageProps, router }: AppProps) {
     const {pathname}=router;
 
-    return <>
-        <AnimateSharedLayout>
+    return <AnimateSharedLayout>
         <Header pathname={pathname}/>
         <main >
             <Component {...pageProps} />
         </main>
         {pathname !== "/"&&<BackToHomeLink/>}
         </AnimateSharedLayout>
-    </>
 }
 
 export default MyApp
