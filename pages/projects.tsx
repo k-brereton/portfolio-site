@@ -12,9 +12,7 @@ export default function ProjectPage() {
         </Head>
         <Container>
             <h1 className="display-2 mainTitle">Projects</h1>
-            <AnimateSharedLayout>
                 {dataToShow}
-            </AnimateSharedLayout>
         </Container>
     </InitialPageAnimations>
 }

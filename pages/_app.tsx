@@ -8,6 +8,7 @@ import {VARIANT} from "../components/CommonComponents";
 import Link from "next/link";
 import Image from "next/image";
 import {useRouter} from "next/router";
+import {AnimateSharedLayout} from "framer-motion";
 const HEADER_LOGO_SIZE_PX=30;
 
 export function Header({pathname}:{pathname:string}) {
@@ -45,11 +46,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     const {pathname}=router;
 
     return <>
+        <AnimateSharedLayout>
         <Header pathname={pathname}/>
         <main >
             <Component {...pageProps} />
         </main>
         {pathname !== "/"&&<BackToHomeLink/>}
+        </AnimateSharedLayout>
     </>
 }
 

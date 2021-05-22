@@ -11,7 +11,7 @@ export default function SkillComponent({skill}:{skill:ProjectTag}) {
         <PageHead description={`Kevin Brereton's experience with ${skill}`} title={`Kevin Brereton | ${skill}`}/>
         <Container>
             <h1 className="display-2 mainTitle">{skill} Experience</h1>
-            <AnimateSharedLayout>{dataToShow}</AnimateSharedLayout>
+            {dataToShow}
         </Container>
     </InitialPageAnimations>
 

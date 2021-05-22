@@ -505,7 +505,6 @@ function NBCInternship() {
     };
 
     return <>
-        <AnimateSharedLayout>
             <Modal size="xl" show={isModalOpen} onHide={() => setIsModalOpen(false)}>
                 <Modal.Header closeButton />
                 <motion.div layout>
@@ -514,7 +513,6 @@ function NBCInternship() {
                     </Modal.Body>
                 </motion.div>
             </Modal>
-        </AnimateSharedLayout>
         <div className={style.explanation}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge
             funds. This system analyzes option contracts, giving real time pricing and risk profiles
         </div>
