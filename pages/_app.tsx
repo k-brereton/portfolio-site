@@ -59,18 +59,21 @@ const variants:Variants={
 }
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-    const {pathname}=router;
+    const {asPath}=router;
+    console.log(asPath)
 
     return <AnimateSharedLayout>
-        <Header pathname={pathname}/>
+        <Header pathname={asPath}/>
             <motion.div className={"contentDivWrapper"}>
                 <AnimatePresence exitBeforeEnter>
-                    <motion.div key={pathname} className="contentDiv" initial="beforePageLoad" animate="pageLoaded" exit="pageExit" variants={variants} >
+                    <motion.div key={asPath} className="contentDiv" initial="beforePageLoad" animate="pageLoaded" exit="pageExit" variants={variants} >
+                        <main className="mainContent">
                                 <Component {...pageProps} />
+                        </main>
+                        {asPath !== "/"&&<BackToHomeLink/>}
                     </motion.div>
                 </AnimatePresence>
             </motion.div>
-        {pathname !== "/"&&<BackToHomeLink/>}
         </AnimateSharedLayout>
 }
 
