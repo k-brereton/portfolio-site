@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     return <AnimateSharedLayout>
         <Header pathname={pathname}/>
             <motion.div className={"contentDivWrapper"}>
-                <AnimatePresence>
+                <AnimatePresence exitBeforeEnter>
                     <motion.div key={pathname} className="contentDiv" initial="beforePageLoad" animate="pageLoaded" exit="pageExit" variants={variants} >
                                 <Component {...pageProps} />
                     </motion.div>

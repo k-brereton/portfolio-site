@@ -63,7 +63,14 @@ const MAIN_IMAGE_VARIANT:Variants={
         transition:{
             duration:0.5
         }
-    }
+    },
+    pageExit:{
+        opacity:0,
+        transition:{
+            duration:0.5
+        }
+    },
+
 }
 
 function HomeContactInfo(){
@@ -83,14 +90,14 @@ export default function Home() {
           <Head>
           <title>Kevin Brereton's Portfolio</title>
         </Head>
-          <div className={style.overallDiv} >
+          <motion.div className={style.overallDiv} >
               <div className={style.overallColumn1}>
                   <HomeLinks />
               </div>
               <div className={style.overallColumn2}>
                   <HomeContactInfo />
               </div>
-          </div>
+          </motion.div>
       </>
   )
 }
