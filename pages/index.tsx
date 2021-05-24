@@ -10,14 +10,21 @@ import {motion, Variants} from 'framer-motion';
 
 function createMovingVariant(axis:"x"|"y",initialPosition:number):Variants{
     return {
-        hidden:{[axis]:initialPosition,opacity:0},
-        show:{
+        beforePageLoad:{[axis]:initialPosition,opacity:0},
+        pageLoaded:{
             [axis]:0,
             opacity:1,
             transition:{
                 duration:0.5
             }
-        }
+        },
+        pageExit:{
+            [axis]:initialPosition,
+            opacity:0,
+            transition:{
+                duration:0.5
+            }
+        },
     }
 }
 
@@ -50,8 +57,8 @@ const MAIN_IMAGE_DEFAULT_SIZE_PX=175;
 const ABOUT_LINKS_VARIANT=createMovingVariant("y", 100);
 
 const MAIN_IMAGE_VARIANT:Variants={
-    hidden:{opacity:0},
-    show:{
+    beforePageLoad:{opacity:0},
+    pageLoaded:{
         opacity:1,
         transition:{
             duration:0.5

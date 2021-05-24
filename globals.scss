@@ -28,9 +28,13 @@ $impactBoxBackground:darken(variables.$body-bg,2%);
         font-size: 3rem;
     }
 }
+.contentDivWrapper{
+    background-color: lighten(variables.$body-bg,2%);
+    overflow: hidden;
+}
 
 .contentDiv{
-    background-color: lighten(variables.$body-bg,2%);
+    background-color: variables.$body-bg;
     min-height: calc(100vh - 150px);
 }
 .backToHomeLink{
