@@ -4,15 +4,10 @@ import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 import {ProjectTag} from "./ExperienceComponents";
 import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
-import {createDisappearingVariant} from "./animations";
+import {createDisappearingVariant, createVerticalExpandingVariant} from "./animations";
 
 export const VARIANT="dark"
 export const ICON_SIZE=30;
-
-
-export function LoadingScreen() {
-    return <div>loading...</div>
-}
 
 interface HeaderProps{
     description:string;
@@ -47,38 +42,44 @@ export function ContactMediaBar({showAboutLink, iconClassName}:{showAboutLink:bo
         </div>
 }
 
-const DISAPPEARING_VARIANT=createDisappearingVariant(0.5,0)
+const TITLE_VARIANT=createDisappearingVariant(0.5,undefined,{delay:0.3});
+const EXPANDING_VARIANT=createVerticalExpandingVariant(0);
 
 interface SkillsBoxProps {
     readonly title:string|null;
     readonly skills:ReadonlyArray<ProjectTag>;
+    readonly animatable:boolean;
 }
-export function SkillsBox({title,skills}:SkillsBoxProps){
+export function SkillsBox({title,skills, animatable}:SkillsBoxProps){
 
-    const links=skills.map((skill)=>{
-        return <motion.div key={skill} variants={DISAPPEARING_VARIANT}>
+    const links=skills.map((skill,idx)=>{
+        const delayOffset=Math.floor(idx/3)*0.1;
+        const delayObject=delayOffset===0? undefined:{delay:delayOffset}
+        const variants=createDisappearingVariant(0.3,delayObject,delayObject);
+        return <motion.div key={skill} variants={animatable?variants:undefined}>
             <Link href={`/skills/${skill}`}>{skill}</Link>
         </motion.div>;
     });
     if(title===null){
-        return <div className="skillsBox">{links}</div>
+        return <motion.div variants={animatable?EXPANDING_VARIANT:undefined} className="skillsBox" >{links}</motion.div>
     }
     else{
-        return <div className="skillsBoxWrapper">
-            <div className="skillsBoxTitle">
+        return <motion.div className="skillsBoxWrapper" >
+            <motion.div variants={animatable?TITLE_VARIANT:undefined} className="skillsBoxTitle">
                 {title}
-            </div>
-            <div className="skillsBox">{links}</div>
-        </div>
+            </motion.div>
+            <motion.div variants={animatable?EXPANDING_VARIANT:undefined} className="skillsBox">{links}</motion.div>
+        </motion.div>
     }
 }
 
-interface CollapsableSkillsBoxProps extends SkillsBoxProps{
+interface CollapsableSkillsBoxProps{
+    readonly skills:ReadonlyArray<ProjectTag>;
     className:string;
 }
 
 
-export function CollapsableSkillsBox({title, skills,className}: CollapsableSkillsBoxProps) {
+export function CollapsableSkillsBox({skills,className}: CollapsableSkillsBoxProps) {
 
     const [isCollapsed,setIsCollapsed]=useState(true);
     const shownSkills=isCollapsed? skills.slice(0, 3):skills;
@@ -86,30 +87,19 @@ export function CollapsableSkillsBox({title, skills,className}: CollapsableSkill
 
     const links=shownSkills.map((skill,idx)=>{
         const delayOffset=Math.floor(idx/3)*0.1;
-
-        return <AnimatePresence key={skill}  >
-            <motion.div layout transition={{delay:delayOffset}} initial={{ opacity: 0 }}  animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        const delayObject=delayOffset===0? undefined:{delay:delayOffset}
+        const variants=createDisappearingVariant(0.3,delayObject,delayObject);
+        return <AnimatePresence key={skill}>
+            <motion.div layout  variants={variants}>
                 <Link href={`/skills/${skill}`}>{skill}</Link>
             </motion.div>
         </AnimatePresence>;
     });
-    let body=<motion.div layout className={`collapsableSkillsBoxOuter ${className}`} >
+    return <motion.div layout className={`collapsableSkillsBoxOuter ${className}`} variants={EXPANDING_VARIANT} >
         <motion.div className="skillsBox" layout >
             {links}
         </motion.div>
         <motion.div layout className="collapseButton" onClick={()=>setIsCollapsed(!isCollapsed)}>{buttonContent}</motion.div>
     </motion.div>;
-
-    if(title===null){
-        return body;
-    }
-    else{
-        return <>
-            <div className="skillsBoxTitle">
-                {title}
-            </div>
-            {body}
-        </>
-    }
 }
 

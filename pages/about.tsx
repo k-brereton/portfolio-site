@@ -13,8 +13,8 @@ const MY_IMAGE_SIZE=175;
 
 const OUTER_VARIANT:Variants=createExpandingHorizontalVariant("100%",30,0.1);
 
-const TITLE_VARIANT:Variants=createDisappearingVariant(0.5,0.3);
-const FAST_DISAPPEARING_VARIANT=createDisappearingVariant(0.3,0);
+const TITLE_VARIANT:Variants=createDisappearingVariant(0.5,undefined, {delay:0.3});
+const FAST_DISAPPEARING_VARIANT=createDisappearingVariant(0.3);
 
 export default function About() {
     return <>

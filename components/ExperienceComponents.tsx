@@ -42,7 +42,7 @@ export interface ProjectData  {
 
 interface ProjectComponentBodyProps {
     projectData:ProjectData,
-    collapsable:boolean
+    animatable:boolean
 }
 
 
@@ -90,15 +90,15 @@ function JobTitle({title, company, start, end, githubLink}: JobTitleProps) {
 
 }
 
-export function ProjectComponentBody({projectData,collapsable}:ProjectComponentBodyProps) {
+export function ProjectComponentBody({projectData,animatable}:ProjectComponentBodyProps) {
     const {component:Component,end,company_data,company,start,title, tags, showTags, github_link} = projectData;
     let skillBox=null;
     if(showTags){
-        if(collapsable){
-            skillBox=<CollapsableSkillsBox title={null} skills={tags} className={style.expSkillBox}/>
+        if(animatable){
+            skillBox=<CollapsableSkillsBox skills={tags} className={style.expSkillBox}/>
         }
         else{
-            skillBox=<div className={style.expSkillBox}><SkillsBox title={null} skills={tags}  /></div>
+            skillBox=<div className={style.expSkillBox}><SkillsBox title={null} skills={tags} animatable={animatable} /></div>
         }
     }
     if(company_data !== null){
@@ -135,7 +135,7 @@ export function ProjectComponentBody({projectData,collapsable}:ProjectComponentB
 
 export function ProjectComponent({projectData}:{projectData:ProjectData}){
     return <motion.div className={style.expComponent} layout>
-           <ProjectComponentBody projectData={projectData} collapsable={true}/>
+           <ProjectComponentBody projectData={projectData} animatable={true}/>
         </motion.div>
 }
 
@@ -506,12 +506,14 @@ function NBCInternship() {
 
     return <>
             <Modal size="xl" show={isModalOpen} onHide={() => setIsModalOpen(false)}>
-                <Modal.Header closeButton />
-                <motion.div layout>
-                    <Modal.Body>
-                        <ProjectComponentBody projectData={comOptionAnalyticsData} collapsable={false}/>
-                    </Modal.Body>
-                </motion.div>
+                <AnimateSharedLayout>
+                    <Modal.Header closeButton />
+                    <motion.div layout>
+                        <Modal.Body>
+                            <ProjectComponentBody projectData={comOptionAnalyticsData} animatable={false}/>
+                        </Modal.Body>
+                    </motion.div>
+                </AnimateSharedLayout>
             </Modal>
         <div className={style.explanation}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge
             funds. This system analyzes option contracts, giving real time pricing and risk profiles

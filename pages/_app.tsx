@@ -45,7 +45,7 @@ const variants:Variants={
     pageLoaded: {
         y:0,
         transition: {
-            delayChildren: 0.5,
+            when:"beforeChildren",
             duration:0.5
         }
     },

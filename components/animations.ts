@@ -1,4 +1,4 @@
-import {Variants} from "framer-motion";
+import {Transition, Variants} from "framer-motion";
 
 export function createMovingVariant(axis: "x" | "y", initialPosition: number): Variants {
     return {
@@ -7,7 +7,8 @@ export function createMovingVariant(axis: "x" | "y", initialPosition: number): V
             [axis]: 0,
             opacity: 1,
             transition: {
-                duration: 0.5
+                when:"beforeChildren",
+                duration: 0.5,
             }
         },
         pageExit: {
@@ -21,27 +22,54 @@ export function createMovingVariant(axis: "x" | "y", initialPosition: number): V
     }
 }
 
-export function createDisappearingVariant(duration:number,exitDelay:number):Variants{
+export function createDisappearingVariant(duration:number,startTransitionProps:Transition={},exitTransitionProps:Transition={}):Variants{
     return {
         beforePageLoad: {opacity: 0},
         pageLoaded: {
             opacity: 1,
             transition: {
-                duration: 0.5
+                // @ts-ignore
+                duration,
+                when:"beforeChildren",
+                ...startTransitionProps
             }
         },
         pageExit: {
             opacity: 0,
             transition: {
                 when:"afterChildren",
+                // @ts-ignore
+                duration,
+                ...exitTransitionProps
+            }
+        },
+    }
+}
+export function createVerticalExpandingVariant(staggerChildren:number):Variants{
+    return {
+        beforePageLoad: { height:0 },
+        pageLoaded: {
+            // @ts-ignore
+            height:null,
+            transition: {
+                when:"beforeChildren",
                 duration: 0.5,
-                delay:exitDelay
+                staggerChildren,
+            }
+        },
+        pageExit: {
+            height:0,
+            transition: {
+                when:"afterChildren",
+                duration: 0.5,
+                staggerChildren,
+                staggerDirection:-1
             }
         },
     }
 }
 
-export function createExpandingHorizontalVariant(width:string,padding:number, staggerChildren:number|undefined):Variants{
+export function createExpandingHorizontalVariant(width:string,padding:number, staggerChildren:number):Variants{
     return {
         beforePageLoad: { width:0, padding:0 },
         pageLoaded: {
@@ -49,7 +77,7 @@ export function createExpandingHorizontalVariant(width:string,padding:number, st
             padding,
             transition: {
                 duration: 0.5,
-                delayChildren:0.5,
+                when:"beforeChildren",
                 staggerChildren,
             }
         },
@@ -65,26 +93,3 @@ export function createExpandingHorizontalVariant(width:string,padding:number, st
         },
     }
 }
-
-// export function createExpandingHorizontalVariant(width:string,padding:number, staggerChildren:number|undefined):Variants{
-//     return {
-//         beforePageLoad: { width:0, padding:0 },
-//         pageLoaded: {
-//             width,
-//             padding,
-//             transition: {
-//                 duration: 0.5,
-//                 delayChildren:0.5,
-//                 staggerChildren,
-//             }
-//         },
-//         pageExit: {
-//             width:0,
-//             padding:0,
-//             transition: {
-//                 when:"afterChildren",
-//                 duration: 0.5,
-//             }
-//         },
-//     }
-// }
