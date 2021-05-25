@@ -6,8 +6,9 @@ import {ContactMediaBar} from "../components/CommonComponents";
 import style from "./index.module.scss"
 import Link from "next/link"
 import {motion, Variants} from 'framer-motion';
-import {createMovingVariant, DISAPPEARING_VARIANT} from "../components/animations";
+import {createDisappearingVariant, createMovingVariant} from "../components/animations";
 
+const DISAPPEARING_VARIANT=createDisappearingVariant(0.5,0);
 
 function SingleHomeLink({link, variants}:{link:string, variants:Variants}){
     return <div className={style.linkOuterDiv}>

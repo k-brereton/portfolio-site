@@ -21,38 +21,24 @@ export function createMovingVariant(axis: "x" | "y", initialPosition: number): V
     }
 }
 
-export const DISAPPEARING_VARIANT: Variants = {
-    beforePageLoad: {opacity: 0},
-    pageLoaded: {
-        opacity: 1,
-        transition: {
-            duration: 0.5
-        }
-    },
-    pageExit: {
-        opacity: 0,
-        transition: {
-            when:"afterChildren",
-            duration: 0.5
-        }
-    },
-}
-
-export const FAST_DISAPPEARING_VARIANT: Variants = {
-    beforePageLoad: {opacity: 0},
-    pageLoaded: {
-        opacity: 1,
-        transition: {
-            duration: 0.3
-        }
-    },
-    pageExit: {
-        opacity: 0,
-        transition: {
-            when:"afterChildren",
-            duration: 0.3
-        }
-    },
+export function createDisappearingVariant(duration:number,exitDelay:number):Variants{
+    return {
+        beforePageLoad: {opacity: 0},
+        pageLoaded: {
+            opacity: 1,
+            transition: {
+                duration: 0.5
+            }
+        },
+        pageExit: {
+            opacity: 0,
+            transition: {
+                when:"afterChildren",
+                duration: 0.5,
+                delay:exitDelay
+            }
+        },
+    }
 }
 
 export function createExpandingHorizontalVariant(width:string,padding:number, staggerChildren:number|undefined):Variants{
@@ -73,7 +59,32 @@ export function createExpandingHorizontalVariant(width:string,padding:number, st
             transition: {
                 when:"afterChildren",
                 duration: 0.5,
+                staggerChildren,
+                staggerDirection:-1
             }
         },
     }
 }
+
+// export function createExpandingHorizontalVariant(width:string,padding:number, staggerChildren:number|undefined):Variants{
+//     return {
+//         beforePageLoad: { width:0, padding:0 },
+//         pageLoaded: {
+//             width,
+//             padding,
+//             transition: {
+//                 duration: 0.5,
+//                 delayChildren:0.5,
+//                 staggerChildren,
+//             }
+//         },
+//         pageExit: {
+//             width:0,
+//             padding:0,
+//             transition: {
+//                 when:"afterChildren",
+//                 duration: 0.5,
+//             }
+//         },
+//     }
+// }

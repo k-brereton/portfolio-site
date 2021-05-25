@@ -4,6 +4,7 @@ import {RiGithubFill, RiLinkedinBoxFill, RiPhoneFill} from "react-icons/ri";
 import {ProjectTag} from "./ExperienceComponents";
 import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
+import {createDisappearingVariant} from "./animations";
 
 export const VARIANT="dark"
 export const ICON_SIZE=30;
@@ -46,6 +47,7 @@ export function ContactMediaBar({showAboutLink, iconClassName}:{showAboutLink:bo
         </div>
 }
 
+const DISAPPEARING_VARIANT=createDisappearingVariant(0.5,0)
 
 interface SkillsBoxProps {
     readonly title:string|null;
@@ -53,10 +55,10 @@ interface SkillsBoxProps {
 }
 export function SkillsBox({title,skills}:SkillsBoxProps){
 
-    const links=skills.map((skill,idx)=>{
-        return <div key={idx}>
+    const links=skills.map((skill)=>{
+        return <motion.div key={skill} variants={DISAPPEARING_VARIANT}>
             <Link href={`/skills/${skill}`}>{skill}</Link>
-        </div>;
+        </motion.div>;
     });
     if(title===null){
         return <div className="skillsBox">{links}</div>
@@ -85,7 +87,7 @@ export function CollapsableSkillsBox({title, skills,className}: CollapsableSkill
     const links=shownSkills.map((skill,idx)=>{
         const delayOffset=Math.floor(idx/3)*0.1;
 
-        return <AnimatePresence key={idx}  >
+        return <AnimatePresence key={skill}  >
             <motion.div layout transition={{delay:delayOffset}} initial={{ opacity: 0 }}  animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                 <Link href={`/skills/${skill}`}>{skill}</Link>
             </motion.div>

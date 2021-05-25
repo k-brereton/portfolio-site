@@ -7,17 +7,20 @@ import {RiPhoneFill} from "react-icons/ri";
 import {HiOutlineMail} from "react-icons/hi";
 import {Container, Row} from "react-bootstrap";
 import {motion, Variants} from "framer-motion";
-import {createExpandingHorizontalVariant, DISAPPEARING_VARIANT, FAST_DISAPPEARING_VARIANT} from "../components/animations";
+import {createDisappearingVariant, createExpandingHorizontalVariant} from "../components/animations";
 
 const MY_IMAGE_SIZE=175;
 
 const OUTER_VARIANT:Variants=createExpandingHorizontalVariant("100%",30,0.1);
 
+const TITLE_VARIANT:Variants=createDisappearingVariant(0.5,0.3);
+const FAST_DISAPPEARING_VARIANT=createDisappearingVariant(0.3,0);
+
 export default function About() {
     return <>
         <PageHead description={"Kevin Brereton Contact Information"} title={"Kevin Brereton's Portfolio | About"}/>
 
-        <motion.h1 className="display-2 mainTitle" variants={DISAPPEARING_VARIANT}>About</motion.h1>
+        <motion.h1 className="display-2 mainTitle" variants={TITLE_VARIANT}>About</motion.h1>
         <Container>
             <div className="centering">
                 <motion.div layout className={style.mainArea} variants={OUTER_VARIANT}>
