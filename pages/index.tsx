@@ -6,27 +6,7 @@ import {ContactMediaBar} from "../components/CommonComponents";
 import style from "./index.module.scss"
 import Link from "next/link"
 import {motion, Variants} from 'framer-motion';
-
-
-function createMovingVariant(axis:"x"|"y",initialPosition:number):Variants{
-    return {
-        beforePageLoad:{[axis]:initialPosition,opacity:0},
-        pageLoaded:{
-            [axis]:0,
-            opacity:1,
-            transition:{
-                duration:0.5
-            }
-        },
-        pageExit:{
-            [axis]:initialPosition,
-            opacity:0,
-            transition:{
-                duration:0.5
-            }
-        },
-    }
-}
+import {createMovingVariant, DISAPPEARING_VARIANT} from "../components/animations";
 
 
 function SingleHomeLink({link, variants}:{link:string, variants:Variants}){
@@ -56,26 +36,9 @@ const MAIN_IMAGE_DEFAULT_SIZE_PX=175;
 
 const ABOUT_LINKS_VARIANT=createMovingVariant("y", 100);
 
-const MAIN_IMAGE_VARIANT:Variants={
-    beforePageLoad:{opacity:0},
-    pageLoaded:{
-        opacity:1,
-        transition:{
-            duration:0.5
-        }
-    },
-    pageExit:{
-        opacity:0,
-        transition:{
-            duration:0.5
-        }
-    },
-
-}
-
 function HomeContactInfo(){
     return <div className={style.homeContactColumn}>
-        <motion.div className={style.mainImage} variants={MAIN_IMAGE_VARIANT}>
+        <motion.div className={style.mainImage} variants={DISAPPEARING_VARIANT}>
             <Image src={"/images/logo.png"} width={MAIN_IMAGE_DEFAULT_SIZE_PX} height={MAIN_IMAGE_DEFAULT_SIZE_PX}  />
         </motion.div>
         <motion.div variants={ABOUT_LINKS_VARIANT}>
