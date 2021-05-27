@@ -4,8 +4,9 @@ import {Media, Modal} from "react-bootstrap";
 import style from "./ExperienceComponents.module.scss";
 import Image from "next/image";
 import {CollapsableSkillsBox, GitHubIcon, SkillsBox} from "./CommonComponents";
-import {AnimateSharedLayout, motion} from "framer-motion";
+import {AnimateSharedLayout, motion, Variants} from "framer-motion";
 import Link from "next/link";
+import {createDisappearingVariant, createExpandingVariant, createMovingVariant} from "./animations";
 
 export const ALL_PROJECT_TAGS=["C++","C","Java","Android",
 "Python","Pandas.py","NumPy","Django","Django Rest Framework",
@@ -38,6 +39,7 @@ export interface ProjectData  {
     readonly component:FunctionComponent;
     readonly tags:ReadonlyArray<ProjectTag>;
     readonly showTags:boolean;
+    readonly componentAnimationDuration:number;
 }
 
 interface ProjectComponentBodyProps {
@@ -87,35 +89,40 @@ function JobTitle({title, company, start, end, githubLink}: JobTitleProps) {
             <TimeRangeComponent start={start} end={end}/>
         </div>
     </div>
-
 }
 
 export function ProjectComponentBody({projectData,animatable}:ProjectComponentBodyProps) {
-    const {component:Component,end,company_data,company,start,title, tags, showTags, github_link} = projectData;
+    const {component:Component,end,company_data,company,start,title, tags, componentAnimationDuration,showTags, github_link} = projectData;
     let skillBox=null;
+    const skillBoxDuration=showTags?0:0.3;
+    const titleDuration=0.2;
+
     if(showTags){
         if(animatable){
-            skillBox=<CollapsableSkillsBox skills={tags} className={style.expSkillBox}/>
+            skillBox=<CollapsableSkillsBox skills={tags} className={style.expSkillBox} delay={componentAnimationDuration}/>
         }
         else{
-            skillBox=<div className={style.expSkillBox}><SkillsBox title={null} skills={tags} animatable={animatable} /></div>
+            skillBox=<div className={style.expSkillBox}><SkillsBox title={null} skills={tags} animatable={false} delay={componentAnimationDuration+titleDuration} /></div>
         }
     }
+
     if(company_data !== null){
         return <>
-            <Media>
-                <motion.div layout>
-                    <a href={company_data.url}>
-                        <Image layout={"fixed"} src={company_data.logo} width={64} height={64} alt={`${company} logo`} />
-                    </a>
-                </motion.div>
-                <Media.Body>
+            <motion.div layout variants={createMovingVariant("y",50, titleDuration,undefined,{delay:componentAnimationDuration+skillBoxDuration})}>
+                <Media>
                     <motion.div layout>
-                        <JobTitle githubLink={github_link} title={title} company={company} start={start} end={end}/>
+                        <a href={company_data.url}>
+                            <Image layout={"fixed"} src={company_data.logo} width={64} height={64} alt={`${company} logo`} />
+                        </a>
                     </motion.div>
-                </Media.Body>
-        </Media>
-        <motion.div layout>
+                    <Media.Body>
+                        <motion.div layout>
+                            <JobTitle githubLink={github_link} title={title} company={company} start={start} end={end}/>
+                        </motion.div>
+                    </Media.Body>
+                </Media>
+            </motion.div>
+        <motion.div variants={createDisappearingVariant(0.1,{staggerChildren:0.1,delay:titleDuration},{staggerChildren:0.1, staggerDirection:-1,delay:skillBoxDuration})} layout>
             <Component />
         </motion.div>
         {skillBox}
@@ -127,14 +134,17 @@ export function ProjectComponentBody({projectData,animatable}:ProjectComponentBo
                 <JobTitle githubLink={github_link} title={title} company={company} start={start} end={end}/>
                 <Component />
             </motion.div>
-            {skillBox }
+            {skillBox}
         </>;
     }
 
 }
 
+const PROJECT_VARIANT:Variants=createExpandingVariant(0);
+const TEXT_VARIANT:Variants=createDisappearingVariant(0.3);
+
 export function ProjectComponent({projectData}:{projectData:ProjectData}){
-    return <motion.div className={style.expComponent} layout>
+    return <motion.div className={style.expComponent} layout variants={PROJECT_VARIANT}>
            <ProjectComponentBody projectData={projectData} animatable={true}/>
         </motion.div>
 }
@@ -149,7 +159,8 @@ export const resumeSiteData:ProjectData={
     end:"2021-05-01",
     component:ResumeSiteComponent,
     tags:["React.js","Next.js","TypeScript","SASS","GitHub","JavaScript","CSS", "HTML","Git"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 export function ResumeSiteComponent() {
     return <div className={style.explanation} > Created the site you are on right now using Next.js and Typescript </div>
@@ -164,7 +175,8 @@ export const comOptionAnalyticsData:ProjectData={
     end:"2020-08-01",
     component:ComOptionAnalyticsComponent,
     tags:["Python","React.js","MySQL", "Django", "WebSockets", "pytest", "Django Rest Framework","JSON Schema","JavaScript", "REST API", "HTML","CSS", "Unit Testing","JSON", "SQL","VBA", "C++"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 
 
@@ -172,15 +184,15 @@ export function ComOptionAnalyticsComponent () {
     return <>
         <div className={style.explanation} > Created the ComOptionAnalytics system for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</div>
         <div className={style.explanation}>
-        <div> This system includes:</div>
-        <ul>
-            <li>A central server which pulls market data from various sources to provide real time data analysis</li>
-            <li>A tool for volatility surface calibration. Using this tool, traders can calibrate their volatility surfaces to the market using a variety of methodologies. This includes calibration based on term structures, volatility smiles and seasonal decay</li>
-            <li>A pricing engine which evaluated options in real time. The optimized pricing engine was implemented in multithreaded C++, to keep the system up to date with volatile markets </li>
-            <li>A tool for analyzing potential trades</li>
-            <li>Several more tools for gathering, evaluating, and analyzing market data</li>
-        </ul>
-        </div>
+            <div> This system includes:</div>
+            <ul>
+                <li>A central server which pulls market data from various sources to provide real time data analysis</li>
+                <li>A tool for volatility surface calibration. Using this tool, traders can calibrate their volatility surfaces to the market using a variety of methodologies. This includes calibration based on term structures, volatility smiles and seasonal decay</li>
+                <li>A pricing engine which evaluated options in real time. The optimized pricing engine was implemented in multithreaded C++, to keep the system up to date with volatile markets </li>
+                <li>A tool for analyzing potential trades</li>
+                <li>Several more tools for gathering, evaluating, and analyzing market data</li>
+            </ul>
+            </div>
         <div className={style.explanation}>Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use</div>
     </>
 }
@@ -194,7 +206,8 @@ export const riskManagerData:ProjectData={
     end:"2021-04-01",
     component:RiskManagerComponent,
     tags:["React.js","TypeScript", "Unit Testing", "Jest","CSS", "JSON Schema","GitHub", "JSON", "HTML","JavaScript","Git"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 
 export function RiskManagerComponent() {
@@ -214,7 +227,9 @@ export const chessOnTheGoData:ProjectData={
     end:"2020-12-01",
     component:ChessOnTheGoComponent,
     tags:["React.js","TypeScript","MongoDB","Node.js", "Socket.io", "CSS", "JSON Schema","GitHub", "JSON", "HTML","JavaScript","Git"],
-    showTags:true
+    showTags:true,
+
+    componentAnimationDuration:.3
 }
 
 
@@ -235,7 +250,8 @@ export const faultLocalizationToolData:ProjectData={
     end:"2020-12-01",
     component:FaultLocalizationToolComponent,
     tags:["Machine Learning", "Natural Language Processing","Pandas.py","NumPy", "Python","Git"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 
 
@@ -256,7 +272,8 @@ export const amazonReviewAnalyzerData:ProjectData={
     end:"2020-12-01",
     component:AmazonReviewAnalysis,
     tags:["Apache Spark","Machine Learning", "Natural Language Processing", "Python", "DataBricks"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 
 export function AmazonReviewAnalysis(){
@@ -276,7 +293,8 @@ export const twitchVidsData:ProjectData={
     end:"2019-03-01",
     component:TwitchVidsComponent,
     tags:["PHP","Laravel","HTML","CSS", "JavaScript","SQL","PostgreSQL","GitHub","Git"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 
 
@@ -300,7 +318,8 @@ export const carVisualizerData:ProjectData={
     end:"2019-03-01",
     component:CarVisualizerComponent,
     tags:["PHP","Laravel","HTML","CSS", "JavaScript","SQL","PostgreSQL"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 
 export function CarVisualizerComponent() {
@@ -322,7 +341,8 @@ export const parkingManagementData:ProjectData={
     end:"2018-08-01",
     component:ParkingDataManagementSystemComponent,
     tags:["Java","Android","MySQL","SQL","BitBucket"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 
 export function ParkingDataManagementSystemComponent() {
@@ -342,7 +362,8 @@ export const bookOrderingSystemData:ProjectData={
     end:"2018-12-01",
     component:BookOrderingSystemComponent,
     tags:["Java","MySQL","SQL","BitBucket"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 export function BookOrderingSystemComponent() {
     return <div className={style.explanation} >
@@ -359,7 +380,8 @@ export const desireToLoveData:ProjectData={
     end:"2018-04-01",
     component:DesireToLoveComponent,
     tags:["Java","MySQL","SQL","BitBucket"],
-    showTags:true
+    showTags:true,
+    componentAnimationDuration:.3
 }
 
 export function DesireToLoveComponent() {
@@ -384,7 +406,8 @@ export const reactMiscData:ProjectData={
     end:"2020-12-01",
     component:ReactMisc,
     tags:["JavaScript","TypeScript","React.js", "Node.js", "CSS"],
-    showTags:false
+    showTags:false,
+    componentAnimationDuration:.3
 }
 
 export function ReactMisc() {
@@ -403,7 +426,8 @@ export const cppMiscData:ProjectData={
     end:"2021-04-01",
     component:CppMiscComponent,
     tags:["C++","C"],
-    showTags:false
+    showTags:false,
+    componentAnimationDuration:.3
 }
 export function CppMiscComponent() {
     return <>
@@ -429,7 +453,8 @@ export const pandasMiscData:ProjectData={
     end:"2021-04-01",
     component:PandasMiscComponent,
     tags:["NumPy","Pandas.py"],
-    showTags:false
+    showTags:false,
+    componentAnimationDuration:.3
 }
 export function PandasMiscComponent(){
     return <div className={style.explanation} >  Worked on various smaller assignments using NumPy and Pandas.py </div>
@@ -444,7 +469,8 @@ export const javaMiscData:ProjectData={
     end:"2018-12-01",
     component:JavaMiscComponent,
     tags:["Java"],
-    showTags:false
+    showTags:false,
+    componentAnimationDuration:.3
 }
 export function JavaMiscComponent() {
     return <>
@@ -492,7 +518,8 @@ export const NBC_INTERNSHIP_DATA: ProjectData = {
     end: "2020-08-01",
     company: "National Bank of Canada",
     tags: [],
-    showTags: false,
+    showTags:false,
+    componentAnimationDuration:.3,
     github_link: null,
     component: NBCInternship,
 }
@@ -515,13 +542,13 @@ function NBCInternship() {
                     </motion.div>
                 </AnimateSharedLayout>
             </Modal>
-        <div className={style.explanation}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge
+        <motion.div className={style.explanation} layout variants={TEXT_VARIANT}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge
             funds. This system analyzes option contracts, giving real time pricing and risk profiles
-        </div>
-        <div className={style.explanation}> Refined his software architecture skills to create cohesive and high-quality code using the object-oriented and functional
+        </motion.div>
+        <motion.div className={style.explanation} layout variants={TEXT_VARIANT}> Refined his software architecture skills to create cohesive and high-quality code using the object-oriented and functional
             programming paradigms
-        </div>
-        <div className={style.explanation}> Helped interview and analyze candidates for the next years internship</div>
+        </motion.div>
+        <motion.div className={style.explanation} layout variants={TEXT_VARIANT}> Helped interview and analyze candidates for the next years internship</motion.div>
     </>
 }
 
@@ -532,14 +559,15 @@ export const SCHULICH_IGNITE_DATA: ProjectData = {
     end: "2020-01-01",
     company: "Schulich Ignite",
     tags: [],
-    showTags: false,
+    showTags:false,
+    componentAnimationDuration:.1,
     github_link: null,
     component: SchulichIgnite,
 
 }
 
 function SchulichIgnite() {
-    return <div className={style.explanation}>Explained complicated programming concepts to students so they could program games</div>
+    return <motion.div className={style.explanation} layout variants={TEXT_VARIANT}>Explained complicated programming concepts to students so they could program games</motion.div>
 }
 
 export const UNIVERSITY_OF_CALGARY_DATA: ProjectData = {
@@ -549,14 +577,15 @@ export const UNIVERSITY_OF_CALGARY_DATA: ProjectData = {
     end: "2021-05-01",
     company: "University of Calgary",
     tags: [],
-    showTags: false,
+    showTags:false,
+    componentAnimationDuration:.2,
     github_link: null,
     component: UniversityOfCalgary,
 }
 
 function UniversityOfCalgary() {
     return <>
-        <div className={style.explanation}>GPA: 3.94 / 4</div>
-        <div className={style.explanation}>Created many <Link href="/projects">projects</Link> for different courses</div>
+        <motion.div className={style.explanation} layout variants={TEXT_VARIANT}>GPA: 3.94 / 4</motion.div>
+        <motion.div className={style.explanation} layout variants={TEXT_VARIANT}>Created many <Link href="/projects">projects</Link> for different courses</motion.div>
     </>
 }

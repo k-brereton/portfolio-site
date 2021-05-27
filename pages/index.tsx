@@ -20,8 +20,8 @@ function SingleHomeLink({link, variants}:{link:string, variants:Variants}){
     </div>
 }
 
-const X_VARIANTS=createMovingVariant("x",-1000);
-const Y_VARIANTS=createMovingVariant("y",-1000);
+const X_VARIANTS=createMovingVariant("x",-1000, 0.5);
+const Y_VARIANTS=createMovingVariant("y",-1000, 0.5);
 
 function HomeLinks(){
     return <div className={style.homeLinks}>
@@ -34,7 +34,7 @@ function HomeLinks(){
 
 const MAIN_IMAGE_DEFAULT_SIZE_PX=175;
 
-const ABOUT_LINKS_VARIANT=createMovingVariant("y", 100);
+const ABOUT_LINKS_VARIANT=createMovingVariant("y", 100, 0.5);
 
 function HomeContactInfo(){
     return <div className={style.homeContactColumn}>

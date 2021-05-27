@@ -1,6 +1,6 @@
 import {Transition, Variants} from "framer-motion";
 
-export function createMovingVariant(axis: "x" | "y", initialPosition: number): Variants {
+export function createMovingVariant(axis: "x" | "y", initialPosition: number, duration:number,startTransitionProps:Transition={},exitTransitionProps:Transition={}): Variants {
     return {
         beforePageLoad: {[axis]: initialPosition, opacity: 0},
         pageLoaded: {
@@ -8,7 +8,9 @@ export function createMovingVariant(axis: "x" | "y", initialPosition: number): V
             opacity: 1,
             transition: {
                 when:"beforeChildren",
-                duration: 0.5,
+                // @ts-ignore
+                duration,
+                ...startTransitionProps
             }
         },
         pageExit: {
@@ -16,7 +18,9 @@ export function createMovingVariant(axis: "x" | "y", initialPosition: number): V
             opacity: 0,
             transition: {
                 when:"afterChildren",
-                duration: 0.5
+                // @ts-ignore
+                duration,
+                ...exitTransitionProps
             }
         },
     }
@@ -45,24 +49,28 @@ export function createDisappearingVariant(duration:number,startTransitionProps:T
         },
     }
 }
-export function createVerticalExpandingVariant(staggerChildren:number):Variants{
+export function createVerticalExpandingVariant(staggerChildren:number,startTransitionProps:Transition={},exitTransitionProps:Transition={}):Variants{
     return {
         beforePageLoad: { scaleY:0 },
         pageLoaded: {
             scaleY:1,
             transition: {
                 when:"beforeChildren",
+                // @ts-ignore
                 duration: 0.5,
                 staggerChildren,
+                ...startTransitionProps,
             }
         },
         pageExit: {
             scaleY:0,
             transition: {
                 when:"afterChildren",
+                // @ts-ignore
                 duration: 0.5,
                 staggerChildren,
-                staggerDirection:-1
+                staggerDirection:-1,
+                ...exitTransitionProps
             }
         },
     }
