@@ -43,7 +43,9 @@ export function ContactMediaBar({showAboutLink, iconClassName}:{showAboutLink:bo
 }
 
 const TITLE_VARIANT=createDisappearingVariant(0.5,undefined,{delay:0.3});
-const EXPANDING_VARIANT=createVerticalExpandingVariant(0);
+const SKILL_BOX_VARIANT=createVerticalExpandingVariant(0.0333);
+
+const SKILL_LINK_VARIANT=createDisappearingVariant(0.3);
 
 interface SkillsBoxProps {
     readonly title:string|null;
@@ -51,24 +53,20 @@ interface SkillsBoxProps {
     readonly animatable:boolean;
 }
 export function SkillsBox({title,skills, animatable}:SkillsBoxProps){
-
-    const links=skills.map((skill,idx)=>{
-        const delayOffset=Math.floor(idx/3)*0.1;
-        const delayObject=delayOffset===0? undefined:{delay:delayOffset}
-        const variants=createDisappearingVariant(0.3,delayObject,delayObject);
-        return <motion.div key={skill} variants={animatable?variants:undefined}>
+    const links=skills.map((skill)=>{
+        return <motion.div key={skill} variants={animatable?SKILL_LINK_VARIANT:undefined}>
             <Link href={`/skills/${skill}`}>{skill}</Link>
         </motion.div>;
     });
     if(title===null){
-        return <motion.div variants={animatable?EXPANDING_VARIANT:undefined} className="skillsBox" >{links}</motion.div>
+        return <motion.div variants={animatable?SKILL_BOX_VARIANT:undefined} className="skillsBox" >{links}</motion.div>
     }
     else{
         return <motion.div className="skillsBoxWrapper" >
             <motion.div variants={animatable?TITLE_VARIANT:undefined} className="skillsBoxTitle">
                 {title}
             </motion.div>
-            <motion.div variants={animatable?EXPANDING_VARIANT:undefined} className="skillsBox">{links}</motion.div>
+            <motion.div variants={animatable?SKILL_BOX_VARIANT:undefined} className="skillsBox">{links}</motion.div>
         </motion.div>
     }
 }
@@ -78,6 +76,8 @@ interface CollapsableSkillsBoxProps{
     className:string;
 }
 
+
+const COLLAPSING_SKILL_BOX_VARIANT=createVerticalExpandingVariant(0.0333);
 
 export function CollapsableSkillsBox({skills,className}: CollapsableSkillsBoxProps) {
 
@@ -95,7 +95,7 @@ export function CollapsableSkillsBox({skills,className}: CollapsableSkillsBoxPro
             </motion.div>
         </AnimatePresence>;
     });
-    return <motion.div layout className={`collapsableSkillsBoxOuter ${className}`} variants={EXPANDING_VARIANT} >
+    return <motion.div layout className={`collapsableSkillsBoxOuter ${className}`} variants={COLLAPSING_SKILL_BOX_VARIANT} >
         <motion.div className="skillsBox" layout >
             {links}
         </motion.div>
