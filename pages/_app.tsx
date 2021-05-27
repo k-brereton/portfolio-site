@@ -13,7 +13,7 @@ const HEADER_LOGO_SIZE_PX=30;
 export function Header({pathname}:{pathname:string}) {
 
     return <Navbar expand="sm" bg={VARIANT} variant={VARIANT}>
-        <Link scroll={false}href="/" passHref>
+        <Link scroll={false} href="/" passHref>
             <Navbar.Brand>
                 <Image src="/images/logo.png"  width={HEADER_LOGO_SIZE_PX} height={HEADER_LOGO_SIZE_PX} alt="Kevin Brereton Logo"/>
             </Navbar.Brand>
