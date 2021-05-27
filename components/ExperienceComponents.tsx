@@ -95,7 +95,6 @@ export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
     let skillBox=null;
     const titleDuration=0.1;
 
-    const skillBoxDuration=showTags?0.5:0;
     if(showTags){
         skillBox=<CollapsableSkillsBox skills={tags} className={style.expSkillBox} delay={componentAnimationDuration}/>
     }
