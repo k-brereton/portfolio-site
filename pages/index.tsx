@@ -13,18 +13,17 @@ const DISAPPEARING_VARIANT=createDisappearingVariant(0.5);
 function SingleHomeLink({link, variants}:{link:string, variants:Variants}){
     return <div className={style.linkOuterDiv}>
         <Link href={`/${link}`} passHref>
-                <motion.a className={style.singleHomeLink} variants={variants}>
-                    {link[0].toUpperCase()}{link.slice(1)}
+            <motion.a className={style.singleHomeLink} variants={variants}>
+                {link[0].toUpperCase()}{link.slice(1)}
             </motion.a>
         </Link>
     </div>
 }
 
-const X_VARIANTS=createMovingVariant("x",-1000)
-const Y_VARIANTS=createMovingVariant("y",-1000)
+const X_VARIANTS=createMovingVariant("x",-1000);
+const Y_VARIANTS=createMovingVariant("y",-1000);
 
 function HomeLinks(){
-
     return <div className={style.homeLinks}>
         <SingleHomeLink link="experience" variants={X_VARIANTS}/>
         <SingleHomeLink link="projects" variants={Y_VARIANTS}/>
@@ -52,8 +51,8 @@ export default function Home() {
   return (
       <>
           <Head>
-          <title>Kevin Brereton's Portfolio</title>
-        </Head>
+              <title>Kevin Brereton's Portfolio</title>
+          </Head>
           <motion.div className={style.overallDiv} >
               <div className={style.overallColumn1}>
                   <HomeLinks />
