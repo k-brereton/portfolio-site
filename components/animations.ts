@@ -47,10 +47,9 @@ export function createDisappearingVariant(duration:number,startTransitionProps:T
 }
 export function createVerticalExpandingVariant(staggerChildren:number):Variants{
     return {
-        beforePageLoad: { height:0 },
+        beforePageLoad: { scaleY:0 },
         pageLoaded: {
-            // @ts-ignore
-            height:null,
+            scaleY:1,
             transition: {
                 when:"beforeChildren",
                 duration: 0.5,
@@ -58,7 +57,7 @@ export function createVerticalExpandingVariant(staggerChildren:number):Variants{
             }
         },
         pageExit: {
-            height:0,
+            scaleY:0,
             transition: {
                 when:"afterChildren",
                 duration: 0.5,
@@ -69,12 +68,11 @@ export function createVerticalExpandingVariant(staggerChildren:number):Variants{
     }
 }
 
-export function createExpandingHorizontalVariant(width:string,padding:number, staggerChildren:number):Variants{
+export function createExpandingHorizontalVariant(staggerChildren:number):Variants{
     return {
-        beforePageLoad: { width:0, padding:0 },
+        beforePageLoad: { scaleX:0 },
         pageLoaded: {
-            width,
-            padding,
+            scaleX:1,
             transition: {
                 duration: 0.5,
                 when:"beforeChildren",
@@ -82,8 +80,31 @@ export function createExpandingHorizontalVariant(width:string,padding:number, st
             }
         },
         pageExit: {
-            width:0,
-            padding:0,
+            scaleX:0,
+            transition: {
+                when:"afterChildren",
+                duration: 0.5,
+                staggerChildren,
+                staggerDirection:-1
+            }
+        },
+    }
+}
+
+export function createExpandingVariant(staggerChildren:number):Variants{
+    return {
+        beforePageLoad: { scale:0 },
+        pageLoaded: {
+            // @ts-ignore
+            scale:1,
+            transition: {
+                duration: 0.5,
+                when:"beforeChildren",
+                staggerChildren,
+            }
+        },
+        pageExit: {
+            scale:0,
             transition: {
                 when:"afterChildren",
                 duration: 0.5,
