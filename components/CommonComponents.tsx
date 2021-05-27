@@ -58,7 +58,7 @@ export function SkillsBox({title,skills, delay}:SkillsBoxProps){
         </motion.div>;
     });
 
-    const skillBoxVariant=createVerticalExpandingVariant({delay});
+    const skillBoxVariant=createVerticalExpandingVariant({staggerChildren:0.03333,delay}, {staggerChildren:0.03333,staggerDirection:-1});
     const titleVariant=createDisappearingVariant(0.5,{delay:delay+0.3},{delay:0.3});
 
     if(title===null){
