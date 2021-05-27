@@ -1,4 +1,4 @@
-import {FunctionComponent, MouseEvent, useState} from "react";
+import {FunctionComponent, MouseEvent, useEffect, useState} from "react";
 import {Media, Modal} from "react-bootstrap";
 // @ts-ignore
 import style from "./ExperienceComponents.module.scss";
@@ -7,6 +7,7 @@ import {CollapsableSkillsBox, GitHubIcon} from "./CommonComponents";
 import {AnimateSharedLayout, motion, Variants} from "framer-motion";
 import Link from "next/link";
 import {createDisappearingVariant, createExpandingVariant, createMovingVariant} from "./animations";
+import {useRouter} from "next/router";
 
 export const ALL_PROJECT_TAGS=["C++","C","Java","Android",
 "Python","Pandas.py","NumPy","Django","Django Rest Framework",
@@ -522,10 +523,20 @@ export const NBC_INTERNSHIP_DATA: ProjectData = {
 
 function NBCInternship() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const router=useRouter();
+    useEffect(()=>{
+        const handleRouteChange = () => setIsModalOpen(false);
+
+        router.events.on('routeChangeStart', handleRouteChange)
+        return () => {
+            router.events.off('routeChangeStart', handleRouteChange)
+        }
+    },[router])
     const onComOptionAnalyticsClick = (event: MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault()
         setIsModalOpen(true);
     };
+
 
     return <>
             <Modal size="xl" show={isModalOpen} onHide={() => setIsModalOpen(false)}>
