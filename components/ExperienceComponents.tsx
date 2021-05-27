@@ -44,7 +44,6 @@ export interface ProjectData  {
 
 interface ProjectComponentBodyProps {
     projectData:ProjectData,
-    animatable:boolean
 }
 
 
@@ -91,19 +90,14 @@ function JobTitle({title, company, start, end, githubLink}: JobTitleProps) {
     </div>
 }
 
-export function ProjectComponentBody({projectData,animatable}:ProjectComponentBodyProps) {
+export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
     const {component:Component,end,company_data,company,start,title, tags, componentAnimationDuration,showTags, github_link} = projectData;
     let skillBox=null;
     const skillBoxDuration=showTags?0:0.3;
     const titleDuration=0.2;
 
     if(showTags){
-        if(animatable){
-            skillBox=<CollapsableSkillsBox skills={tags} className={style.expSkillBox} delay={componentAnimationDuration}/>
-        }
-        else{
-            skillBox=<div className={style.expSkillBox}><SkillsBox title={null} skills={tags} animatable={false} delay={componentAnimationDuration+titleDuration} /></div>
-        }
+        skillBox=<CollapsableSkillsBox skills={tags} className={style.expSkillBox} delay={componentAnimationDuration}/>
     }
 
     if(company_data !== null){
@@ -145,7 +139,7 @@ const TEXT_VARIANT:Variants=createDisappearingVariant(0.3);
 
 export function ProjectComponent({projectData}:{projectData:ProjectData}){
     return <motion.div className={style.expComponent} layout variants={PROJECT_VARIANT}>
-           <ProjectComponentBody projectData={projectData} animatable={true}/>
+           <ProjectComponentBody projectData={projectData}/>
         </motion.div>
 }
 
@@ -535,9 +529,9 @@ function NBCInternship() {
             <Modal size="xl" show={isModalOpen} onHide={() => setIsModalOpen(false)}>
                 <AnimateSharedLayout>
                     <Modal.Header closeButton />
-                    <motion.div layout>
+                    <motion.div layout initial="beforePageLoad" animate="pageLoaded" exit="pageExit">
                         <Modal.Body>
-                            <ProjectComponentBody projectData={comOptionAnalyticsData} animatable={false}/>
+                            <ProjectComponentBody projectData={comOptionAnalyticsData}/>
                         </Modal.Body>
                     </motion.div>
                 </AnimateSharedLayout>

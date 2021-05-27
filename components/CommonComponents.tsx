@@ -49,12 +49,11 @@ const SKILL_LINK_VARIANT=createDisappearingVariant(0.3);
 interface SkillsBoxProps {
     readonly title:string|null;
     readonly skills:ReadonlyArray<ProjectTag>;
-    readonly animatable:boolean;
     readonly delay:number;
 }
-export function SkillsBox({title,skills, animatable, delay}:SkillsBoxProps){
+export function SkillsBox({title,skills, delay}:SkillsBoxProps){
     const links=skills.map((skill)=>{
-        return <motion.div key={skill} variants={animatable?SKILL_LINK_VARIANT:undefined}>
+        return <motion.div key={skill} variants={SKILL_LINK_VARIANT}>
             <Link href={`/skills/${skill}`}>{skill}</Link>
         </motion.div>;
     });
@@ -63,15 +62,15 @@ export function SkillsBox({title,skills, animatable, delay}:SkillsBoxProps){
     const titleVariant=createDisappearingVariant(0.5,{delay:delay+0.3},{delay:0.3});
 
     if(title===null){
-        return <motion.div variants={animatable?skillBoxVariant:undefined} className="skillsBox" >{links}</motion.div>
+        return <motion.div variants={skillBoxVariant} className="skillsBox" >{links}</motion.div>
     }
 
     else{
         return <motion.div className="skillsBoxWrapper" >
-            <motion.div variants={animatable?titleVariant:undefined} className="skillsBoxTitle">
+            <motion.div variants={titleVariant} className="skillsBoxTitle">
                 {title}
             </motion.div>
-            <motion.div variants={animatable?skillBoxVariant:undefined} className="skillsBox">{links}</motion.div>
+            <motion.div variants={skillBoxVariant} className="skillsBox">{links}</motion.div>
         </motion.div>
     }
 }
