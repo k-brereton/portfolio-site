@@ -13,7 +13,7 @@ const HEADER_LOGO_SIZE_PX=30;
 export function Header({pathname}:{pathname:string}) {
 
     return <Navbar expand="sm" bg={VARIANT} variant={VARIANT}>
-        <Link href="/" passHref>
+        <Link scroll={false}href="/" passHref>
             <Navbar.Brand>
                 <Image src="/images/logo.png"  width={HEADER_LOGO_SIZE_PX} height={HEADER_LOGO_SIZE_PX} alt="Kevin Brereton Logo"/>
             </Navbar.Brand>
@@ -21,10 +21,10 @@ export function Header({pathname}:{pathname:string}) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse>
             <Nav activeKey={pathname} className="ml-auto">
-                <Link href="/experience" passHref><Nav.Link>experience</Nav.Link></Link>
-                <Link href="/projects" passHref><Nav.Link>projects</Nav.Link></Link>
-                <Link href="/skills" passHref><Nav.Link>skills</Nav.Link></Link>
-                <Link href="/about" passHref><Nav.Link>about</Nav.Link></Link>
+                <Link scroll={false} href="/experience" passHref><Nav.Link>experience</Nav.Link></Link>
+                <Link scroll={false} href="/projects" passHref><Nav.Link>projects</Nav.Link></Link>
+                <Link scroll={false} href="/skills" passHref><Nav.Link>skills</Nav.Link></Link>
+                <Link scroll={false} href="/about" passHref><Nav.Link>about</Nav.Link></Link>
             </Nav>
         </Navbar.Collapse>
     </Navbar>
@@ -33,7 +33,7 @@ export function Header({pathname}:{pathname:string}) {
 function BackToHomeLink() {
     return <footer className="centering">
         <h2 className="backToHomeLink">
-        <Link href="/" passHref>
+        <Link scroll={false} href="/" passHref>
             <a>🠔 Back to home</a>
         </Link>
     </h2>
@@ -60,12 +60,10 @@ const variants:Variants={
 
 function MyApp({ Component, pageProps, router }: AppProps) {
     const {asPath}=router;
-    console.log(asPath)
-
     return <AnimateSharedLayout>
         <Header pathname={asPath}/>
             <motion.div className={"contentDivWrapper"}>
-                <AnimatePresence exitBeforeEnter>
+                <AnimatePresence exitBeforeEnter onExitComplete={()=>window.scrollTo(0, 0)}>
                     <motion.div key={asPath} className="contentDiv" initial="beforePageLoad" animate="pageLoaded" exit="pageExit" variants={variants} >
                         <main className="mainContent">
                                 <Component {...pageProps} />

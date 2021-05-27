@@ -581,6 +581,6 @@ export const UNIVERSITY_OF_CALGARY_DATA: ProjectData = {
 function UniversityOfCalgary() {
     return <>
         <motion.div className={style.explanation} layout variants={TEXT_VARIANT}>GPA: 3.94 / 4</motion.div>
-        <motion.div className={style.explanation} layout variants={TEXT_VARIANT}>Created many <Link href="/projects">projects</Link> for different courses</motion.div>
+        <motion.div className={style.explanation} layout variants={TEXT_VARIANT}>Created many <Link scroll={false} href="/projects">projects</Link> for different courses</motion.div>
     </>
 }

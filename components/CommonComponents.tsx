@@ -35,7 +35,7 @@ export function ContactMediaBar({showAboutLink, iconClassName}:{showAboutLink:bo
             <a href="https://www.linkedin.com/in/kevin-brereton/" className="contactIcon"> <RiLinkedinBoxFill className={iconClassName}/> </a>
             <GitHubIcon href="https://github.com/k-brereton/" className={iconClassName}/>
             {
-                showAboutLink && <Link href="/about" passHref>
+                showAboutLink && <Link scroll={false} href="/about" passHref>
                     <a className="contactIcon"> <RiPhoneFill className={iconClassName}/> </a>
                 </Link>
             }
@@ -54,7 +54,7 @@ interface SkillsBoxProps {
 export function SkillsBox({title,skills, delay}:SkillsBoxProps){
     const links=skills.map((skill)=>{
         return <motion.div key={skill} variants={SKILL_LINK_VARIANT}>
-            <Link href={`/skills/${skill}`}>{skill}</Link>
+            <Link scroll={false} href={`/skills/${skill}`}>{skill}</Link>
         </motion.div>;
     });
 
@@ -93,7 +93,7 @@ export function CollapsableSkillsBox({skills,className,delay}: CollapsableSkills
         const variants=createDisappearingVariant(0.3,delayObject);
         return <AnimatePresence key={skill}>
             <motion.div layout variants={variants}>
-                <Link href={`/skills/${skill}`}>{skill}</Link>
+                <Link scroll={false} href={`/skills/${skill}`}>{skill}</Link>
             </motion.div>
         </AnimatePresence>;
     });

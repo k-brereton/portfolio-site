@@ -12,7 +12,7 @@ const DISAPPEARING_VARIANT=createDisappearingVariant(0.5);
 
 function SingleHomeLink({link, variants}:{link:string, variants:Variants}){
     return <div className={style.linkOuterDiv}>
-        <Link href={`/${link}`} passHref>
+        <Link scroll={false} href={`/${link}`} passHref>
             <motion.a className={style.singleHomeLink} variants={variants}>
                 {link[0].toUpperCase()}{link.slice(1)}
             </motion.a>
