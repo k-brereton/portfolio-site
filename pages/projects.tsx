@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import {PROJECT_DATA, ProjectComponent} from "../components/ExperienceComponents";
 import {Container} from "react-bootstrap";
-import {createDisappearingVariant} from "../components/animations";
 import { motion } from 'framer-motion';
 import {EXP_PAGE_TITLE_VARIANT} from "../components/CommonComponents";
 

@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import Head from 'next/head'
 import {Container} from "react-bootstrap";
 import {NBC_INTERNSHIP_DATA, ProjectComponent, SCHULICH_IGNITE_DATA, UNIVERSITY_OF_CALGARY_DATA} from "../components/ExperienceComponents";
-import {createDisappearingVariant} from "../components/animations";
 import {EXP_PAGE_TITLE_VARIANT} from "../components/CommonComponents";
 
 export default function ExperiencePage() {
