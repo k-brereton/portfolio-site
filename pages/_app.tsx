@@ -46,14 +46,14 @@ const variants:Variants={
         y:0,
         transition: {
             when:"beforeChildren",
-            duration:0.5
+            duration:0.45
         }
     },
     pageExit:{
         y:1000,
         transition: {
             when:"afterChildren",
-            duration:0.5
+            duration:0.4
         },
     }
 }

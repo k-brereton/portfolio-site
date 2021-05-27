@@ -58,7 +58,7 @@ export function SkillsBox({title,skills, delay}:SkillsBoxProps){
         </motion.div>;
     });
 
-    const skillBoxVariant=createVerticalExpandingVariant(0.0333,{delay});
+    const skillBoxVariant=createVerticalExpandingVariant({delay});
     const titleVariant=createDisappearingVariant(0.5,{delay:delay+0.3},{delay:0.3});
 
     if(title===null){
@@ -90,14 +90,14 @@ export function CollapsableSkillsBox({skills,className,delay}: CollapsableSkills
     const links=shownSkills.map((skill,idx)=>{
         const delayOffset=Math.floor(idx/3)*0.1;
         const delayObject=delayOffset===0? undefined:{delay:delayOffset}
-        const variants=createDisappearingVariant(0.3,delayObject,delayObject);
+        const variants=createDisappearingVariant(0.3,delayObject);
         return <AnimatePresence key={skill}>
             <motion.div layout variants={variants}>
                 <Link href={`/skills/${skill}`}>{skill}</Link>
             </motion.div>
         </AnimatePresence>;
     });
-    const variant=createVerticalExpandingVariant(0.0333,{delay});
+    const variant=createVerticalExpandingVariant();
     return <motion.div layout className={`collapsableSkillsBoxOuter ${className}`} variants={variant} >
         <motion.div className="skillsBox" layout >
             {links}

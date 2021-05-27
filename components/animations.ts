@@ -49,7 +49,7 @@ export function createDisappearingVariant(duration:number,startTransitionProps:T
         },
     }
 }
-export function createVerticalExpandingVariant(staggerChildren:number,startTransitionProps:Transition={},exitTransitionProps:Transition={}):Variants{
+export function createVerticalExpandingVariant(startTransitionProps:Transition={},exitTransitionProps:Transition={}):Variants{
     return {
         beforePageLoad: { scaleY:0 },
         pageLoaded: {
@@ -58,7 +58,6 @@ export function createVerticalExpandingVariant(staggerChildren:number,startTrans
                 when:"beforeChildren",
                 // @ts-ignore
                 duration: 0.5,
-                staggerChildren,
                 ...startTransitionProps,
             }
         },
@@ -68,8 +67,6 @@ export function createVerticalExpandingVariant(staggerChildren:number,startTrans
                 when:"afterChildren",
                 // @ts-ignore
                 duration: 0.5,
-                staggerChildren,
-                staggerDirection:-1,
                 ...exitTransitionProps
             }
         },
@@ -99,25 +96,22 @@ export function createExpandingHorizontalVariant(staggerChildren:number):Variant
     }
 }
 
-export function createExpandingVariant(staggerChildren:number):Variants{
+export function createExpandingVariant(duration:number):Variants{
     return {
         beforePageLoad: { scale:0 },
         pageLoaded: {
             // @ts-ignore
             scale:1,
             transition: {
-                duration: 0.5,
+                duration,
                 when:"beforeChildren",
-                staggerChildren,
             }
         },
         pageExit: {
             scale:0,
             transition: {
                 when:"afterChildren",
-                duration: 0.5,
-                staggerChildren,
-                staggerDirection:-1
+                duration,
             }
         },
     }

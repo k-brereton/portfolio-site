@@ -102,7 +102,7 @@ export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
 
     if(company_data !== null){
         return <>
-            <motion.div layout variants={createMovingVariant("y",50, titleDuration,undefined,{delay:componentAnimationDuration+skillBoxDuration})}>
+            <motion.div layout variants={createMovingVariant("y",50, titleDuration,undefined,{delay:componentAnimationDuration})}>
                 <Media>
                     <motion.div layout>
                         <a href={company_data.url}>
@@ -116,7 +116,7 @@ export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
                     </Media.Body>
                 </Media>
             </motion.div>
-        <motion.div variants={createDisappearingVariant(0.1,{staggerChildren:0.1,delay:titleDuration},{staggerChildren:0.1, staggerDirection:-1,delay:skillBoxDuration})} layout>
+        <motion.div variants={createDisappearingVariant(0.1,{staggerChildren:0.1,delay:titleDuration},{staggerChildren:0.1, staggerDirection:-1})} layout>
             <Component />
         </motion.div>
         {skillBox}
@@ -134,7 +134,7 @@ export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
 
 }
 
-const PROJECT_VARIANT:Variants=createExpandingVariant(0);
+const PROJECT_VARIANT:Variants=createExpandingVariant(0.4);
 const TEXT_VARIANT:Variants=createDisappearingVariant(0.3);
 
 export function ProjectComponent({projectData}:{projectData:ProjectData}){
@@ -555,7 +555,6 @@ export const SCHULICH_IGNITE_DATA: ProjectData = {
     componentAnimationDuration:.1,
     github_link: null,
     component: SchulichIgnite,
-
 }
 
 function SchulichIgnite() {
