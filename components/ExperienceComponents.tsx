@@ -90,6 +90,7 @@ function JobTitle({title, company, start, end, githubLink}: JobTitleProps) {
     </div>
 }
 
+
 export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
     const {component:Component,end,company_data,company,start,title, tags, componentAnimationDuration,showTags, github_link} = projectData;
     let skillBox=null;
@@ -99,9 +100,11 @@ export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
         skillBox=<CollapsableSkillsBox skills={tags} className={style.expSkillBox} delay={componentAnimationDuration}/>
     }
 
+    const componentVariant=createDisappearingVariant(0.1,{staggerChildren:0.1,delay:titleDuration},{staggerChildren:0.1, staggerDirection:-1})
+    const titleVariant=createMovingVariant("y",50, titleDuration,undefined,{delay:componentAnimationDuration});
     if(company_data !== null){
         return <>
-            <motion.div layout variants={createMovingVariant("y",50, titleDuration,undefined,{delay:componentAnimationDuration})}>
+            <motion.div layout variants={titleVariant}>
                 <Media>
                     <motion.div layout>
                         <a href={company_data.url}>
@@ -115,7 +118,7 @@ export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
                     </Media.Body>
                 </Media>
             </motion.div>
-        <motion.div variants={createDisappearingVariant(0.1,{staggerChildren:0.1,delay:titleDuration},{staggerChildren:0.1, staggerDirection:-1})} layout>
+        <motion.div variants={componentVariant} layout>
             <Component />
         </motion.div>
         {skillBox}
@@ -123,8 +126,10 @@ export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
     }
     else{
         return <>
-            <motion.div layout>
+            <motion.div layout variants={titleVariant}>
                 <JobTitle githubLink={github_link} title={title} company={company} start={start} end={end}/>
+            </motion.div>
+            <motion.div variants={componentVariant} layout>
                 <Component />
             </motion.div>
             {skillBox}
