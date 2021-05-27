@@ -93,7 +93,7 @@ function JobTitle({title, company, start, end, githubLink}: JobTitleProps) {
 export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
     const {component:Component,end,company_data,company,start,title, tags, componentAnimationDuration,showTags, github_link} = projectData;
     let skillBox=null;
-    const titleDuration=0.2;
+    const titleDuration=0.1;
 
     const skillBoxDuration=showTags?0.5:0;
     if(showTags){
