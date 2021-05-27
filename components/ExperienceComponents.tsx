@@ -98,7 +98,7 @@ export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
     const titleDuration=0.1;
 
     if(showTags){
-        skillBox=<CollapsableSkillsBox skills={tags} className={style.expSkillBox} delay={componentAnimationDuration}/>
+        skillBox=<CollapsableSkillsBox skills={tags} className={style.expSkillBox}/>
     }
 
     const componentVariant=createDisappearingVariant(0.1,{staggerChildren:0.1,delay:titleDuration},{staggerChildren:0.1, staggerDirection:-1})

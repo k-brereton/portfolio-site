@@ -78,10 +78,9 @@ export function SkillsBox({title,skills, delay}:SkillsBoxProps){
 interface CollapsableSkillsBoxProps{
     readonly skills:ReadonlyArray<ProjectTag>;
     readonly className:string;
-    readonly delay:number;
 }
 
-export function CollapsableSkillsBox({skills,className,delay}: CollapsableSkillsBoxProps) {
+export function CollapsableSkillsBox({skills,className}: CollapsableSkillsBoxProps) {
 
     const [isCollapsed,setIsCollapsed]=useState(true);
     const shownSkills=isCollapsed? skills.slice(0, 3):skills;
