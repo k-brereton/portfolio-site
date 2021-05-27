@@ -106,3 +106,4 @@ export function CollapsableSkillsBox({skills,className,delay}: CollapsableSkills
     </motion.div>;
 }
 
+export const EXP_PAGE_TITLE_VARIANT=createDisappearingVariant(0.5,{delay:0.4},{delay:0.3})

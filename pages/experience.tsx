@@ -1,6 +1,9 @@
+import { motion } from 'framer-motion';
 import Head from 'next/head'
 import {Container} from "react-bootstrap";
 import {NBC_INTERNSHIP_DATA, ProjectComponent, SCHULICH_IGNITE_DATA, UNIVERSITY_OF_CALGARY_DATA} from "../components/ExperienceComponents";
+import {createDisappearingVariant} from "../components/animations";
+import {EXP_PAGE_TITLE_VARIANT} from "../components/CommonComponents";
 
 export default function ExperiencePage() {
     return <>
@@ -8,7 +11,7 @@ export default function ExperiencePage() {
             <title>Kevin Brereton's Portfolio | Experience</title>
         </Head>
         <Container>
-            <h1 className="display-2 mainTitle">Experience</h1>
+            <motion.h1 className="display-2 mainTitle" variants={EXP_PAGE_TITLE_VARIANT} >Experience</motion.h1>
             {[UNIVERSITY_OF_CALGARY_DATA,NBC_INTERNSHIP_DATA,SCHULICH_IGNITE_DATA].map((data, idx)=>{
                 return <ProjectComponent key={idx} projectData={data}/>;
             })}

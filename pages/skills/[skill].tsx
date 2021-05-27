@@ -1,7 +1,8 @@
 import {ALL_PROJECT_TAGS, PROJECT_DATA, ProjectComponent, ProjectTag} from "../../components/ExperienceComponents"
-import {PageHead} from "../../components/CommonComponents";
-import {AnimateSharedLayout} from "framer-motion";
+import {EXP_PAGE_TITLE_VARIANT, PageHead} from "../../components/CommonComponents";
+import {motion} from "framer-motion";
 import {Container} from "react-bootstrap";
+import {createDisappearingVariant} from "../../components/animations";
 
 export default function SkillComponent({skill}:{skill:ProjectTag}) {
     const dataToShow=PROJECT_DATA.filter(data=>data.tags.includes(skill))
@@ -10,7 +11,7 @@ export default function SkillComponent({skill}:{skill:ProjectTag}) {
     return <>
         <PageHead description={`Kevin Brereton's experience with ${skill}`} title={`Kevin Brereton | ${skill}`}/>
         <Container>
-            <h1 className="display-2 mainTitle">{skill} Experience</h1>
+            <motion.h1 className="display-2 mainTitle" variants={EXP_PAGE_TITLE_VARIANT}>{skill} Experience</motion.h1>
             {dataToShow}
         </Container>
     </>
