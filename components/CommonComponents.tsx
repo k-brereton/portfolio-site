@@ -25,17 +25,17 @@ export function PageHead({description,title}:HeaderProps) {
 }
 
 export function GitHubIcon({href,className}:{href:string, className:string}) {
-    return <a href={href} className="contactIcon"> <RiGithubFill className={className}/> </a>;
+    return <a href={href} className="contactIcon"> <RiGithubFill className={className} title="Github Link"/> </a>;
 }
 
 export function ContactMediaBar({showAboutLink, iconClassName}:{showAboutLink:boolean,iconClassName:string}) {
     //hardcoded sizes, due to library.
     return <div>
-            <a href="https://www.linkedin.com/in/kevin-brereton/" className="contactIcon"> <RiLinkedinBoxFill className={iconClassName}/> </a>
+            <a href="https://www.linkedin.com/in/kevin-brereton/" className="contactIcon"> <RiLinkedinBoxFill className={iconClassName} title="Linkedin Link"/> </a>
             <GitHubIcon href="https://github.com/k-brereton/" className={iconClassName}/>
             {
                 showAboutLink && <Link scroll={false} href="/about" passHref>
-                    <a className="contactIcon"> <RiPhoneFill className={iconClassName}/> </a>
+                    <a className="contactIcon"> <RiPhoneFill className={iconClassName} title="About Link" /> </a>
                 </Link>
             }
         </div>

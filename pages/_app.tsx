@@ -27,7 +27,7 @@ export function Header({pathname}:{pathname:string}) {
             </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-        <Navbar.Collapse>
+        <Navbar.Collapse id="responsive-navbar-nav">
             <Nav activeKey={pathname} className="ml-auto">
                 <Link scroll={false} href="/experience" passHref><Nav.Link>experience</Nav.Link></Link>
                 <Link scroll={false} href="/projects" passHref><Nav.Link>projects</Nav.Link></Link>

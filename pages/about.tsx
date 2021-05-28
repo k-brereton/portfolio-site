@@ -32,8 +32,8 @@ export default function About() {
                     </motion.div>
                     <motion.div className="about_contactArea" variants={FAST_DISAPPEARING_VARIANT}>
                         {/*email/phone basic obfuscation. Nothing complex but good enough for most spammers*/}
-                        <Row><RiPhoneFill size={ICON_SIZE} className="about_aboutContactIcon"/> 403 <span className="about_hidden"> plz no spam</span>- 400 <span className="about_hidden"> plz</span> - 0901 </Row>
-                        <Row><HiOutlineMail size={ICON_SIZE} className="about_aboutContactIcon"/> kevin<span className="about_hidden"> kldas;jfa</span>.brereton1<span className="about_hidden"> daaasc</span>@gmail<span className="about_hidden"> .ca</span>.com </Row>
+                        <Row><RiPhoneFill size={ICON_SIZE} className="about_aboutContactIcon" title="Phone"/> 403 <span className="about_hidden"> plz no spam</span>- 400 <span className="about_hidden"> plz</span> - 0901 </Row>
+                        <Row><HiOutlineMail size={ICON_SIZE} className="about_aboutContactIcon" title="Email"/> kevin<span className="about_hidden"> kldas;jfa</span>.brereton1<span className="about_hidden"> daaasc</span>@gmail<span className="about_hidden"> .ca</span>.com </Row>
                     </motion.div>
                 </motion.div>
             </div>
