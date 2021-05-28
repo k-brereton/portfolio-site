@@ -36,7 +36,7 @@ const ABOUT_LINKS_VARIANT=createMovingVariant("y", 100, 0.5);
 function HomeContactInfo(){
     return <div className="index_homeContactColumn">
         <motion.div className="index_mainImage" variants={DISAPPEARING_VARIANT}>
-            <Image src={"/images/logo.png"} width={MAIN_IMAGE_DEFAULT_SIZE_PX} height={MAIN_IMAGE_DEFAULT_SIZE_PX}  />
+            <Image src={"/images/logo.png"} width={MAIN_IMAGE_DEFAULT_SIZE_PX} height={MAIN_IMAGE_DEFAULT_SIZE_PX} alt="Kevin Brereton Logo" />
         </motion.div>
         <motion.div variants={ABOUT_LINKS_VARIANT}>
             <ContactMediaBar iconClassName="index_iconClass" showAboutLink/>

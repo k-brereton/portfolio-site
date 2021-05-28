@@ -23,7 +23,7 @@ export default function About() {
         <Container>
             <div className="centering">
                 <motion.div layout className="about_mainArea" variants={OUTER_VARIANT}>
-                    <motion.div variants={FAST_DISAPPEARING_VARIANT}><Image src="/images/kevin_picture.jpg" className="about_myImage" height={MY_IMAGE_SIZE} width={MY_IMAGE_SIZE}/></motion.div>
+                    <motion.div variants={FAST_DISAPPEARING_VARIANT}><Image src="/images/kevin_picture.jpg" className="about_myImage" height={MY_IMAGE_SIZE} width={MY_IMAGE_SIZE} alt="Headshot image of Kevin Brereton"/></motion.div>
                     <motion.div variants={FAST_DISAPPEARING_VARIANT}><ContactMediaBar showAboutLink={false} iconClassName="about_iconClass"/></motion.div>
                     <motion.h2 className="display-4 about_name" variants={FAST_DISAPPEARING_VARIANT}>Kevin Brereton</motion.h2>
                     <motion.div className="about_textArea" variants={FAST_DISAPPEARING_VARIANT}>
