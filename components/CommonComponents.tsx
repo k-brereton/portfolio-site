@@ -20,9 +20,10 @@ export function PageHead({description,title}:HeaderProps) {
         <meta property="og:image" content="/images/logo.png"/>
         <meta name="og:title" content="Kevin Brereton Resume" />
         <meta name="twitter:card" content="summary_large_image" />
-        <title>{title}</title>
         {/*todo get rid of this*/}
         <meta name="google-site-verification" content="64aEDzrlDr6ennXmXHf71EGk7QMxbs9YSFd_gZ66qr4" />
+
+        <title>{title}</title>
     </Head>
 }
 
