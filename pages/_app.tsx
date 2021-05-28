@@ -1,7 +1,14 @@
 import 'bootswatch/dist/darkly/bootstrap.min.css';
 import "../globals.scss"
+
+//no css modules, since the current version of next.js has no way to defer links changing the page, which messes with the css.
+//there are ways to fix this by using the router apis and essentially making my own "Link" component, but the complexity outweighs the benefits
+
 import "../components/CommonComponents.scss"
 import "../components/ExperienceComponents.scss"
+import "./skills/index.scss"
+import "./about.scss"
+import "./index.scss"
 
 import type { AppProps } from 'next/app'
 import {Nav, Navbar} from "react-bootstrap";

@@ -2,8 +2,6 @@ import { motion } from 'framer-motion';
 import Head from 'next/head'
 import {SkillsBox} from "../../components/CommonComponents";
 import {ProjectTag} from "../../components/ExperienceComponents";
-// @ts-ignore
-import style from "./index.module.scss"
 import {createDisappearingVariant} from "../../components/animations";
 
 
@@ -29,7 +27,7 @@ export default function SkillsPage() {
             <title>Kevin Brereton's Portfolio | Skills</title>
         </Head>
         <motion.h1 className="display-2 mainTitle" variants={createDisappearingVariant(0.5,undefined,{delay:0.3})}>Skills</motion.h1>
-        <div className={style.skill_index_skillsBox1}> <SkillsBox title="Main Skills" skills={MAIN_SKILLS} delay={0}/></div>
-        <div className={style.skill_index_skillsBox2}> <SkillsBox title="Additional Skills" skills={ADDITIONAL_SKILLS} delay={0}/> </div>
+        <div className="skill_index_skillsBox1"> <SkillsBox title="Main Skills" skills={MAIN_SKILLS} delay={0}/></div>
+        <div className="skill_index_skillsBox2"> <SkillsBox title="Additional Skills" skills={ADDITIONAL_SKILLS} delay={0}/> </div>
     </>
 }
