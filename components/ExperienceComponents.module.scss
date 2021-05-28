@@ -20,7 +20,7 @@
 }
 
 
-.expSkillBox{
+.experience_expSkillBox{
   margin-top: 30px;
   @extend .centering;
   > :global(.skillsBox) {
@@ -33,40 +33,39 @@
           $hoverColor:lighten(variables.$cyan,20%),
           $textColor:lighten(variables.$cyan,15%)
   );
-
 }
-.explanation{
+.experience_explanation{
   font-size: x-large;
   margin-bottom: 10px;
   @include globals.dynamicText();
 }
 
-.expComponent{
+.experience_expComponent{
   @extend .impactBox;
   margin-top: 50px;
 }
-.expComponent:nth-child(5n+3), {
+.experience_expComponent:nth-child(5n+3), {
   @include colorSkillsBox(
           $color:lighten(variables.$purple,5%),
           $hoverColor:lighten(variables.$purple,10%),
           $textColor:lighten(variables.$purple,17%)
   );
 }
-.expComponent:nth-child(5n+4){
+.experience_expComponent:nth-child(5n+4){
   @include colorSkillsBox(
           $color:variables.$green,
           $hoverColor:lighten(variables.$green,10%),
           $textColor:lighten(variables.$green,5%)
   );
 }
-.expComponent:nth-child(5n){
+.experience_expComponent:nth-child(5n){
   @include colorSkillsBox(
           $color:variables.$yellow,
           $hoverColor:lighten(variables.$yellow,10%),
           $textColor:lighten(variables.$yellow,5%)
   );
 }
-.expComponent:nth-child(5n+1){
+.experience_expComponent:nth-child(5n+1){
   @include colorSkillsBox(
           $color:variables.$red,
           $hoverColor:lighten(variables.$red,10%),
@@ -74,7 +73,7 @@
   );
 }
 
-.jobTitleRow{
+.experience_jobTitleRow{
   display:flex;
   flex-direction: row;
   align-items: center;
@@ -92,19 +91,19 @@
   }
 }
 
-.jobTitleArea{
+.experience_jobTitleArea{
   margin-bottom: 25px;
 }
 
 .impactBox{
-  .jobTitleArea{
+  .experience_jobTitleArea{
     background-color: darken(globals.$impactBoxBackground,1%);
   }
 }
 
 
 
-.jobTitleCompanyRow{
+.experience_jobTitleCompanyRow{
   font-size: xx-large;
   @include globals.dynamicSubtitle();
 

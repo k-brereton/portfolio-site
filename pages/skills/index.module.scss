@@ -1,7 +1,7 @@
 @use "globals";
 @use "~bootswatch/dist/darkly/variables";
 
-.skillsBoxOuter{
+.skill_index_skillsBoxOuter{
   @extend .centering;
   margin: 30px 0;
 
@@ -14,8 +14,8 @@
   }
 }
 
-.skillsBox1{
-  @extend .skillsBoxOuter;
+.skill_index_skillsBox1{
+  @extend .skill_index_skillsBoxOuter;
   :global(.skillsBoxTitle){
     background-color: lighten(variables.$cyan,10%);
   }
@@ -28,8 +28,8 @@
   }
 
 }
-.skillsBox2{
-  @extend .skillsBoxOuter;
+.skill_index_skillsBox2{
+  @extend .skill_index_skillsBoxOuter;
   :global(.skillsBox) {
     border: solid 3px lighten(variables.$purple,5%);
   }

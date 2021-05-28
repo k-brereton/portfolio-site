@@ -1,24 +1,24 @@
 @use "globals";
 @use "~bootswatch/dist/darkly/variables";
 
-.mainImage{
+.index_mainImage{
     height: 175px;
     width:175px;
 }
 
-.homeContactColumn{
+.index_homeContactColumn{
     @extend .centering;
     height: 100%;
     user-select: none;
 }
-.homeLinks{
+.index_homeLinks{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     height: calc(100vh - 100px);
 }
 
-.singleHomeLink{
+.index_singleHomeLink{
     width:100%;
     height:100%;
     padding: 5px;
@@ -28,80 +28,80 @@
     font-size: xxx-large;
     background-color: darken(variables.$body-bg,2%);
 }
-.singleHomeLink:hover{
+.index_singleHomeLink:hover{
     text-decoration: none;
     color:#00bc8c;
     background-color: lighten(variables.$body-bg,2%);
 }
 
-.linkOuterDiv{
+.index_linkOuterDiv{
     overflow: hidden;
 }
-.linkOuterDiv:nth-child(3n+1) > .singleHomeLink{
+.index_linkOuterDiv:nth-child(3n+1) > .index_singleHomeLink{
     background-color: globals.$theme-blue;
     border:solid black 1px;
     color:#dddddd;
 }
-.linkOuterDiv:nth-child(3n+1) > .singleHomeLink:hover{
+.index_linkOuterDiv:nth-child(3n+1) > .index_singleHomeLink:hover{
     background-color: lighten(globals.$theme-blue,5%);
 }
 
-.overallDiv{
+.index_overallDiv{
     width: 100%;
     display: flex;
     flex-flow: row wrap;
 }
 
-.overallColumn1{
+.index_overallColumn1{
     min-width: 50%;
 }
 
-.overallColumn2{
+.index_overallColumn2{
     min-width: 50%;
 }
-.iconClass{
+.index_iconClass{
     font-size: xxx-large;
 }
 
 
 @media only screen and (max-width: 1050px) {
-    .overallColumn1{
+    .index_overallColumn1{
         min-width: 60%;
     }
 
-    .overallColumn2{
+    .index_overallColumn2{
         min-width: 40%;
     }
-    .singleHomeLink{
+    .index_singleHomeLink{
         font-size: xx-large;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .overallColumn1, .overallColumn2 {
+    .index_overallColumn1, .index_overallColumn2 {
         min-width: 100%;
     }
-    .overallColumn2 {
+    .index_overallColumn2 {
         padding-top: 10px;
     }
-    .mainImage{
+    .index_mainImage{
         height: 75px;
         width: 75px;
     }
-    .homeContactColumn {
+    .index_homeContactColumn {
         height: fit-content;
     }
-    .homeLinks{
+    .index_homeLinks{
         height: calc(100vh - 200px);
     }
-    .iconClass{
+    .index_iconClass{
         font-size: xx-large;
     }
 
 }
 
 @media only screen and (max-width: 350px) {
-    .singleHomeLink{
+    .index_singleHomeLink{
         font-size: x-large;
     }
 }

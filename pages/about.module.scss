@@ -1,16 +1,16 @@
 @use "globals";
 @use "~bootswatch/dist/darkly/variables";
 
-.myImage{
+.about_myImage{
     border-radius: 50%;
 }
 
-.mainArea{
+.about_mainArea{
     @extend .impactBox;
     @extend .centering;
     height: 100%;
 }
-.textArea{
+.about_textArea{
     border: solid 2px darken(variables.$link-color,8%);
     max-width: 800px;
     display: inline-block;
@@ -18,28 +18,28 @@
     font-size: large;
     @include globals.dynamicText;
 }
-.contactArea{
+.about_contactArea{
     padding-top: 30px;
     max-width: 800px;
     font-size: 1.4em;
     @include globals.dynamicSubtitle;
 }
 
-.aboutContactIcon{
+.about_aboutContactIcon{
     margin-right: 5px;
 }
-.iconClass{
+.about_iconClass{
     font-size: xxx-large;
     @media screen and (max-width: 450px) {
         font-size: xx-large;
     }
 }
 
-.hidden{
+.about_hidden{
     visibility: hidden;
     display: none;
 }
-.name{
+.about_name{
     @media screen and (max-width: 450px) {
         font-size: xxx-large;
     }
