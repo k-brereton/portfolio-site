@@ -66,9 +66,9 @@ export function SkillsBox({title,skills, delay}:SkillsBoxProps){
 
     else{
         return <motion.div className="skillsBoxWrapper" >
-            <motion.div variants={titleVariant} className="skillsBoxTitle">
+            <motion.h2 variants={titleVariant} className="skillsBoxTitle">
                 {title}
-            </motion.div>
+            </motion.h2>
             <motion.div variants={skillBoxVariant} className="skillsBox">{links}</motion.div>
         </motion.div>
     }

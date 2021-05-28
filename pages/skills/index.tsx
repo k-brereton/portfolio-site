@@ -25,7 +25,7 @@ export default function SkillsPage() {
     return <>
         <PageHead description={"Kevin has developed many skills over the years. This includes..."} title={"Kevin Brereton | Skills"}/>
         <motion.h1 className="display-2 mainTitle" variants={createDisappearingVariant(0.5,undefined,{delay:0.3})}>Skills</motion.h1>
-        <div className="skill_index_skillsBox1"> <SkillsBox title="Main Skills" skills={MAIN_SKILLS} delay={0}/></div>
-        <div className="skill_index_skillsBox2"> <SkillsBox title="Additional Skills" skills={ADDITIONAL_SKILLS} delay={0}/> </div>
+        <section className="skill_index_skillsBox1"> <SkillsBox title="Main Skills" skills={MAIN_SKILLS} delay={0}/></section>
+        <section className="skill_index_skillsBox2"> <SkillsBox title="Additional Skills" skills={ADDITIONAL_SKILLS} delay={0}/> </section>
     </>
 }

@@ -70,9 +70,9 @@ function TimeRangeComponent({start, end}: TimeRangeComponentProps) {
 
 
     if (startTimeStr === endTimeStr) {
-        return <div> {startTimeStr} </div>
+        return <h3> {startTimeStr} </h3>
     } else {
-        return <div>{startTimeStr} - {endTimeStr}</div>
+        return <h3>{startTimeStr} - {endTimeStr}</h3>
     }
 }
 
@@ -83,7 +83,7 @@ function JobTitle({title, company, start, end, githubLink}: JobTitleProps) {
             {githubLink !== null && <GitHubIcon href={githubLink} className="experience_jobTitleGithub"/>}
         </div>
         <div className="experience_jobTitleCompanyRow">
-            <div>{company}</div>
+            <h3>{company}</h3>
             <TimeRangeComponent start={start} end={end}/>
         </div>
     </div>
@@ -141,9 +141,9 @@ const PROJECT_VARIANT:Variants=createExpandingVariant(0.4);
 const TEXT_VARIANT:Variants=createDisappearingVariant(0.3);
 
 export function ProjectComponent({projectData}:{projectData:ProjectData}){
-    return <motion.div className="experience_expComponent" layout variants={PROJECT_VARIANT}>
+    return <motion.section className="experience_expComponent" layout variants={PROJECT_VARIANT}>
            <ProjectComponentBody projectData={projectData}/>
-        </motion.div>
+        </motion.section>
 }
 
 
@@ -179,8 +179,8 @@ export const comOptionAnalyticsData:ProjectData={
 
 export function ComOptionAnalyticsComponent () {
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} > Created the ComOptionAnalytics system for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} > Created the ComOptionAnalytics system for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>
             <div> This system includes:</div>
             <ul>
                 <li>A central server which pulls market data from various sources to provide real time data analysis</li>
@@ -189,8 +189,8 @@ export function ComOptionAnalyticsComponent () {
                 <li>A tool for analyzing potential trades</li>
                 <li>Several more tools for gathering, evaluating, and analyzing market data</li>
             </ul>
-            </motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use</motion.div>
+            </motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use</motion.p>
     </>
 }
 
@@ -209,9 +209,9 @@ export const riskManagerData:ProjectData={
 
 export function RiskManagerComponent() {
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} > Lead a small team to create a software system for traders to manage their portfolio risk in real time</motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}> Designed code architecture, and implemented core features</motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}> Organized and motivated the development team, while providing code reviews, guidance, and knowledge to ensure the project ran smoothly</motion.div>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} > Lead a small team to create a software system for traders to manage their portfolio risk in real time</motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}> Designed code architecture, and implemented core features</motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}> Organized and motivated the development team, while providing code reviews, guidance, and knowledge to ensure the project ran smoothly</motion.p>
     </>
 }
 
@@ -232,9 +232,9 @@ export const chessOnTheGoData:ProjectData={
 
 export function ChessOnTheGoComponent() {
     return <>
-            <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} > Co-created an online chess platform  using Typescript, React.js, MongoDB, Express.js and Socket.io </motion.div>
-            <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} > The website featured the full competitive chess ruleset, skill-based matchmaking, Elo rankings, and several game modes  </motion.div>
-            <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} > Kevin implemented the majority of the server code using Node.js, Express.js and Socket.io </motion.div>
+            <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} > Co-created an online chess platform  using Typescript, React.js, MongoDB, Express.js and Socket.io </motion.p>
+            <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} > The website featured the full competitive chess ruleset, skill-based matchmaking, Elo rankings, and several game modes  </motion.p>
+            <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} > Kevin implemented the majority of the server code using Node.js, Express.js and Socket.io </motion.p>
         </>
 }
 
@@ -254,9 +254,9 @@ export const faultLocalizationToolData:ProjectData={
 
 export function FaultLocalizationToolComponent(){
     return <>
-            <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} > Co-created a Fault Localization tool that detects where a software bug is located in the source code of a software project using machine learning  </motion.div>
-            <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}> The tool searched for a bug described in a bug report and predicted the files that needed fixing </motion.div>
-            <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}> Kevin implemented the machine learning models using a methodology found within academic research  </motion.div>
+            <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} > Co-created a Fault Localization tool that detects where a software bug is located in the source code of a software project using machine learning  </motion.p>
+            <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}> The tool searched for a bug described in a bug report and predicted the files that needed fixing </motion.p>
+            <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}> Kevin implemented the machine learning models using a methodology found within academic research  </motion.p>
         </>
 }
 
@@ -275,9 +275,9 @@ export const amazonReviewAnalyzerData:ProjectData={
 
 export function AmazonReviewAnalysis(){
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} > Collaborated with 3 others to create a sentiment analysis tool for amazon reviews </motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} > The tool analyzed product reviews to detect whether the reviewer felt positively or negatively about the product </motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}> The tool is horizontally and vertically scalable, and it could potentially handle terabytes of information at once </motion.div>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} > Collaborated with 3 others to create a sentiment analysis tool for amazon reviews </motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} > The tool analyzed product reviews to detect whether the reviewer felt positively or negatively about the product </motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}> The tool is horizontally and vertically scalable, and it could potentially handle terabytes of information at once </motion.p>
     </>
 }
 
@@ -297,12 +297,12 @@ export const twitchVidsData:ProjectData={
 
 export function TwitchVidsComponent() {
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} >
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} >
             Co-created website which is YouTube but for Twitch clips. Users can see the latest highlights from their favorite streamers by subscribing to them. This was implemented using the Laravel Framework
-        </motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>
+        </motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>
             Implemented the majority of the server code, including the Laravel models, controllers, and the Twitch API integration
-        </motion.div>
+        </motion.p>
     </>
 }
 
@@ -321,10 +321,10 @@ export const carVisualizerData:ProjectData={
 
 export function CarVisualizerComponent() {
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>Collaborated with 4 others to create a website for car customization. The website allows users to choose what cars they want to buy, and select colors, etc</motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Collaborated with 4 others to create a website for car customization. The website allows users to choose what cars they want to buy, and select colors, etc</motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>
             Implemented the majority of the server code, including the Laravel models and controllers
-        </motion.div>
+        </motion.p>
     </>
 
 }
@@ -344,9 +344,9 @@ export const parkingManagementData:ProjectData={
 
 export function ParkingDataManagementSystemComponent() {
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>Collaborated with 3 people to create a highly modular Java Swing application for collecting and organizing data from parking security companies. His efforts resulted in an expandable and easy to use software core to base further projects off of</motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>Designed a Self-Checking Database core which automatically detects data Integrity flaws, creating an easy to use and intuitive database communication</motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>Expanded his knowledge by porting the system over to android</motion.div>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Collaborated with 3 people to create a highly modular Java Swing application for collecting and organizing data from parking security companies. His efforts resulted in an expandable and easy to use software core to base further projects off of</motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Designed a Self-Checking Database core which automatically detects data Integrity flaws, creating an easy to use and intuitive database communication</motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Expanded his knowledge by porting the system over to android</motion.p>
     </>
 }
 
@@ -381,14 +381,14 @@ export const desireToLoveData:ProjectData={
 
 export function DesireToLoveComponent() {
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>
             Co-created a love themed d2l site. Students could view content for their courses, submit assignments, and participate in online message boards with other other students.
-        </motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} >
+        </motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} >
             Kevin implemented A multi-purpose Server communication system which allowed for easy communication
             between the front end and back end. His system made all database interaction a breeze, and
             allowed for a messaging service to be implemented into the application
-        </motion.div>
+        </motion.p>
     </>
 }
 
@@ -406,10 +406,10 @@ export const reactMiscData:ProjectData={
 }
 
 export function ReactMisc() {
-    return <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} >
+    return <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} >
         Implemented various other smaller websites using React.js, Javascript and Typescript. The most fun example is the game
         <a href="https://k-brereton.github.io/mine-sweeper/build/"> Minesweeper</a>
-    </motion.div>
+    </motion.p>
 }
 
 export const cppMiscData:ProjectData={
@@ -426,16 +426,16 @@ export const cppMiscData:ProjectData={
 }
 export function CppMiscComponent() {
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}> Implemented various smaller C and C++ projects, including:</motion.div>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}> Implemented various smaller C and C++ projects, including:</motion.p>
         <motion.ul className="experience_explanation" layout variants={TEXT_VARIANT}>
             <li>An HTTP proxy server</li>
             <li>A small compression engine</li>
             <li>Various embedded systems, such as a remote for a remote controlled car </li>
             <li>Many different algorithm implementations and smaller assignments</li>
         </motion.ul>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} >
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} >
             This work has given Kevin excellent understanding of advanced C++ concepts such as templates, and a strong understanding of systems/embedded programming
-        </motion.div>
+        </motion.p>
     </>
 }
 
@@ -452,7 +452,7 @@ export const pandasMiscData:ProjectData={
     componentAnimationDuration:.2
 }
 export function PandasMiscComponent(){
-    return <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} >  Worked on various smaller assignments using NumPy and Pandas.py </motion.div>
+    return <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} >  Worked on various smaller assignments using NumPy and Pandas.py </motion.p>
 }
 
 export const javaMiscData:ProjectData={
@@ -469,12 +469,12 @@ export const javaMiscData:ProjectData={
 }
 export function JavaMiscComponent() {
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} >Used Java for many smaller assignments. This work has given Kevin a strong understanding of advanced techniques like Generics and lambdas </motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} >Used Java for many smaller assignments. This work has given Kevin a strong understanding of advanced techniques like Generics and lambdas </motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>
             While the majority of his work was in Java 8, he has done extensive research into modern java techniques such as Var and Records. He has also taken an interest in the future direction of the language
             (ie <a href="https://openjdk.java.net/projects/valhalla/"> Project Valhalla</a> and
             <a href="https://wiki.openjdk.java.net/display/loom/Main"> Project Loom</a>)
-        </motion.div>
+        </motion.p>
     </>
 }
 
@@ -547,13 +547,13 @@ function NBCInternship() {
                     </motion.div>
                 </AnimateSharedLayout>
             </Modal>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}> Created the <a href="/projects" onClick={onComOptionAnalyticsClick}>ComOptionAnalytics system</a> for one of the banks hedge
             funds. This system analyzes option contracts, giving real time pricing and risk profiles
-        </motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}> Refined his software architecture skills to create cohesive and high-quality code using the object-oriented and functional
+        </motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}> Refined his software architecture skills to create cohesive and high-quality code using the object-oriented and functional
             programming paradigms
-        </motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}> Helped interview and analyze candidates for the next years internship</motion.div>
+        </motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}> Helped interview and analyze candidates for the next years internship</motion.p>
     </>
 }
 
@@ -571,7 +571,7 @@ export const SCHULICH_IGNITE_DATA: ProjectData = {
 }
 
 function SchulichIgnite() {
-    return <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>Explained complicated programming concepts to students so they could program games</motion.div>
+    return <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Explained complicated programming concepts to students so they could program games</motion.p>
 }
 
 export const UNIVERSITY_OF_CALGARY_DATA: ProjectData = {
@@ -589,7 +589,7 @@ export const UNIVERSITY_OF_CALGARY_DATA: ProjectData = {
 
 function UniversityOfCalgary() {
     return <>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>GPA: 3.94 / 4</motion.div>
-        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>Created many <Link scroll={false} href="/projects">projects</Link> for different courses</motion.div>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>GPA: 3.94 / 4</motion.p>
+        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Created many <Link scroll={false} href="/projects">projects</Link> for different courses</motion.p>
     </>
 }

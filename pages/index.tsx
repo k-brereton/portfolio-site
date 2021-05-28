@@ -48,7 +48,7 @@ export default function Home() {
   return (
       <>
           {/*MODIFICATION AREA*/}
-          <PageHead description={"Kevin Brereton is a freshly graduated developer, who previously worked with the National Bank of Canada"} title={"Kevin Brereton's Portfolio"}/>
+          <PageHead description={"Kevin Brereton is a developer from Calgary, who previously worked with the National Bank of Canada"} title={"Kevin Brereton's Portfolio"}/>
           <motion.div className="index_overallDiv" >
               <div className="index_overallColumn1">
                   <HomeLinks />

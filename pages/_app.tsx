@@ -40,11 +40,11 @@ export function Header({pathname}:{pathname:string}) {
 
 function BackToHomeLink() {
     return <footer className="centering">
-        <h2 className="backToHomeLink">
-        <Link scroll={false} href="/" passHref>
-            <a>🠔 Back to home</a>
+        <div className="backToHomeLink">
+        <Link scroll={false} href="/">
+            🠔 Back to home
         </Link>
-    </h2>
+    </div>
     </footer>
 }
 

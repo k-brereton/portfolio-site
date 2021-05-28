@@ -40,6 +40,8 @@ $impactBoxBackground:darken(variables.$body-bg,2%);
     min-height: calc(100vh - 150px);
 }
 .backToHomeLink{
+    font-size: xx-large;
+
     @media screen and (max-width: 360px) {
         font-size: x-large;
     }
