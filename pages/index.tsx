@@ -1,7 +1,6 @@
-import Head from 'next/head'
 import Image from "next/image";
 
-import {ContactMediaBar} from "../components/CommonComponents";
+import {ContactMediaBar, PageHead} from "../components/CommonComponents";
 import Link from "next/link"
 import {motion, Variants} from 'framer-motion';
 import {createDisappearingVariant, createMovingVariant} from "../components/animations";
@@ -48,9 +47,8 @@ function HomeContactInfo(){
 export default function Home() {
   return (
       <>
-          <Head>
-              <title>Kevin Brereton's Portfolio</title>
-          </Head>
+          {/*MODIFICATION AREA*/}
+          <PageHead description={"Kevin Brereton is a freshly graduated developer, who previously worked with the National Bank of Canada"} title={"Kevin Brereton's Portfolio"}/>
           <motion.div className="index_overallDiv" >
               <div className="index_overallColumn1">
                   <HomeLinks />

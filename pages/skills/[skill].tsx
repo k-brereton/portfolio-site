@@ -14,7 +14,6 @@ export default function SkillComponent({skill}:{skill:ProjectTag}) {
             {dataToShow}
         </Container>
     </>
-
 }
 
 export async function getStaticProps({params}:{params:{skill:ProjectTag}}) {

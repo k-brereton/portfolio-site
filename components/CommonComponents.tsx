@@ -18,7 +18,6 @@ export function PageHead({description,title}:HeaderProps) {
         <link rel="icon" href="/images/logo.png" />
         <meta name="description" content={description}/>
         <meta property="og:image" content="/images/logo.png"/>
-        {/*todo more meta tags if needed*/}
         <meta name="og:title" content="Kevin Brereton Resume" />
         <meta name="twitter:card" content="summary_large_image" />
         <title>{title}</title>
