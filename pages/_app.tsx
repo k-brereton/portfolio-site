@@ -16,7 +16,7 @@ import {VARIANT} from "../components/CommonComponents";
 import Link from "next/link";
 import Image from "next/image";
 import {AnimatePresence, AnimateSharedLayout, motion, Variants} from "framer-motion";
-const HEADER_LOGO_SIZE_PX=30;
+const HEADER_LOGO_SIZE_PX=50;
 
 export function Header({pathname}:{pathname:string}) {
 
