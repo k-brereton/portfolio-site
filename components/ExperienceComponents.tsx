@@ -180,7 +180,7 @@ export const comOptionAnalyticsData:ProjectData={
 export function ComOptionAnalyticsComponent () {
     return <>
         <motion.p className="experience_explanation" layout variants={TEXT_VARIANT} > Created the ComOptionAnalytics system for one of the banks hedge funds. This system analyzes option contracts, giving real time pricing and risk profiles</motion.p>
-        <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>
+        <motion.div className="experience_explanation" layout variants={TEXT_VARIANT}>
             <div> This system includes:</div>
             <ul>
                 <li>A central server which pulls market data from various sources to provide real time data analysis</li>
@@ -189,7 +189,7 @@ export function ComOptionAnalyticsComponent () {
                 <li>A tool for analyzing potential trades</li>
                 <li>Several more tools for gathering, evaluating, and analyzing market data</li>
             </ul>
-            </motion.p>
+            </motion.div>
         <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Applied his knowledge of test-driven development, requirements engineering, and MVC architecture to make the ComOptionAnalytics system fast, accurate and easy to use</motion.p>
     </>
 }
