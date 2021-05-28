@@ -157,7 +157,7 @@ export const resumeSiteData:ProjectData={
     component:ResumeSiteComponent,
     tags:["React.js","Next.js","TypeScript","SASS","GitHub","JavaScript","CSS", "HTML","Git"],
     showTags:true,
-    componentAnimationDuration:.1
+    componentAnimationDuration:.2
 }
 export function ResumeSiteComponent() {
     return <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} > Created the site you are on right now using Next.js and Typescript </motion.div>
@@ -173,7 +173,7 @@ export const comOptionAnalyticsData:ProjectData={
     component:ComOptionAnalyticsComponent,
     tags:["Python","React.js","MySQL", "Django", "WebSockets", "pytest", "Django Rest Framework","JSON Schema","JavaScript", "REST API", "HTML","CSS", "Unit Testing","JSON", "SQL","VBA", "C++"],
     showTags:true,
-    componentAnimationDuration:.3
+    componentAnimationDuration:.4
 }
 
 
@@ -204,7 +204,7 @@ export const riskManagerData:ProjectData={
     component:RiskManagerComponent,
     tags:["React.js","TypeScript", "Unit Testing", "Jest","CSS", "JSON Schema","GitHub", "JSON", "HTML","JavaScript","Git"],
     showTags:true,
-    componentAnimationDuration:.3
+    componentAnimationDuration:.4
 }
 
 export function RiskManagerComponent() {
@@ -226,7 +226,7 @@ export const chessOnTheGoData:ProjectData={
     tags:["React.js","TypeScript","MongoDB","Node.js", "Socket.io", "CSS", "JSON Schema","GitHub", "JSON", "HTML","JavaScript","Git"],
     showTags:true,
 
-    componentAnimationDuration:.3
+    componentAnimationDuration:.4
 }
 
 
@@ -248,7 +248,7 @@ export const faultLocalizationToolData:ProjectData={
     component:FaultLocalizationToolComponent,
     tags:["Machine Learning", "Natural Language Processing","Pandas.py","NumPy", "Python","Git"],
     showTags:true,
-    componentAnimationDuration:.3
+    componentAnimationDuration:.4
 }
 
 
@@ -270,7 +270,7 @@ export const amazonReviewAnalyzerData:ProjectData={
     component:AmazonReviewAnalysis,
     tags:["Apache Spark","Machine Learning", "Natural Language Processing", "Python", "DataBricks"],
     showTags:true,
-    componentAnimationDuration:.3
+    componentAnimationDuration:.4
 }
 
 export function AmazonReviewAnalysis(){
@@ -291,7 +291,7 @@ export const twitchVidsData:ProjectData={
     component:TwitchVidsComponent,
     tags:["PHP","Laravel","HTML","CSS", "JavaScript","SQL","PostgreSQL","GitHub","Git"],
     showTags:true,
-    componentAnimationDuration:.2
+    componentAnimationDuration:.3
 }
 
 
@@ -316,7 +316,7 @@ export const carVisualizerData:ProjectData={
     component:CarVisualizerComponent,
     tags:["PHP","Laravel","HTML","CSS", "JavaScript","SQL","PostgreSQL"],
     showTags:true,
-    componentAnimationDuration:.2
+    componentAnimationDuration:.3
 }
 
 export function CarVisualizerComponent() {
@@ -339,7 +339,7 @@ export const parkingManagementData:ProjectData={
     component:ParkingDataManagementSystemComponent,
     tags:["Java","Android","MySQL","SQL","BitBucket"],
     showTags:true,
-    componentAnimationDuration:.3
+    componentAnimationDuration:.4
 }
 
 export function ParkingDataManagementSystemComponent() {
@@ -360,7 +360,7 @@ export const bookOrderingSystemData:ProjectData={
     component:BookOrderingSystemComponent,
     tags:["Java","MySQL","SQL","BitBucket"],
     showTags:true,
-    componentAnimationDuration:.1
+    componentAnimationDuration:.2
 }
 export function BookOrderingSystemComponent() {
     return <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} >Re-used the framework from the Parking Data Management system to implement a Book Ordering System </motion.div>
@@ -376,7 +376,7 @@ export const desireToLoveData:ProjectData={
     component:DesireToLoveComponent,
     tags:["Java","MySQL","SQL","BitBucket"],
     showTags:true,
-    componentAnimationDuration:.2
+    componentAnimationDuration:.3
 }
 
 export function DesireToLoveComponent() {
@@ -402,7 +402,7 @@ export const reactMiscData:ProjectData={
     component:ReactMisc,
     tags:["JavaScript","TypeScript","React.js", "Node.js", "CSS"],
     showTags:false,
-    componentAnimationDuration:.1
+    componentAnimationDuration:.2
 }
 
 export function ReactMisc() {
@@ -422,7 +422,7 @@ export const cppMiscData:ProjectData={
     component:CppMiscComponent,
     tags:["C++","C"],
     showTags:false,
-    componentAnimationDuration:.3
+    componentAnimationDuration:.4
 }
 export function CppMiscComponent() {
     return <>
@@ -449,7 +449,7 @@ export const pandasMiscData:ProjectData={
     component:PandasMiscComponent,
     tags:["NumPy","Pandas.py"],
     showTags:false,
-    componentAnimationDuration:.1
+    componentAnimationDuration:.2
 }
 export function PandasMiscComponent(){
     return <motion.div className="experience_explanation" layout variants={TEXT_VARIANT} >  Worked on various smaller assignments using NumPy and Pandas.py </motion.div>
@@ -465,7 +465,7 @@ export const javaMiscData:ProjectData={
     component:JavaMiscComponent,
     tags:["Java"],
     showTags:false,
-    componentAnimationDuration:.2
+    componentAnimationDuration:.3
 }
 export function JavaMiscComponent() {
     return <>
