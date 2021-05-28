@@ -5,16 +5,16 @@
 
 
 @mixin colorSkillsBox($color,$hoverColor,$textColor){
-  :global(.skillsBox) {
+  .skillsBox {
     border-color: $color;
   }
-  :global(.collapseButton){
+  .collapseButton{
     background-color: $color;
   }
-  :global(.collapseButton):hover{
+ .collapseButton:hover{
     background-color: $hoverColor;
   }
-  :global(.skillsBox) a{
+  .skillsBox a{
     color:$textColor;
   }
 }
@@ -23,7 +23,7 @@
 .experience_expSkillBox{
   margin-top: 30px;
   @extend .centering;
-  > :global(.skillsBox) {
+  .skillsBox {
     border: solid 3.5px;
     width:98%;
     max-width: 1200px;
@@ -82,7 +82,7 @@
     flex-wrap: wrap;
     @include globals.dynamicTitle();
   }
-  .jobTitleGithub {
+  .experience_jobTitleGithub {
     margin-bottom: 0.5rem;
     font-size: xxx-large;
     @media screen and (max-width: 450px) {

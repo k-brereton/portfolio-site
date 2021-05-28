@@ -1,6 +1,7 @@
 import 'bootswatch/dist/darkly/bootstrap.min.css';
 import "../globals.scss"
 import "../components/CommonComponents.scss"
+import "../components/ExperienceComponents.scss"
 
 import type { AppProps } from 'next/app'
 import {Nav, Navbar} from "react-bootstrap";
