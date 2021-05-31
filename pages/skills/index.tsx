@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Head from 'next/head'
 import {PageHead, SkillsBox} from "../../components/CommonComponents";
 import {ProjectTag} from "../../components/ExperienceComponents";
 import {createDisappearingVariant} from "../../components/animations";

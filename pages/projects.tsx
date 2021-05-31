@@ -3,7 +3,6 @@ import {
     comOptionAnalyticsData,
     faultLocalizationToolData,
     MoreCanBeFoundHereComponent,
-    PROJECT_DATA,
     ProjectComponent,
     riskManagerData
 } from "../components/ExperienceComponents";
