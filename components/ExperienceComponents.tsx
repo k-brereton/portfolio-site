@@ -88,6 +88,13 @@ function JobTitle({title, company, start, end, githubLink}: JobTitleProps) {
         </div>
     </div>
 }
+function SingleLineTitle({title}:{title:string}) {
+    return <div className="experience_jobTitleArea">
+        <div className="experience_jobTitleRow">
+            <h2>{title}</h2>
+        </div>
+    </div>
+}
 
 
 export function ProjectComponentBody({projectData}:ProjectComponentBodyProps) {
@@ -592,4 +599,21 @@ function UniversityOfCalgary() {
         <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>GPA: 3.94 / 4</motion.p>
         <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Created many <Link scroll={false} href="/projects">projects</Link> for different courses</motion.p>
     </>
+}
+
+export function MoreCanBeFoundHereComponent() {
+    const titleDuration=0.1;
+
+    const componentVariant=createDisappearingVariant(0.1,{staggerChildren:0.1,delay:titleDuration},{staggerChildren:0.1, staggerDirection:-1})
+    const titleVariant=createMovingVariant("y",50, titleDuration,undefined,{delay:0.1});
+
+
+    return <motion.section className="experience_expComponent" layout variants={PROJECT_VARIANT}>
+        <motion.div layout variants={titleVariant}>
+            <SingleLineTitle title="Additional Projects" />
+        </motion.div>
+        <motion.div variants={componentVariant} layout>
+            <motion.p className="experience_explanation" layout variants={TEXT_VARIANT}>Additional projects can be found under the specific <Link href={"/skills"} scroll={false}> skills </Link> </motion.p>
+        </motion.div>
+    </motion.section>
 }
