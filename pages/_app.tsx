@@ -23,7 +23,7 @@ export function Header({pathname}:{pathname:string}) {
     return <Navbar expand="sm" bg={VARIANT} variant={VARIANT}>
         <Link scroll={false} href="/" passHref>
             <Navbar.Brand>
-                <Image src="/images/logo.png"  width={HEADER_LOGO_SIZE_PX} height={HEADER_LOGO_SIZE_PX} alt="Kevin Brereton Logo"/>
+                <Image src="/images/logo.svg"  width={HEADER_LOGO_SIZE_PX} height={HEADER_LOGO_SIZE_PX} alt="Kevin Brereton Logo"/>
             </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>

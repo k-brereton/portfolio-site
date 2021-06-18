@@ -15,9 +15,9 @@ interface HeaderProps{
 }
 export function PageHead({description,title}:HeaderProps) {
     return <Head>
-        <link rel="icon" href="/images/logo.png" />
+        <link rel="icon" href="/images/logo.svg" />
         <meta name="description" content={description}/>
-        <meta property="og:image" content="/images/logo.png"/>
+        <meta property="og:image" content="/images/logo.svg"/>
         <meta name="og:title" content="Kevin Brereton Resume" />
         <meta name="twitter:card" content="summary_large_image" />
         {/*todo get rid of this*/}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.0" width="300.000000pt" height="300.000000pt" viewBox="0 0 300.000000 300.000000" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="2974.419" cy="3316.712" r="1547.631" id="gradient-1" gradientTransform="matrix(5.681086, 0.019751, -0.0081, 2.329896, -13722.45714, -4505.969564)">
+      <stop offset="0" style="stop-color: rgba(135, 171, 228, 1)"/>
+      <stop offset="1" style="stop-color: rgba(52, 112, 209, 1)"/>
+    </radialGradient>
+    <linearGradient id="gradient-2" bx:pinned="true">
+      <title>mid</title>
+      <stop offset="0.007" style="stop-color: rgb(45, 103, 197);"/>
+      <stop offset="0.5" style="stop-color: rgb(135, 171, 228);"/>
+      <stop offset="0.999" style="stop-color: rgb(44, 102, 196);"/>
+    </linearGradient>
+    <linearGradient id="gradient-2-0" gradientUnits="userSpaceOnUse" x1="2617.377" y1="401.13" x2="2617.377" y2="5748.701" xlink:href="#gradient-2"/>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="701.641" cy="2572.593" r="828.696" id="gradient-0" gradientTransform="matrix(-3.077713, 0.001947, -0.002342, -3.703528, 4313.074132, 12736.943028)">
+      <stop offset="0" style="stop-color: rgba(236, 165, 99, 1)"/>
+      <stop offset="1" style="stop-color: rgba(208, 113, 25, 1)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0.000000,300.000000) scale(0.050000,-0.050000)" fill="#000000" stroke="none">
+    <path d="M3240 5946 c-144 -14 -418 -91 -449 -125 -60 -66 0 -83 180 -51 768 137 1494 -138 1743 -662 365 -765 -507 -1757 -1565 -1781 -155 -4 -290 -8 -300 -8 -42 -4 150 -63 287 -90 107 -21 223 -25 440 -16 843 35 1606 -292 1880 -807 627 -1182 -1143 -2413 -2664 -1854 -107 40 -136 43 -146 15 -7 -21 61 -59 294 -163 939 -417 2387 172 2733 1111 310 842 -482 1750 -1588 1819 -194 12 -225 28 -125 63 186 65 523 334 687 548 766 1002 -35 2142 -1407 2001z" style="paint-order: fill; fill: url(#gradient-1);"/>
+    <path d="M 715 5848 C 675 5808 1594 4070 2001 3417 L 2105 3250 L 2049 3090 C 2018 3002 1872 2665 1724 2340 C 1234 1262 894 319 901 60 C 902 16 1057 326 1121 500 C 1194 700 1438 1308 1530 1520 C 1570 1614 1684 1893 1783 2140 C 1963 2590 2114 2959 2180 3110 C 2213 3187 2214 3137 2204 1859 C 2195 601 2200 380 2238 380 C 2273 380 2307 1173 2331 2550 C 2339 2968 2351 3576 2359 3900 C 2367 4225 2372 4765 2371 5100 L 2363.015 5723.969 L 2345.955 5750.924 C 2266.955 5762.924 2242 5666 2228 4445 C 2221 3799 2213 3267 2210 3264 C 2207 3260 2160 3350 2105 3464 C 1775 4154 760 5894 715 5848 Z" style="fill: url(#gradient-0);"/>
+    <path d="M 2604 5735 C 2532 5647 2496 323 2568 402 C 2572 406 2601.955 502.985 2608.955 606.985 C 2615.955 711.985 2605 835 2610 890 C 2619 991 2631 1491 2650 2560 C 2656 2885 2665 3290 2670 3460 C 2680 3791 2706 5097 2706 5230 C 2702 5703 2701 5718 2662 5739 C 2635 5753 2618 5752 2604 5735 Z" style="paint-order: fill; fill-rule: nonzero; stroke: rgb(187, 218, 85); fill: url(#gradient-2-0);"/>
+  </g>
+</svg>
