@@ -32,7 +32,6 @@ export function GitHubIcon({href,className}:{href:string, className:string}) {
 }
 
 export function ContactMediaBar({showAboutLink, iconClassName}:{showAboutLink:boolean,iconClassName:string}) {
-    //hardcoded sizes, due to library.
     return <div>
             <a href="https://www.linkedin.com/in/kevin-brereton/" className="contactIcon"> <RiLinkedinBoxFill className={iconClassName} title="Linkedin Link"/> </a>
             <GitHubIcon href="https://github.com/k-brereton/" className={iconClassName}/>
