@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import {ContactMediaBar, PageHead} from "../components/CommonComponents";
 import Link from "next/link"
 import {motion, Variants} from 'framer-motion';
@@ -29,14 +27,12 @@ function HomeLinks(){
     </div>
 }
 
-const MAIN_IMAGE_DEFAULT_SIZE_PX=175;
-
 const ABOUT_LINKS_VARIANT=createMovingVariant("y", 100, 0.5);
 
 function HomeContactInfo(){
     return <div className="index_homeContactColumn">
         <motion.div className="index_mainImage" variants={DISAPPEARING_VARIANT}>
-            <Image src={"/images/logo.svg"} width={MAIN_IMAGE_DEFAULT_SIZE_PX} height={MAIN_IMAGE_DEFAULT_SIZE_PX} alt="Kevin Brereton Logo" />
+            <object type="image/svg+xml" data={"/images/logo_animated.svg"} />
         </motion.div>
         <motion.div variants={ABOUT_LINKS_VARIANT}>
             <ContactMediaBar iconClassName="index_iconClass" showAboutLink/>

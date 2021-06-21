@@ -6,6 +6,11 @@
     width:175px;
 }
 
+.index_mainImage > object{
+    width: 100%;
+    height:100%;
+}
+
 .index_homeContactColumn{
     @extend .centering;
     height: 100%;
